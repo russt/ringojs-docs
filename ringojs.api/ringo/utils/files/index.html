@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/utils/files - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../../static/style.css" />
+<script type="text/javascript" src="../../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/utils/files</h1>
+        <div class="fileoverview">
+            <p>A collection of file related utilities not covered by
+the <a href="../../../fs/index.html">fs</a> module.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#createTempFile" class="jsdoc-title"> createTempFile</a>(prefix, suffix, directory)
+                </li>
+                                <li>
+                    <a href="#isHidden" class="jsdoc-title"> isHidden</a>(file)
+                </li>
+                                <li>
+                    <a href="#resolveId" class="jsdoc-title"> resolveId</a>(parent, child)
+                </li>
+                                <li>
+                    <a href="#resolveUri" class="jsdoc-title"> resolveUri</a>(arbitrary)
+                </li>
+                </ul>
+                        <h2>Properties</h2>
+            <ul class="propertyoverview">
+                                <li>
+                    <a href="#roots" class="jsdoc-title"> roots</a>
+                </li>
+                                <li>
+                    <a href="#separator" class="jsdoc-title"> separator</a>
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="createTempFile">
+                <h3 >
+                    <span class="itemtitle"><a id="createTempFile" href="#createTempFile" class="itemtitle itemname">createTempFile</a></span>
+                    <span class="itemtitle light">(prefix, suffix, directory)</span></h3>
+                <div>
+                    <p>Create a new empty temporary file in the default directory for temporary files.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">prefix</td>
+                            <td>the prefix of the temporary file; must be at least three characters long</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">suffix</td>
+                            <td>the suffix of the temporary file; may be undefined or null</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">directory</td>
+                            <td>optional directory in which to create the file. Pass undefined
+                to use the system's default location for temporary files</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>File</td>
+                            <td> the temporary file</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isHidden">
+                <h3 >
+                    <span class="itemtitle"><a id="isHidden" href="#isHidden" class="itemtitle itemname">isHidden</a></span>
+                    <span class="itemtitle light">(file)</span></h3>
+                <div>
+                    <p>Tests whether the file represented by this File object is a hidden file.
+What constitutes a hidden file may depend on the platform we are running on.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">file</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td>Boolean true if this File object is hidden</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="resolveId">
+                <h3 >
+                    <span class="itemtitle"><a id="resolveId" href="#resolveId" class="itemtitle itemname">resolveId</a></span>
+                    <span class="itemtitle light">(parent, child)</span></h3>
+                <div>
+                    <p>Resolve path fragment child relative to parent but only
+if child is a a relative path according to the CommonJS Modules
+spec, i.e. starts with "." or "..". Otherwise, the child path
+is returned unchanged.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">parent</td>
+                            <td>the parent path</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">child</td>
+                            <td>the child path</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="resolveUri">
+                <h3 >
+                    <span class="itemtitle"><a id="resolveUri" href="#resolveUri" class="itemtitle itemname">resolveUri</a></span>
+                    <span class="itemtitle light">(arbitrary)</span></h3>
+                <div>
+                    <p>Resolve an arbitrary number of path elements relative to each other.
+This is an adapted version of the file module's resolve function that always
+and strictly uses forward slashes as file separators. This makes it
+usable for resolving URI paths as well as module ids and resource paths.
+Originally adapted for helma/file from narwhal's file module.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">arbitrary</td>
+                            <td>number of path elements</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="roots">
+                <h3 >
+                    <span class="itemtitle"><a id="roots" href="#roots" class="itemtitle itemname">roots</a></span>
+                    </h3>
+                <div>
+                    <p>An Array containing the system's file system roots. On UNIX platforms
+this contains a single "/" directory, while on Windows platforms this
+contains an element for each mounted drive.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="separator">
+                <h3 >
+                    <span class="itemtitle"><a id="separator" href="#separator" class="itemtitle itemname">separator</a></span>
+                    </h3>
+                <div>
+                    <p>The system-dependent file system separator character.</p>
+
+
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../../index.html">&bull; Modules</a>
+      <a href="../../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../assert/index.html">assert</a></li>
+            <li><a href="../../../binary/index.html">binary</a></li>
+            <li><a href="../../../console/index.html">console</a></li>
+            <li><a href="../../../fs/index.html">fs</a></li>
+            <li><a href="../../../globals/index.html">globals</a></li>
+            <li><a href="../../../io/index.html">io</a></li>
+            <li><a href="../../../net/index.html">net</a></li>
+            <li><a href="../../../system/index.html">system</a></li>
+            <li><a href="../../../test/index.html">test</a></li>
+            <li><a href="../../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

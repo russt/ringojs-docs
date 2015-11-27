@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>globals - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../static/jsdoc.css" />
+<link rel="stylesheet" href="../static/style.css" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module globals</h1>
+        <div class="fileoverview">
+            <p>RingoJS adopts some of the global properties from the Rhino
+shell and adds a few of its own.</p>
+
+<p>Note that this module must and can not be imported like an ordinary module.
+It is evaluated only once upon RingoJS startup.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#addToClasspath" class="jsdoc-title"> addToClasspath</a>(path)
+                </li>
+                                <li>
+                    <a href="#clearInterval" class="jsdoc-title"> clearInterval</a>(id)
+                </li>
+                                <li>
+                    <a href="#clearTimeout" class="jsdoc-title"> clearTimeout</a>(id)
+                </li>
+                                <li>
+                    <a href="#defineClass" class="jsdoc-title"> defineClass</a>(clazz)
+                </li>
+                                <li>
+                    <a href="#export" class="jsdoc-title"> export</a>(name...)
+                </li>
+                                <li>
+                    <a href="#gc" class="jsdoc-title"> gc</a>()
+                </li>
+                                <li>
+                    <a href="#getRepository" class="jsdoc-title"> getRepository</a>(path)
+                </li>
+                                <li>
+                    <a href="#getResource" class="jsdoc-title"> getResource</a>(path)
+                </li>
+                                <li>
+                    <a href="#include" class="jsdoc-title"> include</a>(moduleId)
+                </li>
+                                <li>
+                    <a href="#load" class="jsdoc-title"> load</a>(filename...)
+                </li>
+                                <li>
+                    <a href="#module.resolve" class="jsdoc-title"> module.resolve</a>(path)
+                </li>
+                                <li>
+                    <a href="#module.singleton" class="jsdoc-title"> module.singleton</a>(id, factory)
+                </li>
+                                <li>
+                    <a href="#print" class="jsdoc-title"> print</a>(arg...)
+                </li>
+                                <li>
+                    <a href="#privileged" class="jsdoc-title"> privileged</a>(func)
+                </li>
+                                <li>
+                    <a href="#quit" class="jsdoc-title"> quit</a>()
+                </li>
+                                <li>
+                    <a href="#require" class="jsdoc-title"> require</a>(moduleId)
+                </li>
+                                <li>
+                    <a href="#seal" class="jsdoc-title"> seal</a>(obj)
+                </li>
+                                <li>
+                    <a href="#setInterval" class="jsdoc-title"> setInterval</a>(callback, delay, args)
+                </li>
+                                <li>
+                    <a href="#setTimeout" class="jsdoc-title"> setTimeout</a>(callback, delay, [args])
+                </li>
+                                <li>
+                    <a href="#spawn" class="jsdoc-title"> spawn</a>(func)
+                </li>
+                                <li>
+                    <a href="#sync" class="jsdoc-title"> sync</a>(func, [obj])
+                </li>
+                </ul>
+                        <h2>Properties</h2>
+            <ul class="propertyoverview">
+                                <li>
+                    <a href="#arguments" class="jsdoc-title"> arguments</a>
+                </li>
+                                <li>
+                    <a href="#console" class="jsdoc-title"> console</a>
+                </li>
+                                <li>
+                    <a href="#environment" class="jsdoc-title"> environment</a>
+                </li>
+                                <li>
+                    <a href="#exports" class="jsdoc-title"> exports</a>
+                </li>
+                                <li>
+                    <a href="#global" class="jsdoc-title"> global</a>
+                </li>
+                                <li>
+                    <a href="#module" class="jsdoc-title"> module</a>
+                </li>
+                                <li>
+                    <a href="#module.directory" class="jsdoc-title"> module.directory</a>
+                </li>
+                                <li>
+                    <a href="#module.exports" class="jsdoc-title"> module.exports</a>
+                </li>
+                                <li>
+                    <a href="#module.id" class="jsdoc-title"> module.id</a>
+                </li>
+                                <li>
+                    <a href="#module.path" class="jsdoc-title"> module.path</a>
+                </li>
+                                <li>
+                    <a href="#module.uri" class="jsdoc-title"> module.uri</a>
+                </li>
+                                <li>
+                    <a href="#require.extensions" class="jsdoc-title"> require.extensions</a>
+                </li>
+                                <li>
+                    <a href="#require.main" class="jsdoc-title"> require.main</a>
+                </li>
+                                <li>
+                    <a href="#require.paths" class="jsdoc-title"> require.paths</a>
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="addToClasspath">
+                <h3 >
+                    <span class="itemtitle"><a id="addToClasspath" href="#addToClasspath" class="itemtitle itemname">addToClasspath</a></span>
+                    <span class="itemtitle light">(path)</span></h3>
+                <div>
+                    <p>Adds <code>path</code> to the RingoJS application classpath at runtime. This is necessary if
+libraries and their classes are not in the default Java classpath.</p>
+
+<p>Calling <code>addToClasspath()</code> will invoke an <code>org.ringojs.engine.AppClassLoader</code>,
+which is a subclass of <code>java.net.URLClassLoader</code>. It checks if the URL has been
+already loaded and if not, adds it to the resource search path. If the given URL ends
+with <code>/</code>, it will be treated as directory, otherwise it's assumed to refer to a jar file.
+The function throws an exception if it could not load a path or if it fails.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// Adds Apache Lucene text search engine to the classpath
+addToClasspath("../jars/lucene-core.jar");</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|Resource|Repository</td>
+                            <td class="paramname">path</td>
+                            <td>a directory or jar path; or a single resource; or a repository</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://ringojs.org/documentation/java_integration">Ringo Java Integration</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="arguments">
+                <h3 >
+                    <span class="itemtitle"><a id="arguments" href="#arguments" class="itemtitle itemname">arguments</a></span>
+                    </h3>
+                <div>
+                    <p>The <code>arguments</code> array contains the command line arguments RingoJS was
+started with.</p>
+
+<p>Note that this variable is shadowed by the <code>arguments</code> object inside
+functions which is why it is usually safer to use <a href="../system/index.html#args" title="system.args">system.args</a>
+instead.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="clearInterval">
+                <h3 >
+                    <span class="itemtitle"><a id="clearInterval" href="#clearInterval" class="itemtitle itemname">clearInterval</a></span>
+                    <span class="itemtitle light">(id)</span></h3>
+                <div>
+                    <p>Cancel a timeout previously scheduled with <a href="#setInterval" title="setInterval">setInterval()</a>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>object</td>
+                            <td class="paramname">id</td>
+                            <td>the id object returned by setInterval()</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#setInterval">setInterval</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="clearTimeout">
+                <h3 >
+                    <span class="itemtitle"><a id="clearTimeout" href="#clearTimeout" class="itemtitle itemname">clearTimeout</a></span>
+                    <span class="itemtitle light">(id)</span></h3>
+                <div>
+                    <p>Cancel a timeout previously scheduled with <a href="#setTimeout" title="setTimeout">setTimeout()</a>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>object</td>
+                            <td class="paramname">id</td>
+                            <td>the id object returned by setTimeout()</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#setTimeout">setTimeout</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="console">
+                <h3 >
+                    <span class="itemtitle"><a id="console" href="#console" class="itemtitle itemname">console</a></span>
+                    </h3>
+                <div>
+                    <p>Debug console to print messages on <code>stderr</code>. It’s similar to the console
+object implemented in most web browsers.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">console.log('Hello World!');</pre>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="../console/index.html">console</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="defineClass">
+                <h3 >
+                    <span class="itemtitle"><a id="defineClass" href="#defineClass" class="itemtitle itemname">defineClass</a></span>
+                    <span class="itemtitle light">(clazz)</span></h3>
+                <div>
+                    <p>Loads a custom Java-based host object into the global scope. This is useful to provide
+transparent access to Java classes inside the JavaScript environment. It uses
+<code>ScriptableObject.defineClass()</code> to define the extension.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// org.somejavalib.Foo extends org.mozilla.javascript.ScriptableObject
+defineClass(org.somejavalib.Foo);
+var x = new Foo();</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>java.lang.Class</td>
+                            <td class="paramname">clazz</td>
+                            <td>the host object's Java class</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://es5.github.io/#x4.3.8">ECMAScript 5 host object definition</a><br /><a href="http://www-archive.mozilla.org/rhino/apidocs/org/mozilla/javascript/ScriptableObject.html#defineClass%28org.mozilla.javascript.Scriptable,%20java.lang.Class%29">
+    Rhino's ScriptableObject.defineClass()</a><br />The Java package <code>org.ringojs.wrappers</code> includes typical host objects like <code>Binary</code>,
+    <code>EventAdapter</code> and <code>Stream</code>.
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="environment">
+                <h3 >
+                    <span class="itemtitle"><a id="environment" href="#environment" class="itemtitle itemname">environment</a></span>
+                    </h3>
+                <div>
+                    <p>The <code>environment</code> object contains the Java system properties.</p>
+
+
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">Java System Properties</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="export">
+                <h3 >
+                    <span class="itemtitle"><a id="export" href="#export" class="itemtitle itemname">export</a></span>
+                    <span class="itemtitle light">(name...)</span></h3>
+                <div>
+                    <p>Takes any number of top-level names to be exported from this module.</p>
+
+<p>This is a non-standard alternative to the <a href="#exports" title="exports">exports</a> object
+for exporting values in a less verbose and intrusive way.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// equivalent to exports.foo = function() { ... }
+// and exports.bar = function() { ... }
+export(
+  "foo",
+  "bar"
+);
+
+function foo() { ... };
+function bar() { ... };</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">name...</td>
+                            <td>one or more names of exported properties</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="exports">
+                <h3 >
+                    <span class="itemtitle"><a id="exports" href="#exports" class="itemtitle itemname">exports</a></span>
+                    </h3>
+                <div>
+                    <p>The <code>exports</code> object as defined in the
+<a href="http://wiki.commonjs.org/wiki/Modules/1.1.1">CommonJS Modules 1.1.1</a>
+specification.</p>
+
+<p>Define properties on the <code>exports</code> object to make them available to other
+modules <a href="#require" title="require">requiring</a> this module.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">exports.multiply = function(x, y) { return x * y; }</pre>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="gc">
+                <h3 >
+                    <span class="itemtitle"><a id="gc" href="#gc" class="itemtitle itemname">gc</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Runs the garbage collector.</p>
+
+
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html#gc()">java.lang.Runtime.gc()</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getRepository">
+                <h3 >
+                    <span class="itemtitle"><a id="getRepository" href="#getRepository" class="itemtitle itemname">getRepository</a></span>
+                    <span class="itemtitle light">(path)</span></h3>
+                <div>
+                    <p>Resolve <code>path</code> following the same logic <a href="#require" title="require">require</a> uses for
+module ids and return an instance of <code>org.ringojs.repository.Repository</code>
+representing the resolved path.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">path</td>
+                            <td>the repository path</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>org.ringojs.repository.Repository</td>
+                            <td> a repository</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#getResource">getResource</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getResource">
+                <h3 >
+                    <span class="itemtitle"><a id="getResource" href="#getResource" class="itemtitle itemname">getResource</a></span>
+                    <span class="itemtitle light">(path)</span></h3>
+                <div>
+                    <p>Resolve <code>path</code> following the same logic <a href="#require" title="require">require</a> uses for
+module ids and return an instance of <code>org.ringojs.repository.Resource</code>
+representing the resolved path.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">path</td>
+                            <td>the resource path</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>org.ringojs.repository.Resource</td>
+                            <td> a resource</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#getRepository">getRepository</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="global">
+                <h3 >
+                    <span class="itemtitle"><a id="global" href="#global" class="itemtitle itemname">global</a></span>
+                    </h3>
+                <div>
+                    <p>A reference to the global object itself.</p>
+
+<p>When a module is evaluated in RingoJS it uses its own private module scope
+which in turn uses this shared global object as prototype. Therefore,
+properties of the global object are visible in every module.</p>
+
+<p>Since the global object is hidden in the prototype chain of module scopes
+it cannot normally be accessed directly. This reference allows you to do so,
+defining real global variables if you want to do so.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">global.foo = "bar";</pre>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="include">
+                <h3 >
+                    <span class="itemtitle"><a id="include" href="#include" class="itemtitle itemname">include</a></span>
+                    <span class="itemtitle light">(moduleId)</span></h3>
+                <div>
+                    <p>Load a module and include all its properties in the calling scope.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">include('fs');
+// calls fs.isReadable()
+if (isReadable('essay.txt') ) { ... }</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">moduleId</td>
+                            <td> the id or path of the module to load</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="load">
+                <h3 >
+                    <span class="itemtitle"><a id="load" href="#load" class="itemtitle itemname">load</a></span>
+                    <span class="itemtitle light">(filename...)</span></h3>
+                <div>
+                    <p>Load JavaScript source files named by string arguments. If multiple
+arguments are given, each file is read in and executed in turn.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">filename...</td>
+                            <td>one or more file names</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module">
+                <h3 >
+                    <span class="itemtitle"><a id="module" href="#module" class="itemtitle itemname">module</a></span>
+                    </h3>
+                <div>
+                    <p>The <code>module</code> object as defined in the
+<a href="http://wiki.commonjs.org/wiki/Modules/1.1.1">CommonJS Modules 1.1.1</a>
+specification.</p>
+
+<p>The RingoJS <code>module</code> object has the following properties:</p>
+
+<ul><li><a href="#module.directory" title="module.directory">directory</a></li>
+<li><a href="#module.exports" title="module.exports">exports</a></li>
+<li><a href="#module.id" title="module.id">id</a></li>
+<li><a href="#module.path" title="module.path">path</a></li>
+<li><a href="#module.uri" title="module.uri">uri</a></li>
+<li><a href="#module.resolve" title="module.resolve">resolve</a></li>
+<li><a href="#module.singleton" title="module.singleton">singleton</a></li></ul>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.directory">
+                <h3 >
+                    <span class="itemtitle"><a id="module.directory" href="#module.directory" class="itemtitle itemname">module.directory</a></span>
+                    </h3>
+                <div>
+                    <p>The directory that contains this module.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.exports">
+                <h3 >
+                    <span class="itemtitle"><a id="module.exports" href="#module.exports" class="itemtitle itemname">module.exports</a></span>
+                    </h3>
+                <div>
+                    <p>By default, <code>module.exports</code> refers to <a href="#exports" title="exports">exports</a> object. Setting
+this property to a different value will cause that value to be used as
+<code>exports</code> object instead.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.id">
+                <h3 >
+                    <span class="itemtitle"><a id="module.id" href="#module.id" class="itemtitle itemname">module.id</a></span>
+                    </h3>
+                <div>
+                    <p>The module id of this module.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.path">
+                <h3 >
+                    <span class="itemtitle"><a id="module.path" href="#module.path" class="itemtitle itemname">module.path</a></span>
+                    </h3>
+                <div>
+                    <p>The absolute path of this module's source.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.resolve">
+                <h3 >
+                    <span class="itemtitle"><a id="module.resolve" href="#module.resolve" class="itemtitle itemname">module.resolve</a></span>
+                    <span class="itemtitle light">(path)</span></h3>
+                <div>
+                    <p>Resolve <code>path</code> relative to this module, like when calling <a href="#require" title="require">require</a>
+with a <code>moduleId</code> starting with <code>'./'</code> or '<code>../</code>'.</p>
+
+<p>This returns an absolute path if the current module is a regular file.
+For other types of modules such as those residing in a .jar file it returs
+a relative path relative to the module's module path root.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">path</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resolved path</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.singleton">
+                <h3 >
+                    <span class="itemtitle"><a id="module.singleton" href="#module.singleton" class="itemtitle itemname">module.singleton</a></span>
+                    <span class="itemtitle light">(id, factory)</span></h3>
+                <div>
+                    <p><code>module.singleton</code> enables the creation of singletons across all workers
+using the same module. This means that a value within a module will be
+instantiated at most once for all concurrent worker threads even though
+workers usually operate on their own private scopes and variables.</p>
+
+<p>The <code>id</code> argument identifies the singleton within the module. When
+<code>module.singleton</code> is called with an <code>id</code> that has not been initialized yet
+and the <code>factory</code> argument is defined, <code>factory</code> is invoked and its return
+value is henceforth used as singleton value for the given <code>id</code>.</p>
+
+<p>Once the value of a singleton has been set, the <code>factory</code> function
+is never called again and all calls to <code>module.singleton</code> with
+that id return that original value.</p>
+
+<p><code>module.singleton</code> supports lazy initialization. A singleton can remain
+undefined if <code>module.singleton</code> is called without <code>factory</code> argument.
+In this case <code>module.singleton</code> returns <code>undefined</code> until it is first called
+with a <code>factory</code> argument.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">id</td>
+                            <td>the singleton id</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">factory</td>
+                            <td>(optional) factory function for the singleton</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the singleton value</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="module.uri">
+                <h3 >
+                    <span class="itemtitle"><a id="module.uri" href="#module.uri" class="itemtitle itemname">module.uri</a></span>
+                    </h3>
+                <div>
+                    <p>This module's URI.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="print">
+                <h3 >
+                    <span class="itemtitle"><a id="print" href="#print" class="itemtitle itemname">print</a></span>
+                    <span class="itemtitle light">(arg...)</span></h3>
+                <div>
+                    <p>Converts each argument to a string and prints it.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">arg...</td>
+                            <td>one ore more arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="privileged">
+                <h3 >
+                    <span class="itemtitle"><a id="privileged" href="#privileged" class="itemtitle itemname">privileged</a></span>
+                    <span class="itemtitle light">(func)</span></h3>
+                <div>
+                    <p>Calls <code>func</code> with the privileges of the current code base instead of the
+privileges of the code in the call stack.</p>
+
+<p>This is useful when running with Java security manager enabled using the
+<code>-P</code> or <code>--policy</code> command line switches.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">func</td>
+                            <td>a function</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the return value of the function</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="quit">
+                <h3 >
+                    <span class="itemtitle"><a id="quit" href="#quit" class="itemtitle itemname">quit</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Quit the RingoJS shell. The shell will also quit in interactive mode if an
+end-of-file character (CTRL-D) is typed at the prompt.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="require">
+                <h3 >
+                    <span class="itemtitle"><a id="require" href="#require" class="itemtitle itemname">require</a></span>
+                    <span class="itemtitle light">(moduleId)</span></h3>
+                <div>
+                    <p>The <code>require</code> function as defined in the
+<a href="http://wiki.commonjs.org/wiki/Modules/1.1.1">CommonJS Modules 1.1.1</a>
+specification.</p>
+
+<p><code>moduleId</code> is resolved following these rules:</p>
+
+<ul><li>If <code>moduleId</code> starts with <code>'./'</code> or '<code>../</code>' it is resolved relative to the
+current module.</li>
+<li>If <code>moduleId</code> is relative (starting with a file or directory name),
+it is resolve relative to the module search path.</li>
+<li>If <code>path</code> is absolute (e.g. starting with <code>'/'</code>) it is interpreted as
+absolute file name.</li></ul>
+
+<p>The RingoJS <code>require</code> function has the following properties:</p>
+
+<ul><li><a href="#require.extensions" title="require.extensions">extensions</a></li>
+<li><a href="#require.main" title="require.main">main</a></li>
+<li><a href="#require.paths" title="require.paths">paths</a></li></ul>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">moduleId</td>
+                            <td>the id or path of the module to load</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the exports object of the required module</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="require.extensions">
+                <h3 >
+                    <span class="itemtitle"><a id="require.extensions" href="#require.extensions" class="itemtitle itemname">require.extensions</a></span>
+                    </h3>
+                <div>
+                    <p>An object used to extend the way <a href="#require" title="require">require</a> loads modules.</p>
+
+<p>Use a file extension as key and a function as value. The function should
+accept a <code>Resource</code> object as argument and return either a string to be
+used as JavaScript module source or an object which will be directly
+returned by <code>require</code>.</p>
+
+<p>For example, the following one-liner will enable <code>require()</code> to load XML
+files as E4X modules:</p>
+
+<pre><code>require.extensions['.xml'] = function(r) new XML(r.content);</code></pre>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="require.main">
+                <h3 >
+                    <span class="itemtitle"><a id="require.main" href="#require.main" class="itemtitle itemname">require.main</a></span>
+                    </h3>
+                <div>
+                    <p>If RingoJS was started with a command line script, <code>require.main</code> contains
+the <code>module</code> object of the main module. Otherwise, this property is defined
+but has the value <code>undefined</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// is the current module is the main module?
+ if (require.main == module.id) {
+  // Start up actions like in a Java public static void main() method
+  var server = new Server();
+  server.start();
+}</pre>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="require.paths">
+                <h3 >
+                    <span class="itemtitle"><a id="require.paths" href="#require.paths" class="itemtitle itemname">require.paths</a></span>
+                    </h3>
+                <div>
+                    <p>An array that contains the module search path. You can add or
+remove paths items to or from this array in order to change the places
+where RingoJS will look for modules.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="seal">
+                <h3 >
+                    <span class="itemtitle"><a id="seal" href="#seal" class="itemtitle itemname">seal</a></span>
+                    <span class="itemtitle light">(obj)</span></h3>
+                <div>
+                    <p>Seal the specified object so any attempt to add, delete or modify its
+properties would throw an exception.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">obj</td>
+                            <td>a JavaScript object</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="setInterval">
+                <h3 >
+                    <span class="itemtitle"><a id="setInterval" href="#setInterval" class="itemtitle itemname">setInterval</a></span>
+                    <span class="itemtitle light">(callback, delay, args)</span></h3>
+                <div>
+                    <p>Calls a function repeatedly, with a fixed time delay between each call to
+that function. The function will be called in the thread of the local event
+loop. This means it will only run after the currently executing code and
+other code running before it have terminated.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">callback</td>
+                            <td>a function</td>
+                        </tr>
+                                                <tr>
+                            <td>number</td>
+                            <td class="paramname">delay</td>
+                            <td>the delay in milliseconds</td>
+                        </tr>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">args</td>
+                            <td>optional arguments to pass to the function</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>object</td>
+                            <td> an id object useful for cancelling the scheduled invocation</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#clearInterval">clearInterval</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="setTimeout">
+                <h3 >
+                    <span class="itemtitle"><a id="setTimeout" href="#setTimeout" class="itemtitle itemname">setTimeout</a></span>
+                    <span class="itemtitle light">(callback, delay, [args])</span></h3>
+                <div>
+                    <p>Executes a function after specified delay. The function will be called
+in the thread of the local event loop. This means it will only run after
+the currently executing code and other code running before it have
+terminated.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">callback</td>
+                            <td>a function</td>
+                        </tr>
+                                                <tr>
+                            <td>number</td>
+                            <td class="paramname">delay</td>
+                            <td>the delay in milliseconds</td>
+                        </tr>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">[args]</td>
+                            <td>optional arguments to pass to the function</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>object</td>
+                            <td> an id object useful for cancelling the scheduled invocation</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#clearTimeout">clearTimeout</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="spawn">
+                <h3 >
+                    <span class="itemtitle"><a id="spawn" href="#spawn" class="itemtitle itemname">spawn</a></span>
+                    <span class="itemtitle light">(func)</span></h3>
+                <div>
+                    <p>Calls <code>func</code> in a new thread from an internal thread pool and returns
+immediately.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">func</td>
+                            <td>a function</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="sync">
+                <h3 >
+                    <span class="itemtitle"><a id="sync" href="#sync" class="itemtitle itemname">sync</a></span>
+                    <span class="itemtitle light">(func, [obj])</span></h3>
+                <div>
+                    <p>Returns a wrapper around a function that synchronizes on the original
+function or, if provided, on the second argument.</p>
+
+<p>When multiple threads call functions that are synchronized on the same object,
+only one function call is allowed to execute at a time.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">exports.synchronizedFunction = sync(function() {
+  // no two threads can execute this code in parallel
+});</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">func</td>
+                            <td>a function</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">[obj]</td>
+                            <td>optional object to synchronize on</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Function</td>
+                            <td> a synchronized wrapper around the function</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../index.html">&bull; Modules</a>
+      <a href="../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../assert/index.html">assert</a></li>
+            <li><a href="../binary/index.html">binary</a></li>
+            <li><a href="../console/index.html">console</a></li>
+            <li><a href="../fs/index.html">fs</a></li>
+            <li><a href="../globals/index.html">globals</a></li>
+            <li><a href="../io/index.html">io</a></li>
+            <li><a href="../net/index.html">net</a></li>
+            <li><a href="../system/index.html">system</a></li>
+            <li><a href="../test/index.html">test</a></li>
+            <li><a href="../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

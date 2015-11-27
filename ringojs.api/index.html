@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Module overview - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="./static/jsdoc.css" />
+<link rel="stylesheet" href="./static/style.css" />
+<script type="text/javascript" src="./static/jquery.min.js"></script>
+<script type="text/javascript" src="./static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+            
+    <h1>Modules: Ringo Modules</h1>
+
+    <ul class="modulelist">
+                <li >
+
+        <h2><a href="./assert/index.html"> assert </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Assertion library for unit testing.
+It implements the <a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.0">CommonJS Unit Testing</a>
+specification and adds some additional convenience methods.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./binary/index.html"> binary </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>When dealing with network sockets or binary files, it’s necessary to read and
+write into byte streams. JavaScript itself does not provide a native representation
+of binary data, so this module provides two classes addressing this shortcoming.
+The implementation follows the <a
+href="http://wiki.commonjs.org/wiki/Binary/B">CommonJS Binary/B</a>
+proposal.</p>
+
+<p><code>ByteArray</code> implements a modifiable and
+resizable byte buffer.</p>
+
+<p><code>ByteString</code> implements an immutable byte
+sequence.</p>
+
+<p>Both classes share a common base class <code>Binary</code>. The base class
+can't be instantiated. It exists only to affirm that <code>ByteString</code>
+and <code>ByteArray</code> instances of <code>Binary</code>.</p>
+
+<p>When passed to a Java method that expects a <code>byte[]</code>, instances of
+these classes are automatically unwrapped.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./console/index.html"> console </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides functions to write on the standard error stream
+<code>stderr</code> for error logging and quick debugging. It’s similar to the console
+object implemented in most web browsers.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./fs/index.html"> fs </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides a file system API for the manipulation of paths,
+directories, files, links, and the construction of input and output streams. It follows
+the <a href="http://wiki.commonjs.org/wiki/Filesystem/A">CommonJS Filesystem/A</a>
+proposal.</p>
+
+<p>Some file system manipulations use a wrapper around standard POSIX functions. Their
+functionality depends on the concrete file system and operating system. Others use
+the <code>java.io</code> package and work cross-platform.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./globals/index.html"> globals </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>RingoJS adopts some of the global properties from the Rhino
+shell and adds a few of its own.</p>
+
+<p>Note that this module must and can not be imported like an ordinary module.
+It is evaluated only once upon RingoJS startup.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./io/index.html"> io </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides functions for reading and writing streams of raw bytes.
+It implements the <code>Stream</code> and <code>TextStream</code> classes as per
+the <a href="http://wiki.commonjs.org/wiki/IO/A">CommonJS IO/A</a> proposal.</p>
+
+<p>Streams are closely related with two other modules. Low-level byte manipulation is provided
+by the <a href="../binary/index.html"><code>binary</code></a> module
+and uses the <code>ByteArray</code> or <code>ByteString</code> class. The
+<a href="../fs/index.html"><code>fs</code></a> module returns <code>io</code> streams for reading and
+writing files.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./net/index.html"> net </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides support for networking using
+TCP and UDP sockets. A socket represents a connection between a
+client and a server program over a network. The underlying native
+binding is provided by the <code>java.net</code> package.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./system/index.html"> system </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides an implementation of the system module
+compliant to the <a href="http://wiki.commonjs.org/wiki/System/1.0">CommonJS
+System/1.0</a> specification. Beyond the standard a <code>print()</code>
+function is provided.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./test/index.html"> test </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A test runner compliant to the
+<a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.0">CommonJS Unit Testing</a>
+specification. It manages the execution of unit tests and processes test results.
+The runner reports the total number of failures as exit status code.</p>
+
+<p>The runner treats a module like a test case. A test case defines the fixture
+to run multiple tests. Test cases can provide optional <code>setUp()</code> and
+<code>tearDown()</code> functions to initialize and destroy the fixture. The
+test runner will run these methods prior to / after each test.</p>
+
+<p>The following example test case <code>testDatabase.js</code> starts a
+new test runner if executed with <code>ringo testDatabase.js</code></p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/args/index.html"> ringo/args </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A parser for command line options. This parser supports
+various option formats:</p>
+
+<ul>
+  <li><code>-a -b -c</code> (multiple short options)</li>
+  <li><code>-abc</code> (multiple short options combined into one)</li>
+  <li><code>-a value</code> (short option with value)</li>
+  <li><code>-avalue</code> (alternative short option with value)</li>
+  <li><code>--option value</code> (long option with value)</li>
+  <li><code>--option=value</code> (alternative long option with value)</li>
+</ul>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/base64/index.html"> ringo/base64 </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Base64 encoding and decoding for binary data and strings.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/buffer/index.html"> ringo/buffer </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A simple text Buffer class for composing strings.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/concurrent/index.html"> ringo/concurrent </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Utilities for working with multiple concurrently running threads.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/daemon/index.html"> ringo/daemon </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>The daemon control script invoked by the init script.</p>
+
+<p>This module interprets the first command line argument as module ID, load
+the module and try to invoke the life cycle functions on it.</p>
+
+<p>For HTTP servers it is generally more convenient to directly use
+<code>ringo/httpserver</code> which will create a new server instance and pass it to
+as argument to the application life cycle functions.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/encoding/index.html"> ringo/encoding </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Low-level support for character encoding and decoding.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/engine/index.html"> ringo/engine </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Provides access to the Rhino JavaScript engine.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/events/index.html"> ringo/events </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Exports an EventEmitter classes that provide methods
+to emit events and register event listener functions.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/httpclient/index.html"> ringo/httpclient </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A module for sending HTTP requests and receiving HTTP responses.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/httpserver/index.html"> ringo/httpserver </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A wrapper for the Jetty HTTP server.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/jsdoc/index.html"> ringo/jsdoc </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Low level support for parsing JSDoc-style comments from JavaScript files.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/logging/index.html"> ringo/logging </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides generic logging support for Ringo
+applications. It uses <a href="http://www.slf4j.org/">SLF4J</a> or
+<a href="http://logging.apache.org/log4j/">Apache log4j</a> if either is
+detected in the classpath, and will fall back to java.util.logging
+otherwise.</p>
+
+<p>If the first argument passed to any of the logging methods is a string
+containing any number of curly bracket pairs ({}), the logger will interpret
+it as format string and use any following arguments to replace the curly
+bracket pairs. If an argument is an Error or Java Exception object, the
+logger will render a stack trace for it and append it to the log message.</p>
+
+<p>This module's exports object implements the <a href="../events/index.html">EventEmitter</a>
+interface and emits logged messages using the log level name as event type.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/markdown/index.html"> ringo/markdown </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A fast and extensible
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a> formatter.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/mime/index.html"> ringo/mime </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides functionality for determining the MIME type for a
+given file extension.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/mustache/index.html"> ringo/mustache </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>CommonJS-compatible mustache.js module.</p>
+
+<p>This version of mustache.js adds filters. If a tag or section name consists
+of several space-separated items, the items are evaluated one at a time,
+starting with the right-most item. If an item evaluates to a function, the
+result of the previous item is passed to it as argument.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/parser/index.html"> ringo/parser </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides an interface to the Rhino parser.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/profiler/index.html"> ringo/profiler </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A profiler for measuring execution time of JavaScript functions. Note that
+you need to run with optimization level -1 for profiling to work. Running
+the profiler on optimized code will produce no data.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/promise/index.html"> ringo/promise </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Allows to work with deferred values that will be resolved in the future.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/shell/index.html"> ringo/shell </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Provides functions to work with the Ringo shell.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/subprocess/index.html"> ringo/subprocess </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A module for spawning processes, connecting to their
+input/output/errput and returning their response codes. It uses the
+current JVM's runtime provided by
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#getRuntime--">java.lang.Runtime.getRuntime()</a>.
+The exact behavior of this module is highly system-dependent.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/term/index.html"> ringo/term </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A module for printing ANSI terminal escape sequences.
+This module provides a number of useful color and style constants,
+and a replacement for the print function optimized for styled output.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/worker/index.html"> ringo/worker </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A Worker API based on the
+<a href="http://www.w3.org/TR/workers/">W3C Web Workers</a>.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/zip/index.html"> ringo/zip </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides classes to uncompress zip files and streams.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/jsgi/connector/index.html"> ringo/jsgi/connector </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Low-level JSGI adapter implementation.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/jsgi/response/index.html"> ringo/jsgi/response </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module provides response helper functions for composing
+JSGI response objects. For more flexibility the <code>JsgiResponse</code> is chainable.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/arrays/index.html"> ringo/utils/arrays </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Provides utility functions for working with JavaScript Arrays.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/dates/index.html"> ringo/utils/dates </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Adds useful functions for working with JavaScript Date objects.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/files/index.html"> ringo/utils/files </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A collection of file related utilities not covered by
+the <a href="../../../fs/index.html">fs</a> module.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/http/index.html"> ringo/utils/http </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Provides utility functions to work with HTTP requests and responses.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/numbers/index.html"> ringo/utils/numbers </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Provides utility functions for working with JavaScript numbers.</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/objects/index.html"> ringo/utils/objects </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Adds utility functions for working with JavaScript Objects</p>
+
+
+        </div>
+
+        </li>
+                <li >
+
+        <h2><a href="./ringo/utils/strings/index.html"> ringo/utils/strings </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Adds useful methods to the JavaScript String type.</p>
+
+
+        </div>
+
+        </li>
+        </ul>
+
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="./index.html">&bull; Modules</a>
+      <a href="./index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="./assert/index.html">assert</a></li>
+            <li><a href="./binary/index.html">binary</a></li>
+            <li><a href="./console/index.html">console</a></li>
+            <li><a href="./fs/index.html">fs</a></li>
+            <li><a href="./globals/index.html">globals</a></li>
+            <li><a href="./io/index.html">io</a></li>
+            <li><a href="./net/index.html">net</a></li>
+            <li><a href="./system/index.html">system</a></li>
+            <li><a href="./test/index.html">test</a></li>
+            <li><a href="./ringo/args/index.html">ringo/args</a></li>
+            <li><a href="./ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="./ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="./ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="./ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="./ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="./ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="./ringo/events/index.html">ringo/events</a></li>
+            <li><a href="./ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="./ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="./ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="./ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="./ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="./ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="./ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="./ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="./ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="./ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="./ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="./ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="./ringo/term/index.html">ringo/term</a></li>
+            <li><a href="./ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="./ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="./ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="./ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="./ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="./ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="./ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="./ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="./ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="./ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="./ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

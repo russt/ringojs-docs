@@ -1,0 +1,10 @@
+source $RUSSTHOME/.projectrc_vim
+source $RUSSTHOME/.projectrc_cado
+
+setenv GITROOT /scm/gitroot/remotes/github/ringojs-docs.git
+setenv REMOTE_GITROOT "git@github.com:russt/ringojs-docs.git"
+
+cat << EOF
+Project to publish ringojs docs in PDF form.
+Usage:  cado -u mkdoc.cg
+EOF

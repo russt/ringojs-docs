@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/utils/http - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../../static/style.css" />
+<script type="text/javascript" src="../../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/utils/http</h1>
+        <div class="fileoverview">
+            <p>Provides utility functions to work with HTTP requests and responses.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#BufferFactory" class="jsdoc-title"> BufferFactory</a>(data, encoding)
+                </li>
+                                <li>
+                    <a href="#TempFileFactory" class="jsdoc-title"> TempFileFactory</a>(data, encoding)
+                </li>
+                                <li>
+                    <a href="#getMimeParameter" class="jsdoc-title"> getMimeParameter</a>(headerValue, paramName)
+                </li>
+                                <li>
+                    <a href="#isFileUpload" class="jsdoc-title"> isFileUpload</a>(contentType)
+                </li>
+                                <li>
+                    <a href="#isUrlEncoded" class="jsdoc-title"> isUrlEncoded</a>(contentType)
+                </li>
+                                <li>
+                    <a href="#mergeParameter" class="jsdoc-title"> mergeParameter</a>(params, name, value)
+                </li>
+                                <li>
+                    <a href="#parseFileUpload" class="jsdoc-title"> parseFileUpload</a>(request, params, encoding, streamFactory)
+                </li>
+                                <li>
+                    <a href="#parseParameters" class="jsdoc-title"> parseParameters</a>(input, params, encoding)
+                </li>
+                                <li>
+                    <a href="#setCookie" class="jsdoc-title"> setCookie</a>(key, value, days, options)
+                </li>
+                                <li>
+                    <a href="#urlEncode" class="jsdoc-title"> urlEncode</a>(object)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Headers" class="jsdoc-title">Headers</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Headers.prototype.add" class="jsdoc-title"> add</a>(name, value)
+                    </li>
+                                        <li>
+                        <a href="#Headers.prototype.contains" class="jsdoc-title"> contains</a>(name)
+                    </li>
+                                        <li>
+                        <a href="#Headers.prototype.get" class="jsdoc-title"> get</a>(name)
+                    </li>
+                                        <li>
+                        <a href="#Headers.prototype.set" class="jsdoc-title"> set</a>(name, value)
+                    </li>
+                                        <li>
+                        <a href="#Headers.prototype.toString" class="jsdoc-title"> toString</a>()
+                    </li>
+                                        <li>
+                        <a href="#Headers.prototype.unset" class="jsdoc-title"> unset</a>(name)
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#ResponseFilter" class="jsdoc-title">ResponseFilter</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#ResponseFilter.prototype.forEach" class="jsdoc-title"> forEach</a>(fn)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="BufferFactory">
+                <h3 >
+                    <span class="itemtitle"><a id="BufferFactory" href="#BufferFactory" class="itemtitle itemname">BufferFactory</a></span>
+                    <span class="itemtitle light">(data, encoding)</span></h3>
+                <div>
+                    <p>A stream factory that stores file upload in a memory buffer. This
+function is not meant to be called directly but to be passed as streamFactory
+argument to <a href="#parseFileUpload">parseFileUpload()</a>.</p>
+
+<p>The buffer is stored in the <code>value</code> property of the parameter's data object.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">data</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Headers" href="#Headers" class="itemtitle itemname">Headers</a></span>
+                    <span class="itemtitle light">(headers)</span></h3>
+                <div>
+                    <p>Returns an object for use as a HTTP header collection. The returned object
+provides methods for setting, getting, and deleting its properties in a
+case-insensitive and case-preserving way.</p>
+
+<p>This function can be used as mixin for an existing JavaScript object or as a
+constructor.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">headers</td>
+                            <td>an existing JS object. If undefined, a new object is
+created</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers.prototype.add">
+                <h3 >
+                    <span class="itemtitle">Headers.prototype.<a id="Headers.prototype.add" href="#Headers.prototype.add" class="itemtitle itemname">add</a></span>
+                    <span class="itemtitle light">(name, value)</span></h3>
+                <div>
+                    <p>Add a header with the given name and value.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the header name</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">value</td>
+                            <td>the header value</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers.prototype.contains">
+                <h3 >
+                    <span class="itemtitle">Headers.prototype.<a id="Headers.prototype.contains" href="#Headers.prototype.contains" class="itemtitle itemname">contains</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Queries whether a header with the given name is set</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the header name</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if a header with this name is set</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers.prototype.get">
+                <h3 >
+                    <span class="itemtitle">Headers.prototype.<a id="Headers.prototype.get" href="#Headers.prototype.get" class="itemtitle itemname">get</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Get the value of the header with the given name</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the header name</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the header value</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers.prototype.set">
+                <h3 >
+                    <span class="itemtitle">Headers.prototype.<a id="Headers.prototype.set" href="#Headers.prototype.set" class="itemtitle itemname">set</a></span>
+                    <span class="itemtitle light">(name, value)</span></h3>
+                <div>
+                    <p>Set the header with the given name to the given value.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the header name</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">value</td>
+                            <td>the header value</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers.prototype.toString">
+                <h3 >
+                    <span class="itemtitle">Headers.prototype.<a id="Headers.prototype.toString" href="#Headers.prototype.toString" class="itemtitle itemname">toString</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns a string representation of the headers in MIME format.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> a string representation of the headers</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Headers.prototype.unset">
+                <h3 >
+                    <span class="itemtitle">Headers.prototype.<a id="Headers.prototype.unset" href="#Headers.prototype.unset" class="itemtitle itemname">unset</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Unsets any cookies with the given name</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the header name</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ResponseFilter">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="ResponseFilter" href="#ResponseFilter" class="itemtitle itemname">ResponseFilter</a></span>
+                    <span class="itemtitle light">(body, filter)</span></h3>
+                <div>
+                    <p>A utility class for implementing JSGI response filters. Each part of the
+response is first passed to the filter function. If the filter function
+returns a value, that value is passed on to the JSGI response stream.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">body</td>
+                            <td>a JSGI response body</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">filter</td>
+                            <td>a filter function</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ResponseFilter.prototype.forEach">
+                <h3 >
+                    <span class="itemtitle">ResponseFilter.prototype.<a id="ResponseFilter.prototype.forEach" href="#ResponseFilter.prototype.forEach" class="itemtitle itemname">forEach</a></span>
+                    <span class="itemtitle light">(fn)</span></h3>
+                <div>
+                    <p>forEach function called by the JSGI connector.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">fn</td>
+                            <td>the response handler callback function</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TempFileFactory">
+                <h3 >
+                    <span class="itemtitle"><a id="TempFileFactory" href="#TempFileFactory" class="itemtitle itemname">TempFileFactory</a></span>
+                    <span class="itemtitle light">(data, encoding)</span></h3>
+                <div>
+                    <p>A stream factory that stores file uploads in temporary files. This
+function is not meant to be called directly but to be passed as streamFactory
+argument to <a href="#parseFileUpload">parseFileUpload()</a>.</p>
+
+<p>The name of the temporary file is stored in the <code>tempfile</code> property
+of the parameter's data object.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">data</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getMimeParameter">
+                <h3 >
+                    <span class="itemtitle"><a id="getMimeParameter" href="#getMimeParameter" class="itemtitle itemname">getMimeParameter</a></span>
+                    <span class="itemtitle light">(headerValue, paramName)</span></h3>
+                <div>
+                    <p>Get a parameter from a MIME header value. For example, calling this function
+with "Content-Type: text/plain; charset=UTF-8" and "charset" will return "UTF-8".</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">headerValue</td>
+                            <td>a header value</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">paramName</td>
+                            <td>a MIME parameter name</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isFileUpload">
+                <h3 >
+                    <span class="itemtitle"><a id="isFileUpload" href="#isFileUpload" class="itemtitle itemname">isFileUpload</a></span>
+                    <span class="itemtitle light">(contentType)</span></h3>
+                <div>
+                    <p>Find out whether the content type denotes a format this module can parse.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">contentType</td>
+                            <td>a HTTP request Content-Type header</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the content type can be parsed as form data by this module</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isUrlEncoded">
+                <h3 >
+                    <span class="itemtitle"><a id="isUrlEncoded" href="#isUrlEncoded" class="itemtitle itemname">isUrlEncoded</a></span>
+                    <span class="itemtitle light">(contentType)</span></h3>
+                <div>
+                    <p>Find out whether the content type denotes a format this module can parse.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">contentType</td>
+                            <td>a HTTP request Content-Type header</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the content type can be parsed as form data by this module</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="mergeParameter">
+                <h3 >
+                    <span class="itemtitle"><a id="mergeParameter" href="#mergeParameter" class="itemtitle itemname">mergeParameter</a></span>
+                    <span class="itemtitle light">(params, name, value)</span></h3>
+                <div>
+                    <p>Adds a value to a parameter object using a square bracket property syntax.
+For example, parameter <code>foo[bar][][baz]=hello</code> will result in
+object structure <code>{foo: {bar: [{baz : "hello"}]}}</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">params</td>
+                            <td>the top level parameter object</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the parameter name</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">value</td>
+                            <td>the parameter value</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="parseFileUpload">
+                <h3 >
+                    <span class="itemtitle"><a id="parseFileUpload" href="#parseFileUpload" class="itemtitle itemname">parseFileUpload</a></span>
+                    <span class="itemtitle light">(request, params, encoding, streamFactory)</span></h3>
+                <div>
+                    <p>Parses a multipart MIME input stream.
+Parses a multipart MIME input stream.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">request</td>
+                            <td>the JSGI request object</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">params</td>
+                            <td>the parameter object to parse into. If not defined
+       a new object is created and returned.</td>
+                        </tr>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">encoding</td>
+                            <td>optional encoding to apply to non-file parameters.
+       Defaults to "UTF-8".</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">streamFactory</td>
+                            <td>factory function to create streams for mime parts</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the parsed parameter object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="parseParameters">
+                <h3 >
+                    <span class="itemtitle"><a id="parseParameters" href="#parseParameters" class="itemtitle itemname">parseParameters</a></span>
+                    <span class="itemtitle light">(input, params, encoding)</span></h3>
+                <div>
+                    <p>Parse a string or binary object representing a query string or post data into
+a JavaScript object structure using the specified encoding.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Binary|String</td>
+                            <td class="paramname">input</td>
+                            <td>a Binary object or string containing the
+       URL-encoded parameters</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">params</td>
+                            <td>optional parameter object to parse into. If undefined
+       a new object is created and returned.</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>a valid encoding name, defaults to UTF-8</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the parsed parameter object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="setCookie">
+                <h3 >
+                    <span class="itemtitle"><a id="setCookie" href="#setCookie" class="itemtitle itemname">setCookie</a></span>
+                    <span class="itemtitle light">(key, value, days, options)</span></h3>
+                <div>
+                    <p>Creates value for the Set-Cookie header for creating a cookie with the given
+name, value, and attributes.</p>
+
+<p>All arguments except for key and value are optional.
+The days argument specifies the number of days until the cookie expires.
+To delete a cookie immediately, set the days argument to 0. If days is
+undefined or negative, the cookie is set for the current browser session.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">setCookie("username", "michi");
+setCookie("password", "strenggeheim", 10,
+{path: "/mypath", domain: ".mydomain.org"});</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">key</td>
+                            <td>the cookie name</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">value</td>
+                            <td>the cookie value</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">days</td>
+                            <td>optional the number of days to keep the cookie.
+If this is undefined or -1, the cookie is set for the current session.
+If this is 0, the cookie will be deleted immediately.</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>optional options argument which may contain the following properties:
+<ul><li>path - the path on which to set the cookie (defaults to /)</li>
+<li>domain - the domain on which to set the cookie (defaults to current domain)</li>
+<li>secure - to only use this cookie for secure connections</li>
+<li>httpOnly - to make the cookie inaccessible to client side scripts</li></ul></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the Set-Cookie header value</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="urlEncode">
+                <h3 >
+                    <span class="itemtitle"><a id="urlEncode" href="#urlEncode" class="itemtitle itemname">urlEncode</a></span>
+                    <span class="itemtitle light">(object)</span></h3>
+                <div>
+                    <p>Encode an object's properties into an URL encoded string.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">object</td>
+                            <td>an object</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> a string containing the URL encoded properties of the object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../../index.html">&bull; Modules</a>
+      <a href="../../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../assert/index.html">assert</a></li>
+            <li><a href="../../../binary/index.html">binary</a></li>
+            <li><a href="../../../console/index.html">console</a></li>
+            <li><a href="../../../fs/index.html">fs</a></li>
+            <li><a href="../../../globals/index.html">globals</a></li>
+            <li><a href="../../../io/index.html">io</a></li>
+            <li><a href="../../../net/index.html">net</a></li>
+            <li><a href="../../../system/index.html">system</a></li>
+            <li><a href="../../../test/index.html">test</a></li>
+            <li><a href="../../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/jsdoc - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/jsdoc</h1>
+        <div class="fileoverview">
+            <p>Low level support for parsing JSDoc-style comments from JavaScript files.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#parseResource" class="jsdoc-title"> parseResource</a>(resource)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#ScriptRepository" class="jsdoc-title">ScriptRepository</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#ScriptRepository.prototype.exists" class="jsdoc-title"> exists</a>()
+                    </li>
+                                        <li>
+                        <a href="#ScriptRepository.prototype.getPath" class="jsdoc-title"> getPath</a>()
+                    </li>
+                                        <li>
+                        <a href="#ScriptRepository.prototype.getScriptResource" class="jsdoc-title"> getScriptResource</a>(path)
+                    </li>
+                                        <li>
+                        <a href="#ScriptRepository.prototype.getScriptResources" class="jsdoc-title"> getScriptResources</a>(nested)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ScriptRepository">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="ScriptRepository" href="#ScriptRepository" class="itemtitle itemname">ScriptRepository</a></span>
+                    <span class="itemtitle light">(path)</span></h3>
+                <div>
+                    <p>Create a script repository for the given path</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">path</td>
+                            <td>the base path</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>an script repository</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ScriptRepository.prototype.exists">
+                <h3 >
+                    <span class="itemtitle">ScriptRepository.prototype.<a id="ScriptRepository.prototype.exists" href="#ScriptRepository.prototype.exists" class="itemtitle itemname">exists</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Check whether this script repository exists.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>boolean</td>
+                            <td> true if the repository exists</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ScriptRepository.prototype.getPath">
+                <h3 >
+                    <span class="itemtitle">ScriptRepository.prototype.<a id="ScriptRepository.prototype.getPath" href="#ScriptRepository.prototype.getPath" class="itemtitle itemname">getPath</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the absolute path of this script repository.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>string</td>
+                            <td> the absolute repository path</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ScriptRepository.prototype.getScriptResource">
+                <h3 >
+                    <span class="itemtitle">ScriptRepository.prototype.<a id="ScriptRepository.prototype.getScriptResource" href="#ScriptRepository.prototype.getScriptResource" class="itemtitle itemname">getScriptResource</a></span>
+                    <span class="itemtitle light">(path)</span></h3>
+                <div>
+                    <p>Get a script resource contained in this repository.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">path</td>
+                            <td>the script path</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Resource</td>
+                            <td> the script resource</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ScriptRepository.prototype.getScriptResources">
+                <h3 >
+                    <span class="itemtitle">ScriptRepository.prototype.<a id="ScriptRepository.prototype.getScriptResources" href="#ScriptRepository.prototype.getScriptResources" class="itemtitle itemname">getScriptResources</a></span>
+                    <span class="itemtitle light">(nested)</span></h3>
+                <div>
+                    <p>Get a list of script resources (files with a .js extension) in this
+repository.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">nested</td>
+                            <td>whether to return scripts in nested directories</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Array</td>
+                            <td> list of script files as RingoJS Resource objects</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="parseResource">
+                <h3 >
+                    <span class="itemtitle"><a id="parseResource" href="#parseResource" class="itemtitle itemname">parseResource</a></span>
+                    <span class="itemtitle light">(resource)</span></h3>
+                <div>
+                    <p>Parse a script resource and return an array containing the JSDoc items
+for the properties it exports.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Resource</td>
+                            <td class="paramname">resource</td>
+                            <td>a script resource</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Array</td>
+                            <td> an array of objects representing the API documentation for
+    of the resource</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

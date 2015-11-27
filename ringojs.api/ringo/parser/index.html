@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/parser - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/parser</h1>
+        <div class="fileoverview">
+            <p>This module provides an interface to the Rhino parser.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#getName" class="jsdoc-title"> getName</a>(node)
+                </li>
+                                <li>
+                    <a href="#getTypeName" class="jsdoc-title"> getTypeName</a>(node)
+                </li>
+                                <li>
+                    <a href="#isName" class="jsdoc-title"> isName</a>(node)
+                </li>
+                </ul>
+                        <h2>Properties</h2>
+            <ul class="propertyoverview">
+                                <li>
+                    <a href="#Token" class="jsdoc-title"> Token</a>
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Parser" class="jsdoc-title">Parser</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Parser.prototype.parse" class="jsdoc-title"> parse</a>(script, [encoding])
+                    </li>
+                                        <li>
+                        <a href="#Parser.prototype.visit" class="jsdoc-title"> visit</a>(script, visitorFunction, [encoding])
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Parser" href="#Parser" class="itemtitle itemname">Parser</a></span>
+                    <span class="itemtitle light">(options)</span></h3>
+                <div>
+                    <p>Create a new Parser object. The constructor must be called with the <code>new</code> keyword.
+It takes an <code>options</code> argument which may contain the following properties:</p>
+
+<ul><li><code>languageVersion</code> (number) the JavaScript language version to use.
+Defaults to <code>180</code>.</li>
+<li><code>parseComments</code> (boolean) whether to attach jsdoc-style comments to parsed nodes.
+Defaults to <code>false</code>.</li></ul>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>the parser options</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser.prototype.parse">
+                <h3 >
+                    <span class="itemtitle">Parser.prototype.<a id="Parser.prototype.parse" href="#Parser.prototype.parse" class="itemtitle itemname">parse</a></span>
+                    <span class="itemtitle light">(script, [encoding])</span></h3>
+                <div>
+                    <p>Parse a script resource and return its AST tree.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Resource|String</td>
+                            <td class="paramname">script</td>
+                            <td>a string or org.ringojs.repository.Resource object representing
+    the script.</td>
+                        </tr>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">[encoding]</td>
+                            <td>optional encoding to use, defaults to UTF-8</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>AstNode</td>
+                            <td> the root node of the AST tree, an instance of org.mozilla.javascript.ast.AstRoot</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser.prototype.visit">
+                <h3 >
+                    <span class="itemtitle">Parser.prototype.<a id="Parser.prototype.visit" href="#Parser.prototype.visit" class="itemtitle itemname">visit</a></span>
+                    <span class="itemtitle light">(script, visitorFunction, [encoding])</span></h3>
+                <div>
+                    <p>Parse a script resource and apply the visitor function to its AST tree.
+The function takes one argument which is a org.mozilla.javascript.ast.AstNode.
+The function must return true to visit child nodes of the current node.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Resource|String</td>
+                            <td class="paramname">script</td>
+                            <td>a string or org.ringojs.repository.Resource object representing
+    the script.</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">visitorFunction</td>
+                            <td>the visitor function</td>
+                        </tr>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">[encoding]</td>
+                            <td>optional encoding to use, defaults to UTF-8</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Token">
+                <h3 >
+                    <span class="itemtitle"><a id="Token" href="#Token" class="itemtitle itemname">Token</a></span>
+                    </h3>
+                <div>
+                    <p>The org.mozilla.javascript.Token class. This can be used to  easily check
+find out the types of AST nodes:</p>
+
+<pre><code>node.type == Token.NAME</code></pre>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getName">
+                <h3 >
+                    <span class="itemtitle"><a id="getName" href="#getName" class="itemtitle itemname">getName</a></span>
+                    <span class="itemtitle light">(node)</span></h3>
+                <div>
+                    <p>Utility function to get the name value of a node, or the empty
+string if it is not a <code>NAME</code> node.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>AstNode</td>
+                            <td class="paramname">node</td>
+                            <td>an AST node</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the name value of the node</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getTypeName">
+                <h3 >
+                    <span class="itemtitle"><a id="getTypeName" href="#getTypeName" class="itemtitle itemname">getTypeName</a></span>
+                    <span class="itemtitle light">(node)</span></h3>
+                <div>
+                    <p>Get the type name of the token as string such as "CALL" or "NAME".</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>AstNode</td>
+                            <td class="paramname">node</td>
+                            <td>a AST node</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the name of the AST node's type</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isName">
+                <h3 >
+                    <span class="itemtitle"><a id="isName" href="#isName" class="itemtitle itemname">isName</a></span>
+                    <span class="itemtitle light">(node)</span></h3>
+                <div>
+                    <p>Utility function to test whether a node is a <code>NAME</code> node
+(a node of type org.mozilla.javascript.ast.Name)</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">node</td>
+                            <td>an AST node</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if node is a name node</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

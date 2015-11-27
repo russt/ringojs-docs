@@ -1,0 +1,47 @@
+<!--
+ ! To produce html from markdown:
+ !     markdown -o README.html README.md
+ ! Tested with markdown: discount 2.1.6 DL=DISCOUNT.
+ ! See:  http://www.pell.portland.or.us/~orc/Code/discount/
+-->
+
+
+<h1>Project:  ringojs-docs</h1>
+
+<p>This project is to convert the RingoJS API documentation from HTML to PDF format, so you can view the documents in a more convenient form, especially on mobile devices.</p>
+
+<p>The output PDF&rsquo;s have internal links, as in the html docs.  However, not all PDF viewers are capable of activating these links.</p>
+
+<p>I have tested the docs using the free mobile version of Adobe Acrobat Reader, under IOS 8.x, with success.</p>
+
+<h1>How to build this project:</h1>
+
+<pre><code>    cado -u mkdoc.cg
+</code></pre>
+
+<p>Output goes to the <code>dist</code> directory, e.g.:</p>
+
+<pre><code>    dist/ringojs_api_0.11.pdf (270 pages)
+    dist/stick_api_0.4.pdf (54 pages)
+</code></pre>
+
+<h1>Prerequisites:</h1>
+
+<ul>
+<li>Install <code>wkhtmltopdf</code> command line tools from:  <a href="http://wkhtmltopdf.org">http://wkhtmltopdf.org</a></li>
+<li>Install <code>cado</code> from:  <a href="http://sourceforge.net/projects/cado/files">http://sourceforge.net/projects/cado/files</a></li>
+</ul>
+
+
+<h1>See Also:</h1>
+
+<ul>
+<li><a href="http://wkhtmltopdf.org">http://wkhtmltopdf.org</a></li>
+<li><a href="https://github.com/russt/cado">https://github.com/russt/cado</a></li>
+<li><a href="http://ringojs.org">http://ringojs.org</a></li>
+<li><a href="http://ringojs.org/api/0.11/index.html">http://ringojs.org/api/0.11/index.html</a></li>
+<li><a href="http://ringojs.org/api/stick/index.html">http://ringojs.org/api/stick/index.html</a></li>
+<li><a href="https://github.com/ringo/ringojs">https://github.com/ringo/ringojs</a></li>
+<li><a href="https://groups.google.com/forum/#!forum/ringojs">https://groups.google.com/forum/#!forum/ringojs</a></li>
+</ul>
+

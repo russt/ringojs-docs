@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/httpserver - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/httpserver</h1>
+        <div class="fileoverview">
+            <p>A wrapper for the Jetty HTTP server.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#destroy" class="jsdoc-title"> destroy</a>()
+                </li>
+                                <li>
+                    <a href="#init" class="jsdoc-title"> init</a>(appPath)
+                </li>
+                                <li>
+                    <a href="#main" class="jsdoc-title"> main</a>(appPath)
+                </li>
+                                <li>
+                    <a href="#start" class="jsdoc-title"> start</a>()
+                </li>
+                                <li>
+                    <a href="#stop" class="jsdoc-title"> stop</a>()
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Context" class="jsdoc-title">Context</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Context.prototype.addServlet" class="jsdoc-title"> addServlet</a>(servletPath, servlet, initParams)
+                    </li>
+                                        <li>
+                        <a href="#Context.prototype.addWebSocket" class="jsdoc-title"> addWebSocket</a>(path, onconnect)
+                    </li>
+                                        <li>
+                        <a href="#Context.prototype.serveApplication" class="jsdoc-title"> serveApplication</a>(app, engine)
+                    </li>
+                                        <li>
+                        <a href="#Context.prototype.serveStatic" class="jsdoc-title"> serveStatic</a>(dir)
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#Server" class="jsdoc-title">Server</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Server.prototype.destroy" class="jsdoc-title"> destroy</a>()
+                    </li>
+                                        <li>
+                        <a href="#Server.prototype.getContext" class="jsdoc-title"> getContext</a>(path, virtualHosts, options)
+                    </li>
+                                        <li>
+                        <a href="#Server.prototype.getDefaultContext" class="jsdoc-title"> getDefaultContext</a>()
+                    </li>
+                                        <li>
+                        <a href="#Server.prototype.getJetty" class="jsdoc-title"> getJetty</a>()
+                    </li>
+                                        <li>
+                        <a href="#Server.prototype.isRunning" class="jsdoc-title"> isRunning</a>()
+                    </li>
+                                        <li>
+                        <a href="#Server.prototype.start" class="jsdoc-title"> start</a>()
+                    </li>
+                                        <li>
+                        <a href="#Server.prototype.stop" class="jsdoc-title"> stop</a>()
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#WebSocket" class="jsdoc-title">WebSocket</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#WebSocket.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#WebSocket.prototype.isOpen" class="jsdoc-title"> isOpen</a>()
+                    </li>
+                                        <li>
+                        <a href="#WebSocket.prototype.send" class="jsdoc-title"> send</a>(msg)
+                    </li>
+                                        <li>
+                        <a href="#WebSocket.prototype.sendBinary" class="jsdoc-title"> sendBinary</a>(bytearray, offset, length)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Context">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Context" href="#Context" class="itemtitle itemname">Context</a></span>
+                    </h3>
+                <div>
+                    <p>Not exported as constructor by this module.</p>
+
+
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#Server.prototype.getContext">Server.prototype.getContext</a><br /><a href="#Server.prototype.getDefaultContext">Server.prototype.getDefaultContext</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Context.prototype.addServlet">
+                <h3 >
+                    <span class="itemtitle">Context.prototype.<a id="Context.prototype.addServlet" href="#Context.prototype.addServlet" class="itemtitle itemname">addServlet</a></span>
+                    <span class="itemtitle light">(servletPath, servlet, initParams)</span></h3>
+                <div>
+                    <p>Map a request path within this context to the given servlet.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">servletPath</td>
+                            <td>the servlet path</td>
+                        </tr>
+                                                <tr>
+                            <td>Servlet</td>
+                            <td class="paramname">servlet</td>
+                            <td>a java object implementing the
+    javax.servlet.Servlet interface.</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">initParams</td>
+                            <td>optional object containing servlet
+    init parameters</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Context.prototype.addWebSocket">
+                <h3 >
+                    <span class="itemtitle">Context.prototype.<a id="Context.prototype.addWebSocket" href="#Context.prototype.addWebSocket" class="itemtitle itemname">addWebSocket</a></span>
+                    <span class="itemtitle light">(path, onconnect)</span></h3>
+                <div>
+                    <p>Start accepting WebSocket connections in this context context.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">path</td>
+                            <td>The URL path on which to accept WebSocket connections</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">onconnect</td>
+                            <td>a function called for each new WebSocket connection
+       with the WebSocket object as argument.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#WebSocket">WebSocket</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Context.prototype.serveApplication">
+                <h3 >
+                    <span class="itemtitle">Context.prototype.<a id="Context.prototype.serveApplication" href="#Context.prototype.serveApplication" class="itemtitle itemname">serveApplication</a></span>
+                    <span class="itemtitle light">(app, engine)</span></h3>
+                <div>
+                    <p>Map this context to a JSGI application.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>function|object</td>
+                            <td class="paramname">app</td>
+                            <td>a JSGI application, either as a function
+  or an object with properties <code>appModule</code> and
+  <code>appName</code> defining the application.
+  <div><code>{ appModule: 'main', appName: 'app' }</code></div></td>
+                        </tr>
+                                                <tr>
+                            <td>RhinoEngine</td>
+                            <td class="paramname">engine</td>
+                            <td>optional RhinoEngine instance for
+  multi-engine setups</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Context.prototype.serveStatic">
+                <h3 >
+                    <span class="itemtitle">Context.prototype.<a id="Context.prototype.serveStatic" href="#Context.prototype.serveStatic" class="itemtitle itemname">serveStatic</a></span>
+                    <span class="itemtitle light">(dir)</span></h3>
+                <div>
+                    <p>Map this context to a directory containing static resources.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">dir</td>
+                            <td>the directory from which to serve static resources</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Server" href="#Server" class="itemtitle itemname">Server</a></span>
+                    <span class="itemtitle light">(options)</span></h3>
+                <div>
+                    <p>Create a Jetty HTTP server with the given options. The options may
+either define properties to be used with the default jetty.xml, or define
+a custom configuration file.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>A javascript object with any of the following
+properties (default values in parentheses):
+<ul>
+<li>jettyConfig ('config/jetty.xml')</li>
+<li>port (8080)</li>
+<li>host (undefined)</li>
+<li>sessions (true)</li>
+<li>security (true)</li>
+<li>cookieName (null)</li>
+<li>cookieDomain (null)</li>
+<li>cookiePath (null)</li>
+<li>httpOnlyCookies (false)</li>
+<li>secureCookies (false)</li>
+</ul>
+
+For convenience, the constructor supports the definition of a JSGI application
+and static resource mapping in the options object using the following properties:
+<ul>
+<li>virtualHost (undefined)</li>
+<li>mountpoint ('/')</li>
+<li>staticDir ('static')</li>
+<li>staticMountpoint ('/static')</li>
+<li>appModule ('main')</li>
+<li>appName ('app')</li>
+</ul></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.destroy">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.destroy" href="#Server.prototype.destroy" class="itemtitle itemname">destroy</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Destroy the HTTP server, freeing its resources.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.getContext">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.getContext" href="#Server.prototype.getContext" class="itemtitle itemname">getContext</a></span>
+                    <span class="itemtitle light">(path, virtualHosts, options)</span></h3>
+                <div>
+                    <p>Get a servlet application <a href="#Context" title="Context">context</a> for the given path and
+virtual hosts, creating it if it doesn't exist.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">path</td>
+                            <td>the context root path such as "/" or "/app"</td>
+                        </tr>
+                                                <tr>
+                            <td>string|array</td>
+                            <td class="paramname">virtualHosts</td>
+                            <td>optional single or multiple virtual host names.
+  A virtual host may start with a "*." wildcard.</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>may have the following properties:
+  sessions: true to enable sessions for this context, false otherwise
+  security: true to enable security for this context, false otherwise
+  cookieName: optional cookie name
+  cookieDomain: optional cookie domain
+  cookiePath: optional cookie path
+  httpOnlyCookies: true to enable http-only session cookies
+  secureCookies: true to enable secure session cookies</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>a Context object</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#Context">Context</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.getDefaultContext">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.getDefaultContext" href="#Server.prototype.getDefaultContext" class="itemtitle itemname">getDefaultContext</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the server's default <a href="#Context" title="Context">context</a>. The default context is the
+context that is created when the server is created.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the default Context</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#Context">Context</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.getJetty">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.getJetty" href="#Server.prototype.getJetty" class="itemtitle itemname">getJetty</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the Jetty server instance</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the Jetty Server instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.isRunning">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.isRunning" href="#Server.prototype.isRunning" class="itemtitle itemname">isRunning</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Checks whether this server is currently running.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the server is running, false otherwise.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.start">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.start" href="#Server.prototype.start" class="itemtitle itemname">start</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Start the HTTP server.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Server.prototype.stop">
+                <h3 >
+                    <span class="itemtitle">Server.prototype.<a id="Server.prototype.stop" href="#Server.prototype.stop" class="itemtitle itemname">stop</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Stop the HTTP server.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WebSocket">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="WebSocket" href="#WebSocket" class="itemtitle itemname">WebSocket</a></span>
+                    </h3>
+                <div>
+                    <p>Provides support for WebSockets in the HTTP server.</p>
+
+<p>WebSocket is an event emitter that supports the
+following events:</p>
+
+<ul><li><strong>open</strong>: called when a new websocket connection is accepted</li>
+<li><strong>message</strong>: Called with a complete text message when all fragments have been received.</li>
+<li><strong>close</strong>: called when an established websocket connection closes</li></ul>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WebSocket.prototype.close">
+                <h3 >
+                    <span class="itemtitle">WebSocket.prototype.<a id="WebSocket.prototype.close" href="#WebSocket.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Closes the WebSocket connection.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WebSocket.prototype.isOpen">
+                <h3 >
+                    <span class="itemtitle">WebSocket.prototype.<a id="WebSocket.prototype.isOpen" href="#WebSocket.prototype.isOpen" class="itemtitle itemname">isOpen</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Check whether the WebSocket is open.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the connection is open</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WebSocket.prototype.send">
+                <h3 >
+                    <span class="itemtitle">WebSocket.prototype.<a id="WebSocket.prototype.send" href="#WebSocket.prototype.send" class="itemtitle itemname">send</a></span>
+                    <span class="itemtitle light">(msg)</span></h3>
+                <div>
+                    <p>Send a string over the WebSocket.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">msg</td>
+                            <td>a string</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WebSocket.prototype.sendBinary">
+                <h3 >
+                    <span class="itemtitle">WebSocket.prototype.<a id="WebSocket.prototype.sendBinary" href="#WebSocket.prototype.sendBinary" class="itemtitle itemname">sendBinary</a></span>
+                    <span class="itemtitle light">(bytearray, offset, length)</span></h3>
+                <div>
+                    <p>Send a byte array over the WebSocket.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>ByteArray</td>
+                            <td class="paramname">bytearray</td>
+                            <td>The byte array to send</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">offset</td>
+                            <td>Optional offset (defaults to zero)</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">length</td>
+                            <td>Optional length (defaults to the
+length of the byte array)</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="destroy">
+                <h3 >
+                    <span class="itemtitle"><a id="destroy" href="#destroy" class="itemtitle itemname">destroy</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Daemon life cycle function invoked by init script. Frees any resources
+occupied by the Server instance.  If the application exports a function
+called <code>destroy</code>, it will be invoked with the server as argument.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Server</td>
+                            <td> the Server instance.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="init">
+                <h3 >
+                    <span class="itemtitle"><a id="init" href="#init" class="itemtitle itemname">init</a></span>
+                    <span class="itemtitle light">(appPath)</span></h3>
+                <div>
+                    <p>Daemon life cycle function invoked by init script. Creates a new Server with
+the application at <code>appPath</code>. If the application exports a function called
+<code>init</code>, it will be invoked with the new server as argument.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">appPath</td>
+                            <td>{string} optional application file name or module id.
+    If undefined, the first command line argument will be used as application.
+    If there are no command line arguments, module `main` in the current
+    working directory is used.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Server</td>
+                            <td> the Server instance.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="main">
+                <h3 >
+                    <span class="itemtitle"><a id="main" href="#main" class="itemtitle itemname">main</a></span>
+                    <span class="itemtitle light">(appPath)</span></h3>
+                <div>
+                    <p>Main function to start an HTTP server from the command line.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">appPath</td>
+                            <td>optional application file name or module id.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Server</td>
+                            <td> the Server instance.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="start">
+                <h3 >
+                    <span class="itemtitle"><a id="start" href="#start" class="itemtitle itemname">start</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Daemon life cycle function invoked by init script. Starts the Server created
+by <code>init()</code>. If the application exports a function called <code>start</code>, it will be
+invoked with the server as argument immediately after it has started.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Server</td>
+                            <td> the Server instance.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="stop">
+                <h3 >
+                    <span class="itemtitle"><a id="stop" href="#stop" class="itemtitle itemname">stop</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Daemon life cycle function invoked by init script. Stops the Server started
+by <code>start()</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Server</td>
+                            <td> the Server instance. If the application exports a function
+called `stop`, it will be invoked with the server as argument immediately
+before it is stopped.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/utils/dates - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../../static/style.css" />
+<script type="text/javascript" src="../../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/utils/dates</h1>
+        <div class="fileoverview">
+            <p>Adds useful functions for working with JavaScript Date objects.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#add" class="jsdoc-title"> add</a>(date, delta, unit)
+                </li>
+                                <li>
+                    <a href="#after" class="jsdoc-title"> after</a>(a, b)
+                </li>
+                                <li>
+                    <a href="#before" class="jsdoc-title"> before</a>(a, b)
+                </li>
+                                <li>
+                    <a href="#checkDate" class="jsdoc-title"> checkDate</a>(fullYear, month, day)
+                </li>
+                                <li>
+                    <a href="#compare" class="jsdoc-title"> compare</a>(a, b)
+                </li>
+                                <li>
+                    <a href="#dayOfYear" class="jsdoc-title"> dayOfYear</a>(date)
+                </li>
+                                <li>
+                    <a href="#daysInFebruary" class="jsdoc-title"> daysInFebruary</a>(date)
+                </li>
+                                <li>
+                    <a href="#daysInMonth" class="jsdoc-title"> daysInMonth</a>(date)
+                </li>
+                                <li>
+                    <a href="#daysInYear" class="jsdoc-title"> daysInYear</a>(date)
+                </li>
+                                <li>
+                    <a href="#diff" class="jsdoc-title"> diff</a>(a, b, unit)
+                </li>
+                                <li>
+                    <a href="#firstDayOfWeek" class="jsdoc-title"> firstDayOfWeek</a>(locale)
+                </li>
+                                <li>
+                    <a href="#format" class="jsdoc-title"> format</a>(the, format, locale, timezone)
+                </li>
+                                <li>
+                    <a href="#fromUTCDate" class="jsdoc-title"> fromUTCDate</a>(year, month, date, hour, minute, second)
+                </li>
+                                <li>
+                    <a href="#inPeriod" class="jsdoc-title"> inPeriod</a>(date, periodStart, periodEnd, periodStartOpen, periodEndOpen)
+                </li>
+                                <li>
+                    <a href="#isLeapYear" class="jsdoc-title"> isLeapYear</a>(date)
+                </li>
+                                <li>
+                    <a href="#overlapping" class="jsdoc-title"> overlapping</a>(aStart, aEnd, bStart, bEnd)
+                </li>
+                                <li>
+                    <a href="#parse" class="jsdoc-title"> parse</a>(str)
+                </li>
+                                <li>
+                    <a href="#quarterInFiscalYear" class="jsdoc-title"> quarterInFiscalYear</a>(date, fiscalYearStart)
+                </li>
+                                <li>
+                    <a href="#quarterInYear" class="jsdoc-title"> quarterInYear</a>(date)
+                </li>
+                                <li>
+                    <a href="#resetDate" class="jsdoc-title"> resetDate</a>(date)
+                </li>
+                                <li>
+                    <a href="#resetTime" class="jsdoc-title"> resetTime</a>(date)
+                </li>
+                                <li>
+                    <a href="#secondOfDay" class="jsdoc-title"> secondOfDay</a>(date)
+                </li>
+                                <li>
+                    <a href="#toISOString" class="jsdoc-title"> toISOString</a>(date, withTime, withTimeZone, withSeconds, withMilliseconds)
+                </li>
+                                <li>
+                    <a href="#weekOfMonth" class="jsdoc-title"> weekOfMonth</a>(date, locale)
+                </li>
+                                <li>
+                    <a href="#weekOfYear" class="jsdoc-title"> weekOfYear</a>(date, locale)
+                </li>
+                                <li>
+                    <a href="#yearInCentury" class="jsdoc-title"> yearInCentury</a>(date)
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="add">
+                <h3 >
+                    <span class="itemtitle"><a id="add" href="#add" class="itemtitle itemname">add</a></span>
+                    <span class="itemtitle light">(date, delta, unit)</span></h3>
+                <div>
+                    <p>Adds delta to the given field or reduces it, if delta is negative. If larger fields are effected,
+they will be changed accordingly.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>base date to add or remove time from.</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">delta</td>
+                            <td>amount of time to add (positive delta) or remove (negative delta).</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">unit</td>
+                            <td>(optional) field to change. Possible values: <code>year</code>, <code>quarter</code>, <code>month</code>,
+       <code>week</code>, <code>day</code> (default), <code>hour</code> (24-hour clock), <code>minute</code>, <code>second</code>,
+       <code>millisecond</code>.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Date</td>
+                            <td> date with the calculated date and time</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/util/GregorianCalendar.html#add(int,%20int)">http://download.oracle.com/javase/1.5.0/docs/api/java/util/GregorianCalendar.html#add(int,%20int)</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="after">
+                <h3 >
+                    <span class="itemtitle"><a id="after" href="#after" class="itemtitle itemname">after</a></span>
+                    <span class="itemtitle light">(a, b)</span></h3>
+                <div>
+                    <p>Checks if date <code>a</code> is after date <code>b</code>. This is equals to <code>compare(a, b) &gt; 0</code></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">a</td>
+                            <td>first date</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">b</td>
+                            <td>second date</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true if <code>a</code> is after <code>b</code>, false if not.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="before">
+                <h3 >
+                    <span class="itemtitle"><a id="before" href="#before" class="itemtitle itemname">before</a></span>
+                    <span class="itemtitle light">(a, b)</span></h3>
+                <div>
+                    <p>Checks if date <code>a</code> is before date <code>b</code>. This is equals to <code>compareTo(a, b) &lt; 0</code></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">a</td>
+                            <td>first date</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">b</td>
+                            <td>second date</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true if <code>a</code> is before <code>b</code>, false if not.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="checkDate">
+                <h3 >
+                    <span class="itemtitle"><a id="checkDate" href="#checkDate" class="itemtitle itemname">checkDate</a></span>
+                    <span class="itemtitle light">(fullYear, month, day)</span></h3>
+                <div>
+                    <p>Checks if the date is a valid date. Example: 2007 is no leap year, so <code>checkDate(2007, 1, 29)</code> returns false.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">fullYear</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">month</td>
+                            <td>between 0 and 11</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">day</td>
+                            <td>between 1 and 31</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true, if the date is valid, false if not.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="compare">
+                <h3 >
+                    <span class="itemtitle"><a id="compare" href="#compare" class="itemtitle itemname">compare</a></span>
+                    <span class="itemtitle light">(a, b)</span></h3>
+                <div>
+                    <p>Compares the time values of <code>a</code> and <code>b</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">a</td>
+                            <td>first date</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">b</td>
+                            <td>second date</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number -1 if <code>a</code> is before <code>b</code>, 0 if equals and 1 if <code>a</code> is after <code>b</code>.</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/util/Calendar.html#compareTo(java.util.Calendar)">http://download.oracle.com/javase/1.5.0/docs/api/java/util/Calendar.html#compareTo(java.util.Calendar)</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="dayOfYear">
+                <h3 >
+                    <span class="itemtitle"><a id="dayOfYear" href="#dayOfYear" class="itemtitle itemname">dayOfYear</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the day of the year for the given date.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>calculate the day of the year.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number day of the year</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="daysInFebruary">
+                <h3 >
+                    <span class="itemtitle"><a id="daysInFebruary" href="#daysInFebruary" class="itemtitle itemname">daysInFebruary</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the number of the days in february.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>of year to find the number of days in february.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number days in the february, 28 or 29, if it's a leap year.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="daysInMonth">
+                <h3 >
+                    <span class="itemtitle"><a id="daysInMonth" href="#daysInMonth" class="itemtitle itemname">daysInMonth</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the number of the days in the month.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to find the maximum number of days.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number days in the month, between 28 and 31.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="daysInYear">
+                <h3 >
+                    <span class="itemtitle"><a id="daysInYear" href="#daysInYear" class="itemtitle itemname">daysInYear</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the number of the days in the year.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to find the maximum number of days.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number days in the year, 365 or 366, if it's a leap year.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="diff">
+                <h3 >
+                    <span class="itemtitle"><a id="diff" href="#diff" class="itemtitle itemname">diff</a></span>
+                    <span class="itemtitle light">(a, b, unit)</span></h3>
+                <div>
+                    <p>Get the difference between two dates, specified by the unit of time.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">a</td>
+                            <td>first date</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">b</td>
+                            <td>second date</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">unit</td>
+                            <td>(optional) of time to return. Possible values: <code>year</code>, <code>quarter</code>, <code>month</code>,
+       <code>week</code>, <code>day</code> (default), <code>hour</code>, <code>minute</code>, <code>second</code>, <code>millisecond</code> and
+       <code>mixed</code> (returns an object)</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number|Object<{days, hours, minutes, seconds, milliseconds}>
+         difference between the given dates in the specified unit of time.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="firstDayOfWeek">
+                <h3 >
+                    <span class="itemtitle"><a id="firstDayOfWeek" href="#firstDayOfWeek" class="itemtitle itemname">firstDayOfWeek</a></span>
+                    <span class="itemtitle light">(locale)</span></h3>
+                <div>
+                    <p>Gets the first day of the week.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|java.util.Locale</td>
+                            <td class="paramname">locale</td>
+                            <td>(optional) the locale as java Locale object or
+       lowercase two-letter ISO-639 code (e.g. "en")</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number the first day of the week; 1 = Sunday, 2 = Monday.</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://download.oracle.com/javase/1.5.0/docs/api/constant-values.html#java.util.Calendar.SUNDAY">http://download.oracle.com/javase/1.5.0/docs/api/constant-values.html#java.util.Calendar.SUNDAY</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="format">
+                <h3 >
+                    <span class="itemtitle"><a id="format" href="#format" class="itemtitle itemname">format</a></span>
+                    <span class="itemtitle light">(the, format, locale, timezone)</span></h3>
+                <div>
+                    <p>Format a Date to a string.
+For details on the format pattern, see
+http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">the</td>
+                            <td>Date to format</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">format</td>
+                            <td>the format pattern</td>
+                        </tr>
+                                                <tr>
+                            <td>String|java.util.Locale</td>
+                            <td class="paramname">locale</td>
+                            <td>(optional) the locale as java Locale object or
+       lowercase two-letter ISO-639 code (e.g. "en")</td>
+                        </tr>
+                                                <tr>
+                            <td>String|java.util.TimeZone</td>
+                            <td class="paramname">timezone</td>
+                            <td>(optional) the timezone as java TimeZone
+       object or  an abbreviation such as "PST", a full name such as "America/Los_Angeles",
+       or a custom ID such as "GMT-8:00". If the id is not provided, the default timezone
+       is used. If the timezone id is provided but cannot be understood, the "GMT" timezone
+       is used.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the formatted Date</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html">http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="fromUTCDate">
+                <h3 >
+                    <span class="itemtitle"><a id="fromUTCDate" href="#fromUTCDate" class="itemtitle itemname">fromUTCDate</a></span>
+                    <span class="itemtitle light">(year, month, date, hour, minute, second)</span></h3>
+                <div>
+                    <p>Create new Date from UTC timestamp.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">year</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">month</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">date</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">hour</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">minute</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">second</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Date</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="inPeriod">
+                <h3 >
+                    <span class="itemtitle"><a id="inPeriod" href="#inPeriod" class="itemtitle itemname">inPeriod</a></span>
+                    <span class="itemtitle light">(date, periodStart, periodEnd, periodStartOpen, periodEndOpen)</span></h3>
+                <div>
+                    <p>Look if the date is in the period, using <em>periodStart &lt;= date &lt;= periodEnd</em>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to check, if it's in the period</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">periodStart</td>
+                            <td>the period's start</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">periodEnd</td>
+                            <td>the period's end</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">periodStartOpen</td>
+                            <td>start point is open - default false.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">periodEndOpen</td>
+                            <td>end point is open - default false.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true if the date is in the period, false if not.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isLeapYear">
+                <h3 >
+                    <span class="itemtitle"><a id="isLeapYear" href="#isLeapYear" class="itemtitle itemname">isLeapYear</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Checks if the date's year is a leap year.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to check year</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true if the year is a leap year, false if not.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="overlapping">
+                <h3 >
+                    <span class="itemtitle"><a id="overlapping" href="#overlapping" class="itemtitle itemname">overlapping</a></span>
+                    <span class="itemtitle light">(aStart, aEnd, bStart, bEnd)</span></h3>
+                <div>
+                    <p>Look if two periods are overlapping each other.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">aStart</td>
+                            <td>first period's start</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">aEnd</td>
+                            <td>first period's end</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">bStart</td>
+                            <td>second period's start</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">bEnd</td>
+                            <td>second period's end</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true if the periods are overlapping at some point, false if not.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="parse">
+                <h3 >
+                    <span class="itemtitle"><a id="parse" href="#parse" class="itemtitle itemname">parse</a></span>
+                    <span class="itemtitle light">(str)</span></h3>
+                <div>
+                    <p>Parse a string representing a date.
+For details on the string format, see http://tools.ietf.org/html/rfc3339.  Examples
+include "2010", "2010-08-06", "2010-08-06T22:04:30Z", "2010-08-06T16:04:30-06".</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">str</td>
+                            <td>The date string.  This follows the format specified for timestamps
+       on the internet described in RFC 3339.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Date</td>
+                            <td> a date representing the given string</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://tools.ietf.org/html/rfc3339">http://tools.ietf.org/html/rfc3339</a><br /><a href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="quarterInFiscalYear">
+                <h3 >
+                    <span class="itemtitle"><a id="quarterInFiscalYear" href="#quarterInFiscalYear" class="itemtitle itemname">quarterInFiscalYear</a></span>
+                    <span class="itemtitle light">(date, fiscalYearStart)</span></h3>
+                <div>
+                    <p>Gets the quarter in the fiscal year.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to calculate the quarter for.</td>
+                        </tr>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">fiscalYearStart</td>
+                            <td>first day in the fiscal year, default is the start of the current year</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number quarter of the year, between 1 and 4.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="quarterInYear">
+                <h3 >
+                    <span class="itemtitle"><a id="quarterInYear" href="#quarterInYear" class="itemtitle itemname">quarterInYear</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the quarter in the year.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to calculate the quarter for.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number quarter of the year, between 1 and 4.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="resetDate">
+                <h3 >
+                    <span class="itemtitle"><a id="resetDate" href="#resetDate" class="itemtitle itemname">resetDate</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Drops the date values, keeping only hours, minutes, seconds and milliseconds.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to reset</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Date date with the original time values and 1970-01-01 as date.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="resetTime">
+                <h3 >
+                    <span class="itemtitle"><a id="resetTime" href="#resetTime" class="itemtitle itemname">resetTime</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Resets the time values to 0, keeping only year, month and day.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to reset</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Date date without any time values</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="secondOfDay">
+                <h3 >
+                    <span class="itemtitle"><a id="secondOfDay" href="#secondOfDay" class="itemtitle itemname">secondOfDay</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the second of the day for the given date.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>calculate the second of the day.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number second of the day</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toISOString">
+                <h3 >
+                    <span class="itemtitle"><a id="toISOString" href="#toISOString" class="itemtitle itemname">toISOString</a></span>
+                    <span class="itemtitle light">(date, withTime, withTimeZone, withSeconds, withMilliseconds)</span></h3>
+                <div>
+                    <p>Create a ISO 8601 compatible string from the date. Note: This is quite similar to <code>Date.toISOString()</code>, which only returns
+an UTC-based string without the local timezone. If you don't need timezones, <code>Date.toISOString()</code> will be the better choice.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>to format</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">withTime</td>
+                            <td>if true, the string will contain the time, if false only the date. Default is true.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">withTimeZone</td>
+                            <td>if true, the string will be in local time, if false it's in UTC. Default is true.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">withSeconds</td>
+                            <td>if true, the string will contain also the seconds of the date. Default true.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">withMilliseconds</td>
+                            <td>if true, the string will contain also the milliseconds of the date. Default false.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String date as ISO 8601 string.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="weekOfMonth">
+                <h3 >
+                    <span class="itemtitle"><a id="weekOfMonth" href="#weekOfMonth" class="itemtitle itemname">weekOfMonth</a></span>
+                    <span class="itemtitle light">(date, locale)</span></h3>
+                <div>
+                    <p>Gets the week of the month for the given date.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>calculate the week of the month.</td>
+                        </tr>
+                                                <tr>
+                            <td>String|java.util.Locale</td>
+                            <td class="paramname">locale</td>
+                            <td>(optional) the locale as java Locale object or
+       lowercase two-letter ISO-639 code (e.g. "en")</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number week of the month</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="weekOfYear">
+                <h3 >
+                    <span class="itemtitle"><a id="weekOfYear" href="#weekOfYear" class="itemtitle itemname">weekOfYear</a></span>
+                    <span class="itemtitle light">(date, locale)</span></h3>
+                <div>
+                    <p>Gets the week of the year for the given date.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>calculate the week of the year.</td>
+                        </tr>
+                                                <tr>
+                            <td>String|java.util.Locale</td>
+                            <td class="paramname">locale</td>
+                            <td>(optional) the locale as java Locale object or
+       lowercase two-letter ISO-639 code (e.g. "en")</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number week of the year</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="yearInCentury">
+                <h3 >
+                    <span class="itemtitle"><a id="yearInCentury" href="#yearInCentury" class="itemtitle itemname">yearInCentury</a></span>
+                    <span class="itemtitle light">(date)</span></h3>
+                <div>
+                    <p>Gets the year of the century for the given date. <em>Examples:</em> 1900 returns 0, 2010 returns 10.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Date</td>
+                            <td class="paramname">date</td>
+                            <td>calculate the year of the century.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Number second of the day</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../../index.html">&bull; Modules</a>
+      <a href="../../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../assert/index.html">assert</a></li>
+            <li><a href="../../../binary/index.html">binary</a></li>
+            <li><a href="../../../console/index.html">console</a></li>
+            <li><a href="../../../fs/index.html">fs</a></li>
+            <li><a href="../../../globals/index.html">globals</a></li>
+            <li><a href="../../../io/index.html">io</a></li>
+            <li><a href="../../../net/index.html">net</a></li>
+            <li><a href="../../../system/index.html">system</a></li>
+            <li><a href="../../../test/index.html">test</a></li>
+            <li><a href="../../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

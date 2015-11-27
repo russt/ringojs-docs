@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/utils/arrays - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../../static/style.css" />
+<script type="text/javascript" src="../../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/utils/arrays</h1>
+        <div class="fileoverview">
+            <p>Provides utility functions for working with JavaScript Arrays.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#contains" class="jsdoc-title"> contains</a>(array, val)
+                </li>
+                                <li>
+                    <a href="#intersection" class="jsdoc-title"> intersection</a>(array1,...)
+                </li>
+                                <li>
+                    <a href="#max" class="jsdoc-title"> max</a>(array)
+                </li>
+                                <li>
+                    <a href="#min" class="jsdoc-title"> min</a>(array)
+                </li>
+                                <li>
+                    <a href="#partition" class="jsdoc-title"> partition</a>(fn)
+                </li>
+                                <li>
+                    <a href="#peek" class="jsdoc-title"> peek</a>(array)
+                </li>
+                                <li>
+                    <a href="#remove" class="jsdoc-title"> remove</a>(array, val)
+                </li>
+                                <li>
+                    <a href="#union" class="jsdoc-title"> union</a>(array1,...)
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="contains">
+                <h3 >
+                    <span class="itemtitle"><a id="contains" href="#contains" class="itemtitle itemname">contains</a></span>
+                    <span class="itemtitle light">(array, val)</span></h3>
+                <div>
+                    <p>Check if an array passed as argument contains
+a specific value (start from end of array).</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array</td>
+                            <td>the array</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>the value to check</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>boolean</td>
+                            <td> true if the value is contained</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="intersection">
+                <h3 >
+                    <span class="itemtitle"><a id="intersection" href="#intersection" class="itemtitle itemname">intersection</a></span>
+                    <span class="itemtitle light">(array1,...)</span></h3>
+                <div>
+                    <p>Retrieve the intersection set of a bunch of arrays.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array1,...</td>
+                            <td>the arrays to intersect</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Array</td>
+                            <td> the intersection set</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="max">
+                <h3 >
+                    <span class="itemtitle"><a id="max" href="#max" class="itemtitle itemname">max</a></span>
+                    <span class="itemtitle light">(array)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array</td>
+                            <td>the array</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the maximal element in an array obtained by calling Math.max().</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="min">
+                <h3 >
+                    <span class="itemtitle"><a id="min" href="#min" class="itemtitle itemname">min</a></span>
+                    <span class="itemtitle light">(array)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array</td>
+                            <td>the array</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the minimal element in an array obtained by calling Math.min().</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="partition">
+                <h3 >
+                    <span class="itemtitle"><a id="partition" href="#partition" class="itemtitle itemname">partition</a></span>
+                    <span class="itemtitle light">(fn)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">fn</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="peek">
+                <h3 >
+                    <span class="itemtitle"><a id="peek" href="#peek" class="itemtitle itemname">peek</a></span>
+                    <span class="itemtitle light">(array)</span></h3>
+                <div>
+                    <p>Return the last element of the array. This is like pop(), but
+without modifying the array.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array</td>
+                            <td>the array</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the last element of the array, or undefined if the array is empty.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="remove">
+                <h3 >
+                    <span class="itemtitle"><a id="remove" href="#remove" class="itemtitle itemname">remove</a></span>
+                    <span class="itemtitle light">(array, val)</span></h3>
+                <div>
+                    <p>Remove the first occurrence of the argument value from the array. This method
+mutates and returns the array on which it is called and does not create a
+new array instance.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array</td>
+                            <td>the array</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>the value to remove</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Array</td>
+                            <td> the array</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="union">
+                <h3 >
+                    <span class="itemtitle"><a id="union" href="#union" class="itemtitle itemname">union</a></span>
+                    <span class="itemtitle light">(array1,...)</span></h3>
+                <div>
+                    <p>Retrieve the union set of a bunch of arrays.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">array1,...</td>
+                            <td>the arrays to unify</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Array</td>
+                            <td> the union set</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../../index.html">&bull; Modules</a>
+      <a href="../../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../assert/index.html">assert</a></li>
+            <li><a href="../../../binary/index.html">binary</a></li>
+            <li><a href="../../../console/index.html">console</a></li>
+            <li><a href="../../../fs/index.html">fs</a></li>
+            <li><a href="../../../globals/index.html">globals</a></li>
+            <li><a href="../../../io/index.html">io</a></li>
+            <li><a href="../../../net/index.html">net</a></li>
+            <li><a href="../../../system/index.html">system</a></li>
+            <li><a href="../../../test/index.html">test</a></li>
+            <li><a href="../../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

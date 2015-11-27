@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/args - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/args</h1>
+        <div class="fileoverview">
+            <p>A parser for command line options. This parser supports
+various option formats:</p>
+
+<ul>
+  <li><code>-a -b -c</code> (multiple short options)</li>
+  <li><code>-abc</code> (multiple short options combined into one)</li>
+  <li><code>-a value</code> (short option with value)</li>
+  <li><code>-avalue</code> (alternative short option with value)</li>
+  <li><code>--option value</code> (long option with value)</li>
+  <li><code>--option=value</code> (alternative long option with value)</li>
+</ul>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode">// ringo parserExample.js -v --size 123 -p 45678
+
+include('ringo/term');
+var system = require('system');
+var {Parser} = require('ringo/args');
+
+var parser = new Parser();
+parser.addOption('s', 'size', 'SIZE', 'Sets the size to SIZE');
+parser.addOption('p', 'pid', 'PID', 'Kill the process with the PID');
+parser.addOption('v', 'verbose', null, 'Verbosely do something');
+parser.addOption('h', 'help', null, 'Show help');
+
+var options = parser.parse(system.args.slice(1));
+if (options.help) {
+  writeln(parser.help());
+} else {
+  if (options.size) {
+     writeln('Set size to ' + parseInt(options.size));
+  }
+
+  if (options.pid) {
+     writeln('Kill process ' + options.pid);
+  }
+
+  if (options.verbose) {
+     writeln('Verbose!');
+  }
+}
+
+if (!Object.keys(options).length) {
+  writeln("Run with -h/--help to see available options");
+}</pre>
+        </div>
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#Parser" class="jsdoc-title">Parser</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Parser.prototype.addOption" class="jsdoc-title"> addOption</a>(shortName, longName, argument, helpText)
+                    </li>
+                                        <li>
+                        <a href="#Parser.prototype.help" class="jsdoc-title"> help</a>()
+                    </li>
+                                        <li>
+                        <a href="#Parser.prototype.parse" class="jsdoc-title"> parse</a>(args, result)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Parser" href="#Parser" class="itemtitle itemname">Parser</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Create a new command line option parser.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser.prototype.addOption">
+                <h3 >
+                    <span class="itemtitle">Parser.prototype.<a id="Parser.prototype.addOption" href="#Parser.prototype.addOption" class="itemtitle itemname">addOption</a></span>
+                    <span class="itemtitle light">(shortName, longName, argument, helpText)</span></h3>
+                <div>
+                    <p>Add an option to the parser.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">shortName</td>
+                            <td>the short option name (without leading hyphen)</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">longName</td>
+                            <td>the long option name (without leading hyphens)</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">argument</td>
+                            <td>the name of the argument if the option requires one, or null</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">helpText</td>
+                            <td>the help text to display for the option</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> this parser for chained invocation</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser.prototype.help">
+                <h3 >
+                    <span class="itemtitle">Parser.prototype.<a id="Parser.prototype.help" href="#Parser.prototype.help" class="itemtitle itemname">help</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get help text for the parser's options suitable for display in command line scripts.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> a string explaining the parser's options</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser.prototype.parse">
+                <h3 >
+                    <span class="itemtitle">Parser.prototype.<a id="Parser.prototype.parse" href="#Parser.prototype.parse" class="itemtitle itemname">parse</a></span>
+                    <span class="itemtitle light">(args, result)</span></h3>
+                <div>
+                    <p>Parse an arguments array into an option object. If a long option name is defined,
+it is converted to camel-case and used as property name. Otherwise, the short option
+name is used as property name.</p>
+
+<p>Passing an result object as second argument is a convenient way to define default
+options:</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">parser.parse(system.args.slice(1), {myOption: "defaultValue"});</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">args</td>
+                            <td>the argument array. Matching options are removed.</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">result</td>
+                            <td>optional result object. If undefined, a new Object is created.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the result object</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="../../ringo/utils/strings/index.html#toCamelCase">toCamelCase()</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

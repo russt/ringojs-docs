@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/utils/strings - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../../static/style.css" />
+<script type="text/javascript" src="../../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/utils/strings</h1>
+        <div class="fileoverview">
+            <p>Adds useful methods to the JavaScript String type.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#Sorter" class="jsdoc-title"> Sorter</a>(field, order)
+                </li>
+                                <li>
+                    <a href="#b16decode" class="jsdoc-title"> b16decode</a>(str, encoding)
+                </li>
+                                <li>
+                    <a href="#b16encode" class="jsdoc-title"> b16encode</a>(str, encoding)
+                </li>
+                                <li>
+                    <a href="#b64decode" class="jsdoc-title"> b64decode</a>(string, encoding)
+                </li>
+                                <li>
+                    <a href="#b64encode" class="jsdoc-title"> b64encode</a>(string, encoding)
+                </li>
+                                <li>
+                    <a href="#capitalize" class="jsdoc-title"> capitalize</a>(the, amount)
+                </li>
+                                <li>
+                    <a href="#compose" class="jsdoc-title"> compose</a>(one)
+                </li>
+                                <li>
+                    <a href="#contains" class="jsdoc-title"> contains</a>(string, substring, fromIndex)
+                </li>
+                                <li>
+                    <a href="#count" class="jsdoc-title"> count</a>(string, pattern)
+                </li>
+                                <li>
+                    <a href="#digest" class="jsdoc-title"> digest</a>(string, algorithm)
+                </li>
+                                <li>
+                    <a href="#endsWith" class="jsdoc-title"> endsWith</a>(string, substring)
+                </li>
+                                <li>
+                    <a href="#entitize" class="jsdoc-title"> entitize</a>(string)
+                </li>
+                                <li>
+                    <a href="#escapeHtml" class="jsdoc-title"> escapeHtml</a>(string)
+                </li>
+                                <li>
+                    <a href="#escapeRegExp" class="jsdoc-title"> escapeRegExp</a>(str)
+                </li>
+                                <li>
+                    <a href="#format" class="jsdoc-title"> format</a>(format)
+                </li>
+                                <li>
+                    <a href="#getCommonPrefix" class="jsdoc-title"> getCommonPrefix</a>(str1, str2)
+                </li>
+                                <li>
+                    <a href="#group" class="jsdoc-title"> group</a>(string, interval, string, ignoreWhiteSpace)
+                </li>
+                                <li>
+                    <a href="#isAlpha" class="jsdoc-title"> isAlpha</a>(string)
+                </li>
+                                <li>
+                    <a href="#isAlphanumeric" class="jsdoc-title"> isAlphanumeric</a>(string)
+                </li>
+                                <li>
+                    <a href="#isDateFormat" class="jsdoc-title"> isDateFormat</a>(string)
+                </li>
+                                <li>
+                    <a href="#isEmail" class="jsdoc-title"> isEmail</a>(string)
+                </li>
+                                <li>
+                    <a href="#isFileName" class="jsdoc-title"> isFileName</a>(string)
+                </li>
+                                <li>
+                    <a href="#isFloat" class="jsdoc-title"> isFloat</a>(string)
+                </li>
+                                <li>
+                    <a href="#isHexColor" class="jsdoc-title"> isHexColor</a>(string)
+                </li>
+                                <li>
+                    <a href="#isInt" class="jsdoc-title"> isInt</a>(string)
+                </li>
+                                <li>
+                    <a href="#isLowerCase" class="jsdoc-title"> isLowerCase</a>(string)
+                </li>
+                                <li>
+                    <a href="#isNumeric" class="jsdoc-title"> isNumeric</a>(string)
+                </li>
+                                <li>
+                    <a href="#isUpperCase" class="jsdoc-title"> isUpperCase</a>(string)
+                </li>
+                                <li>
+                    <a href="#isUrl" class="jsdoc-title"> isUrl</a>(string)
+                </li>
+                                <li>
+                    <a href="#join" class="jsdoc-title"> join</a>(the, the, the)
+                </li>
+                                <li>
+                    <a href="#pad" class="jsdoc-title"> pad</a>(string, fill, length, mode)
+                </li>
+                                <li>
+                    <a href="#random" class="jsdoc-title"> random</a>(len, mode)
+                </li>
+                                <li>
+                    <a href="#repeat" class="jsdoc-title"> repeat</a>(string, num)
+                </li>
+                                <li>
+                    <a href="#startsWith" class="jsdoc-title"> startsWith</a>(string, substring)
+                </li>
+                                <li>
+                    <a href="#stripTags" class="jsdoc-title"> stripTags</a>(string)
+                </li>
+                                <li>
+                    <a href="#titleize" class="jsdoc-title"> titleize</a>(string)
+                </li>
+                                <li>
+                    <a href="#toAlphanumeric" class="jsdoc-title"> toAlphanumeric</a>(string)
+                </li>
+                                <li>
+                    <a href="#toCamelCase" class="jsdoc-title"> toCamelCase</a>(string)
+                </li>
+                                <li>
+                    <a href="#toDashes" class="jsdoc-title"> toDashes</a>(string)
+                </li>
+                                <li>
+                    <a href="#toDate" class="jsdoc-title"> toDate</a>(string, format, timezone)
+                </li>
+                                <li>
+                    <a href="#toFileName" class="jsdoc-title"> toFileName</a>(string)
+                </li>
+                                <li>
+                    <a href="#toHexColor" class="jsdoc-title"> toHexColor</a>(string)
+                </li>
+                                <li>
+                    <a href="#toUnderscores" class="jsdoc-title"> toUnderscores</a>(string)
+                </li>
+                                <li>
+                    <a href="#unwrap" class="jsdoc-title"> unwrap</a>(flag, replacement)
+                </li>
+                                <li>
+                    <a href="#y64decode" class="jsdoc-title"> y64decode</a>(string, encoding)
+                </li>
+                                <li>
+                    <a href="#y64encode" class="jsdoc-title"> y64encode</a>(string, encoding)
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Sorter">
+                <h3 >
+                    <span class="itemtitle"><a id="Sorter" href="#Sorter" class="itemtitle itemname">Sorter</a></span>
+                    <span class="itemtitle light">(field, order)</span></h3>
+                <div>
+                    <p>factory to create functions for sorting objects in an array</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">field</td>
+                            <td>name of the field each object is compared with</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">order</td>
+                            <td>(ascending or descending)</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Function</td>
+                            <td> ready for use in Array.prototype.sort</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="b16decode">
+                <h3 >
+                    <span class="itemtitle"><a id="b16decode" href="#b16decode" class="itemtitle itemname">b16decode</a></span>
+                    <span class="itemtitle light">(str, encoding)</span></h3>
+                <div>
+                    <p>Decodes a Base16 encoded string to a string or byte array.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">str</td>
+                            <td>the Base16 encoded string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>the encoding to use for the return value.
+    Defaults to 'utf8'. Use 'raw' to get a ByteArray instead of a string.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the decoded string or ByteArray</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="b16encode">
+                <h3 >
+                    <span class="itemtitle"><a id="b16encode" href="#b16encode" class="itemtitle itemname">b16encode</a></span>
+                    <span class="itemtitle light">(str, encoding)</span></h3>
+                <div>
+                    <p>Encode a string or binary to a Base16 encoded string</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|Binary</td>
+                            <td class="paramname">str</td>
+                            <td>a string or binary</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>optional encoding to use if
+    first argument is a string. Defaults to 'utf8'.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the Base16 encoded string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="b64decode">
+                <h3 >
+                    <span class="itemtitle"><a id="b64decode" href="#b64decode" class="itemtitle itemname">b64decode</a></span>
+                    <span class="itemtitle light">(string, encoding)</span></h3>
+                <div>
+                    <p>Decodes a Base64 encoded string to a string or byte array.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the Base64 encoded string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>the encoding to use for the return value.
+    Defaults to 'utf8'. Use 'raw' to get a ByteArray instead of a string.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the decoded string or ByteArray</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="b64encode">
+                <h3 >
+                    <span class="itemtitle"><a id="b64encode" href="#b64encode" class="itemtitle itemname">b64encode</a></span>
+                    <span class="itemtitle light">(string, encoding)</span></h3>
+                <div>
+                    <p>Encode a string or binary to a Base64 encoded string</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|Binary</td>
+                            <td class="paramname">string</td>
+                            <td>a string or binary</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>optional encoding to use if
+    first argument is a string. Defaults to 'utf8'.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the Base64 encoded string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="capitalize">
+                <h3 >
+                    <span class="itemtitle"><a id="capitalize" href="#capitalize" class="itemtitle itemname">capitalize</a></span>
+                    <span class="itemtitle light">(the, amount)</span></h3>
+                <div>
+                    <p>transforms the first n characters of a string to uppercase</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">the</td>
+                            <td>string to capitalize</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">amount</td>
+                            <td>of characters to transform</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="compose">
+                <h3 >
+                    <span class="itemtitle"><a id="compose" href="#compose" class="itemtitle itemname">compose</a></span>
+                    <span class="itemtitle light">(one)</span></h3>
+                <div>
+                    <p>create a string from a bunch of substrings</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">one</td>
+                            <td>or more strings as arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="contains">
+                <h3 >
+                    <span class="itemtitle"><a id="contains" href="#contains" class="itemtitle itemname">contains</a></span>
+                    <span class="itemtitle light">(string, substring, fromIndex)</span></h3>
+                <div>
+                    <p>Returns true if string contains substring.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string to search in</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">substring</td>
+                            <td>the string to search for</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">fromIndex</td>
+                            <td>optional index to start searching</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td>true if substring is contained in this string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="count">
+                <h3 >
+                    <span class="itemtitle"><a id="count" href="#count" class="itemtitle itemname">count</a></span>
+                    <span class="itemtitle light">(string, pattern)</span></h3>
+                <div>
+                    <p>returns the amount of occurences of one string in another</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">pattern</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="digest">
+                <h3 >
+                    <span class="itemtitle"><a id="digest" href="#digest" class="itemtitle itemname">digest</a></span>
+                    <span class="itemtitle light">(string, algorithm)</span></h3>
+                <div>
+                    <p>function calculates a message digest of a string. If no
+argument is passed, the MD5 algorithm is used.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string to digest</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">algorithm</td>
+                            <td>the name of the algorithm to use</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> base16-encoded message digest of the string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="endsWith">
+                <h3 >
+                    <span class="itemtitle"><a id="endsWith" href="#endsWith" class="itemtitle itemname">endsWith</a></span>
+                    <span class="itemtitle light">(string, substring)</span></h3>
+                <div>
+                    <p>Returns true if string ends with the given substring</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string to search in</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">substring</td>
+                            <td>pattern to search for</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true in case it matches the end of
+           the string, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="entitize">
+                <h3 >
+                    <span class="itemtitle"><a id="entitize" href="#entitize" class="itemtitle itemname">entitize</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>translates all characters of a string into HTML entitie</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> translated result</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="escapeHtml">
+                <h3 >
+                    <span class="itemtitle"><a id="escapeHtml" href="#escapeHtml" class="itemtitle itemname">escapeHtml</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>Escape the string to make it safe for use within an HTML document.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string to escape</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the escaped string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="escapeRegExp">
+                <h3 >
+                    <span class="itemtitle"><a id="escapeRegExp" href="#escapeRegExp" class="itemtitle itemname">escapeRegExp</a></span>
+                    <span class="itemtitle light">(str)</span></h3>
+                <div>
+                    <p>Accepts a string; returns the string with regex metacharacters escaped.
+the returned string can safely be used within a regex to match a literal
+string. escaped characters are [, ], {, }, (, ), -, *, +, ?, ., , ^, $,
+|, #, [comma], and whitespace.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">str</td>
+                            <td>the string to escape</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the escaped string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="format">
+                <h3 >
+                    <span class="itemtitle"><a id="format" href="#format" class="itemtitle itemname">format</a></span>
+                    <span class="itemtitle light">(format)</span></h3>
+                <div>
+                    <p>A simple string formatter. If the first argument is a format string
+containing a number of curly bracket pairs {} as placeholders,
+the same number of following arguments will be used to replace the curly
+bracket pairs in the format string. If the first argument is not a string
+or does not contain any curly brackets, the arguments are simply concatenated
+to a string and returned.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">format</td>
+                            <td>string, followed by a variable number of values</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the formatted string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getCommonPrefix">
+                <h3 >
+                    <span class="itemtitle"><a id="getCommonPrefix" href="#getCommonPrefix" class="itemtitle itemname">getCommonPrefix</a></span>
+                    <span class="itemtitle light">(str1, str2)</span></h3>
+                <div>
+                    <p>Get the longest common segment that two strings
+have in common, starting at the beginning of the string</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">str1</td>
+                            <td>a string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">str2</td>
+                            <td>another string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the longest common segment</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="group">
+                <h3 >
+                    <span class="itemtitle"><a id="group" href="#group" class="itemtitle itemname">group</a></span>
+                    <span class="itemtitle light">(string, interval, string, ignoreWhiteSpace)</span></h3>
+                <div>
+                    <p>function inserts a string every number of characters</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">interval</td>
+                            <td>number of characters after which insertion should take place</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>to be inserted</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">ignoreWhiteSpace</td>
+                            <td>definitely insert at each interval position</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isAlpha">
+                <h3 >
+                    <span class="itemtitle"><a id="isAlpha" href="#isAlpha" class="itemtitle itemname">isAlpha</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function returns true if the string contains
+only characters a-z</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true in case string is alpha, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isAlphanumeric">
+                <h3 >
+                    <span class="itemtitle"><a id="isAlphanumeric" href="#isAlphanumeric" class="itemtitle itemname">isAlphanumeric</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function returns true if the string contains
+only a-z and 0-9 (case insensitive!)</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true in case string is alpha, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isDateFormat">
+                <h3 >
+                    <span class="itemtitle"><a id="isDateFormat" href="#isDateFormat" class="itemtitle itemname">isDateFormat</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>checks if a date format pattern is correct</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true if the pattern is correct</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isEmail">
+                <h3 >
+                    <span class="itemtitle"><a id="isEmail" href="#isEmail" class="itemtitle itemname">isEmail</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>returns true if the string looks like an e-mail</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isFileName">
+                <h3 >
+                    <span class="itemtitle"><a id="isFileName" href="#isFileName" class="itemtitle itemname">isFileName</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function checks if the string passed contains any characters
+that are forbidden in image- or filenames</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isFloat">
+                <h3 >
+                    <span class="itemtitle"><a id="isFloat" href="#isFloat" class="itemtitle itemname">isFloat</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>returns true if the string is a floating point literal</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isHexColor">
+                <h3 >
+                    <span class="itemtitle"><a id="isHexColor" href="#isHexColor" class="itemtitle itemname">isHexColor</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function checks a string for a valid color value in hexadecimal format.
+it may also contain # as first character</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean false, if string length (without #) > 6 or < 6 or
+             contains any character which is not a valid hex value</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isInt">
+                <h3 >
+                    <span class="itemtitle"><a id="isInt" href="#isInt" class="itemtitle itemname">isInt</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>returns true if the string is an integer literal</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isLowerCase">
+                <h3 >
+                    <span class="itemtitle"><a id="isLowerCase" href="#isLowerCase" class="itemtitle itemname">isLowerCase</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>returns true if the string is lowercase</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isNumeric">
+                <h3 >
+                    <span class="itemtitle"><a id="isNumeric" href="#isNumeric" class="itemtitle itemname">isNumeric</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function returns true if the string contains
+only 0-9</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean true in case string is numeric, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isUpperCase">
+                <h3 >
+                    <span class="itemtitle"><a id="isUpperCase" href="#isUpperCase" class="itemtitle itemname">isUpperCase</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>returns true if the string is uppercase</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isUrl">
+                <h3 >
+                    <span class="itemtitle"><a id="isUrl" href="#isUrl" class="itemtitle itemname">isUrl</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function checks if the string is an URL validating.
+Only HTTP, HTTPS and FTP are allowed protocols.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="join">
+                <h3 >
+                    <span class="itemtitle"><a id="join" href="#join" class="itemtitle itemname">join</a></span>
+                    <span class="itemtitle light">(the, the, the)</span></h3>
+                <div>
+                    <p>append one string onto another and add some "glue"
+if none of the strings is empty or null.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">the</td>
+                            <td>first string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">the</td>
+                            <td>string to be appended onto the first one</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">the</td>
+                            <td>"glue" to be inserted between both strings</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="pad">
+                <h3 >
+                    <span class="itemtitle"><a id="pad" href="#pad" class="itemtitle itemname">pad</a></span>
+                    <span class="itemtitle light">(string, fill, length, mode)</span></h3>
+                <div>
+                    <p>fills a string with another string up to a desired length</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">fill</td>
+                            <td>the filling string</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">length</td>
+                            <td>the desired length of the resulting string</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">mode</td>
+                            <td>the direction which the string will be padded in:
+a negative number means left, 0 means both, a positive number means right</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="random">
+                <h3 >
+                    <span class="itemtitle"><a id="random" href="#random" class="itemtitle itemname">random</a></span>
+                    <span class="itemtitle light">(len, mode)</span></h3>
+                <div>
+                    <p>creates a random string (numbers and chars)</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">len</td>
+                            <td>length of key</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">mode</td>
+                            <td>determines which letters to use. null or 0 = all letters;
+     1 = skip 0, 1, l and o which can easily be mixed with numbers;
+     2 = use numbers only</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>random string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="repeat">
+                <h3 >
+                    <span class="itemtitle"><a id="repeat" href="#repeat" class="itemtitle itemname">repeat</a></span>
+                    <span class="itemtitle light">(string, num)</span></h3>
+                <div>
+                    <p>function repeats a string passed as argument</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">num</td>
+                            <td>amount of repetitions</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="startsWith">
+                <h3 >
+                    <span class="itemtitle"><a id="startsWith" href="#startsWith" class="itemtitle itemname">startsWith</a></span>
+                    <span class="itemtitle light">(string, substring)</span></h3>
+                <div>
+                    <p>Returns true if string starts with the given substring</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string to search in</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">substring</td>
+                            <td>pattern to search for</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true in case it matches the beginning
+           of the string, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="stripTags">
+                <h3 >
+                    <span class="itemtitle"><a id="stripTags" href="#stripTags" class="itemtitle itemname">stripTags</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>Remove all potential HTML/XML tags from this string</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the processed string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="titleize">
+                <h3 >
+                    <span class="itemtitle"><a id="titleize" href="#titleize" class="itemtitle itemname">titleize</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>transforms the first n characters of each
+word in a string to uppercase</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toAlphanumeric">
+                <h3 >
+                    <span class="itemtitle"><a id="toAlphanumeric" href="#toAlphanumeric" class="itemtitle itemname">toAlphanumeric</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function cleans a string by throwing away all
+non-alphanumeric characters</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>cleaned string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toCamelCase">
+                <h3 >
+                    <span class="itemtitle"><a id="toCamelCase" href="#toCamelCase" class="itemtitle itemname">toCamelCase</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>Transforms string from space, dash, or underscore notation to camel-case.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>a string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toDashes">
+                <h3 >
+                    <span class="itemtitle"><a id="toDashes" href="#toDashes" class="itemtitle itemname">toDashes</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>Transforms string from camel-case to dash notation.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>a string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toDate">
+                <h3 >
+                    <span class="itemtitle"><a id="toDate" href="#toDate" class="itemtitle itemname">toDate</a></span>
+                    <span class="itemtitle light">(string, format, timezone)</span></h3>
+                <div>
+                    <p>parse a timestamp into a date object.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">format</td>
+                            <td>date format to be applied</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">timezone</td>
+                            <td>Java TimeZone Object (optional)</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the resulting date</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toFileName">
+                <h3 >
+                    <span class="itemtitle"><a id="toFileName" href="#toFileName" class="itemtitle itemname">toFileName</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>function cleans the string passed as argument from any characters
+that are forbidden or shouldn't be used in filenames</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Boolean</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toHexColor">
+                <h3 >
+                    <span class="itemtitle"><a id="toHexColor" href="#toHexColor" class="itemtitle itemname">toHexColor</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>converts a string into a hexadecimal color
+representation (e.g. "ffcc33"). also knows how to
+convert a color string like "rgb (255, 204, 51)".</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String the resulting hex color (w/o "#")</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="toUnderscores">
+                <h3 >
+                    <span class="itemtitle"><a id="toUnderscores" href="#toUnderscores" class="itemtitle itemname">toUnderscores</a></span>
+                    <span class="itemtitle light">(string)</span></h3>
+                <div>
+                    <p>Transforms string from camel-case to underscore notation.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>a string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the resulting string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="unwrap">
+                <h3 >
+                    <span class="itemtitle"><a id="unwrap" href="#unwrap" class="itemtitle itemname">unwrap</a></span>
+                    <span class="itemtitle light">(flag, replacement)</span></h3>
+                <div>
+                    <p>replace all linebreaks and optionally all w/br tags</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">flag</td>
+                            <td>indicating if html tags should be replaced</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">replacement</td>
+                            <td>for the linebreaks / html tags</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String the unwrapped string</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="y64decode">
+                <h3 >
+                    <span class="itemtitle"><a id="y64decode" href="#y64decode" class="itemtitle itemname">y64decode</a></span>
+                    <span class="itemtitle light">(string, encoding)</span></h3>
+                <div>
+                    <p>Decodes a Y64 encoded string to a string or byte array.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td>the Y64 encoded string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>the encoding to use for the return value.
+    Defaults to 'utf8'. Use 'raw' to get a ByteArray instead of a string.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the decoded string or ByteArray</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="y64encode">
+                <h3 >
+                    <span class="itemtitle"><a id="y64encode" href="#y64encode" class="itemtitle itemname">y64encode</a></span>
+                    <span class="itemtitle light">(string, encoding)</span></h3>
+                <div>
+                    <p>Encode a string or binary to a Y64 encoded string. Y64
+is an URL-safe Base64 encoding and prevents any URL escaping.
+It replaces the plus (<code>+</code>), slash (<code>/</code>)
+and equals (<code>=</code>) with dot (<code>.</code>),
+underscore (<code>_</code>) and dash (<code>-</code>).</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|Binary</td>
+                            <td class="paramname">string</td>
+                            <td>a string or binary</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">encoding</td>
+                            <td>optional encoding to use if
+    first argument is a string. Defaults to 'utf8'.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>the Y64 encoded string</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://www.yuiblog.com/blog/2010/07/06/in-the-yui-3-gallery-base64-and-y64-encoding/">Detailed Y64 description</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../../index.html">&bull; Modules</a>
+      <a href="../../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../assert/index.html">assert</a></li>
+            <li><a href="../../../binary/index.html">binary</a></li>
+            <li><a href="../../../console/index.html">console</a></li>
+            <li><a href="../../../fs/index.html">fs</a></li>
+            <li><a href="../../../globals/index.html">globals</a></li>
+            <li><a href="../../../io/index.html">io</a></li>
+            <li><a href="../../../net/index.html">net</a></li>
+            <li><a href="../../../system/index.html">system</a></li>
+            <li><a href="../../../test/index.html">test</a></li>
+            <li><a href="../../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

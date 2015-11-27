@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>net - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../static/jsdoc.css" />
+<link rel="stylesheet" href="../static/style.css" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module net</h1>
+        <div class="fileoverview">
+            <p>This module provides support for networking using
+TCP and UDP sockets. A socket represents a connection between a
+client and a server program over a network. The underlying native
+binding is provided by the <code>java.net</code> package.</p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode">// A simple TCP server
+var io = require('io');
+var net = require('net');
+
+var server = new net.ServerSocket();
+server.bind('127.0.0.1', 6789);
+
+var socket = server.accept();
+var stream = new io.TextStream(socket.getStream(), {
+  'charset': 'US-ASCII'
+});
+
+var line;
+do {
+  // Read one line from the client
+  line = stream.readLine();
+  console.log(line);
+
+  // Write back to the client
+  stream.writeLine("Received: " + line);
+} while (line.indexOf("END") < 0);
+
+stream.close();
+socket.close();
+server.close();</pre>
+        </div>
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#DatagramSocket" class="jsdoc-title">DatagramSocket</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#DatagramSocket.prototype.bind" class="jsdoc-title"> bind</a>(host, port)
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.connect" class="jsdoc-title"> connect</a>(host, port)
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.disconnect" class="jsdoc-title"> disconnect</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.getTimeout" class="jsdoc-title"> getTimeout</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.isBound" class="jsdoc-title"> isBound</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.isClosed" class="jsdoc-title"> isClosed</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.isConnected" class="jsdoc-title"> isConnected</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.localAddress" class="jsdoc-title"> localAddress</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.receive" class="jsdoc-title"> receive</a>(length, buffer)
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.receiveFrom" class="jsdoc-title"> receiveFrom</a>(length, buffer)
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.remoteAddress" class="jsdoc-title"> remoteAddress</a>()
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.send" class="jsdoc-title"> send</a>(data)
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.sendTo" class="jsdoc-title"> sendTo</a>(host, port, data)
+                    </li>
+                                        <li>
+                        <a href="#DatagramSocket.prototype.setTimeout" class="jsdoc-title"> setTimeout</a>(timeout)
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#ServerSocket" class="jsdoc-title">ServerSocket</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#ServerSocket.prototype.accept" class="jsdoc-title"> accept</a>()
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.bind" class="jsdoc-title"> bind</a>(host, port)
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.getTimeout" class="jsdoc-title"> getTimeout</a>()
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.isBound" class="jsdoc-title"> isBound</a>()
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.isClosed" class="jsdoc-title"> isClosed</a>()
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.localAddress" class="jsdoc-title"> localAddress</a>()
+                    </li>
+                                        <li>
+                        <a href="#ServerSocket.prototype.setTimeout" class="jsdoc-title"> setTimeout</a>(timeout)
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#Socket" class="jsdoc-title">Socket</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Socket.prototype.bind" class="jsdoc-title"> bind</a>(host, port)
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.connect" class="jsdoc-title"> connect</a>(host, port, [timeout])
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.getStream" class="jsdoc-title"> getStream</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.getTimeout" class="jsdoc-title"> getTimeout</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.isBound" class="jsdoc-title"> isBound</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.isClosed" class="jsdoc-title"> isClosed</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.isConnected" class="jsdoc-title"> isConnected</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.localAddress" class="jsdoc-title"> localAddress</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.remoteAddress" class="jsdoc-title"> remoteAddress</a>()
+                    </li>
+                                        <li>
+                        <a href="#Socket.prototype.setTimeout" class="jsdoc-title"> setTimeout</a>(timeout)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="DatagramSocket" href="#DatagramSocket" class="itemtitle itemname">DatagramSocket</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>The DatagramSocket class is used to create a UDP socket.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.bind">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.bind" href="#DatagramSocket.prototype.bind" class="itemtitle itemname">bind</a></span>
+                    <span class="itemtitle light">(host, port)</span></h3>
+                <div>
+                    <p>Binds the socket to a local address and port. If address or port are
+omitted the system will choose a local address and port to bind the socket.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">host</td>
+                            <td>address (interface) to which the socket will be bound.</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">port</td>
+                            <td>port number to bind the socket to.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.close">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.close" href="#DatagramSocket.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Close the socket immediately</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.connect">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.connect" href="#DatagramSocket.prototype.connect" class="itemtitle itemname">connect</a></span>
+                    <span class="itemtitle light">(host, port)</span></h3>
+                <div>
+                    <p>Connect the socket to a remote address. If a DatagramSocket is connected,
+it may only send data to and receive data from the given address. By
+default DatagramSockets are not connected.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">host</td>
+                            <td>IP address or hostname</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">port</td>
+                            <td>port number or service name</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.disconnect">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.disconnect" href="#DatagramSocket.prototype.disconnect" class="itemtitle itemname">disconnect</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Disconnects the socket.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.getTimeout">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.getTimeout" href="#DatagramSocket.prototype.getTimeout" class="itemtitle itemname">getTimeout</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Return the current timeout of this DatagramSocket. A value of zero
+implies that timeout is disabled, i.e. receive() will never time out.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> the current timeout</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.isBound">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.isBound" href="#DatagramSocket.prototype.isBound" class="itemtitle itemname">isBound</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether this socket is bound to an address.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the socket has been bound to an address</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.isClosed">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.isClosed" href="#DatagramSocket.prototype.isClosed" class="itemtitle itemname">isClosed</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether the socket is closed or not.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the socket has been closed</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.isConnected">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.isConnected" href="#DatagramSocket.prototype.isConnected" class="itemtitle itemname">isConnected</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether the socket is connected or not.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the socket has been connected to a remote address</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.localAddress">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.localAddress" href="#DatagramSocket.prototype.localAddress" class="itemtitle itemname">localAddress</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the local address to which this socket is bound. This returns an
+object with a property <code>address</code> containing the IP address as string
+and a property <code>port</code> containing the port number, e.g.
+<code>{address: '127.0.0.1', port: 8080}</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> an address descriptor</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.receive">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.receive" href="#DatagramSocket.prototype.receive" class="itemtitle itemname">receive</a></span>
+                    <span class="itemtitle light">(length, buffer)</span></h3>
+                <div>
+                    <p>Receive a datagram packet from this socket. This method does not return
+the sender's IP address, so it is meant to be in conjunction with
+<a href="#DatagramSocket.prototype.connect" title="DatagramSocket.prototype.connect">connect()</a>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">length</td>
+                            <td>the maximum number of bytes to receive</td>
+                        </tr>
+                                                <tr>
+                            <td>ByteArray</td>
+                            <td class="paramname">buffer</td>
+                            <td>optional buffer to store bytes in</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>ByteArray</td>
+                            <td> the received data</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.receiveFrom">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.receiveFrom" href="#DatagramSocket.prototype.receiveFrom" class="itemtitle itemname">receiveFrom</a></span>
+                    <span class="itemtitle light">(length, buffer)</span></h3>
+                <div>
+                    <p>Receive a datagram packet from this socket. This method returns an object
+with the following properties:</p>
+
+<ul><li>address: the sender's IP address as string</li>
+<li>port: the sender's port number</li>
+<li>data: the received data</li></ul>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">length</td>
+                            <td>the maximum number of bytes to receive</td>
+                        </tr>
+                                                <tr>
+                            <td>ByteArray</td>
+                            <td class="paramname">buffer</td>
+                            <td>optional buffer to store bytes in</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the received packet</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.remoteAddress">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.remoteAddress" href="#DatagramSocket.prototype.remoteAddress" class="itemtitle itemname">remoteAddress</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the remote address to which this socket is connected. This returns an
+object with a property <code>address</code> containing the IP address as string
+and a property <code>port</code> containing the port number, e.g.
+<code>{address: '127.0.0.1', port: 8080}</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> an address descriptor</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.send">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.send" href="#DatagramSocket.prototype.send" class="itemtitle itemname">send</a></span>
+                    <span class="itemtitle light">(data)</span></h3>
+                <div>
+                    <p>Send a datagram packet from this socket. This method does not allow
+the specify the recipient's IP address, so it is meant to be in
+conjunction with <a href="#DatagramSocket.prototype.connect" title="DatagramSocket.prototype.connect">connect()</a>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Binary</td>
+                            <td class="paramname">data</td>
+                            <td>the data to send</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.sendTo">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.sendTo" href="#DatagramSocket.prototype.sendTo" class="itemtitle itemname">sendTo</a></span>
+                    <span class="itemtitle light">(host, port, data)</span></h3>
+                <div>
+                    <p>Send a datagram packet from this socket to the specified address.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">host</td>
+                            <td>the IP address of the recipient</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">port</td>
+                            <td>the port number</td>
+                        </tr>
+                                                <tr>
+                            <td>Binary</td>
+                            <td class="paramname">data</td>
+                            <td>the data to send</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="DatagramSocket.prototype.setTimeout">
+                <h3 >
+                    <span class="itemtitle">DatagramSocket.prototype.<a id="DatagramSocket.prototype.setTimeout" href="#DatagramSocket.prototype.setTimeout" class="itemtitle itemname">setTimeout</a></span>
+                    <span class="itemtitle light">(timeout)</span></h3>
+                <div>
+                    <p>Enable/disable timeout with the specified timeout, in milliseconds.
+With this option set to a non-zero timeout, a call to receive() for this
+DatagramSocket will block for only this amount of time.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">timeout</td>
+                            <td>timeout in milliseconds</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="ServerSocket" href="#ServerSocket" class="itemtitle itemname">ServerSocket</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>This class implements a server socket. Server sockets wait for requests
+coming in over the network.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.accept">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.accept" href="#ServerSocket.prototype.accept" class="itemtitle itemname">accept</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Listens for a connection to be made to this socket and returns a new
+<a href="#Socket" title="Socket">Socket</a> object. The method blocks until a connection is made.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Socket</td>
+                            <td> a newly connected socket object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.bind">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.bind" href="#ServerSocket.prototype.bind" class="itemtitle itemname">bind</a></span>
+                    <span class="itemtitle light">(host, port)</span></h3>
+                <div>
+                    <p>Binds the socket to a local address and port. If address or port are
+omitted the system will choose a local address and port to bind the socket.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">host</td>
+                            <td>address (interface) to which the socket will be bound.</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">port</td>
+                            <td>port number to bind the socket to.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.close">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.close" href="#ServerSocket.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Close the socket immediately</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.getTimeout">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.getTimeout" href="#ServerSocket.prototype.getTimeout" class="itemtitle itemname">getTimeout</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Return the current timeout of this ServerSocket. A value of zero implies
+that timeout is disabled, i.e. accept() will never time out.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> the current timeout</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.isBound">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.isBound" href="#ServerSocket.prototype.isBound" class="itemtitle itemname">isBound</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether this socket is bound to an address.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the socket has been bound to an address</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.isClosed">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.isClosed" href="#ServerSocket.prototype.isClosed" class="itemtitle itemname">isClosed</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether the socket is closed or not.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the socket has been closed</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.localAddress">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.localAddress" href="#ServerSocket.prototype.localAddress" class="itemtitle itemname">localAddress</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the local address to which this socket is bound. This returns an
+object with a property <code>address</code> containing the IP address as string
+and a property <code>port</code> containing the port number, e.g.
+<code>{address: '127.0.0.1', port: 8080}</code></p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> an address descriptor</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ServerSocket.prototype.setTimeout">
+                <h3 >
+                    <span class="itemtitle">ServerSocket.prototype.<a id="ServerSocket.prototype.setTimeout" href="#ServerSocket.prototype.setTimeout" class="itemtitle itemname">setTimeout</a></span>
+                    <span class="itemtitle light">(timeout)</span></h3>
+                <div>
+                    <p>Enable/disable timeout with the specified timeout, in milliseconds.
+With this option set to a non-zero timeout, a call to accept() for this
+ServerSocket will block for only this amount of time.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">timeout</td>
+                            <td>timeout in milliseconds</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Socket" href="#Socket" class="itemtitle itemname">Socket</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>The Socket class is used to create a TCP socket. Newly created sockets must
+be connected to a remote address before being able to send and receive data.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.bind">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.bind" href="#Socket.prototype.bind" class="itemtitle itemname">bind</a></span>
+                    <span class="itemtitle light">(host, port)</span></h3>
+                <div>
+                    <p>Binds the socket to a local address and port. If address or port are
+omitted the system will choose a local address and port to bind the socket.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">host</td>
+                            <td>address (interface) to which the socket will be bound.</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">port</td>
+                            <td>port number to bind the socket to.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.close">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.close" href="#Socket.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Close the socket immediately</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.connect">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.connect" href="#Socket.prototype.connect" class="itemtitle itemname">connect</a></span>
+                    <span class="itemtitle light">(host, port, [timeout])</span></h3>
+                <div>
+                    <p>Initiate a connection on a socket. Connect to a remote port on the specified
+host with a connection timeout. Throws an exception in case of failure.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">host</td>
+                            <td>IP address or hostname</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">port</td>
+                            <td>port number or service name</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">[timeout]</td>
+                            <td>optional timeout value in milliseconds</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.getStream">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.getStream" href="#Socket.prototype.getStream" class="itemtitle itemname">getStream</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the <a href="../io/index.html#Stream" title="io.Stream">I/O stream</a> for this socket.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Stream</td>
+                            <td> a binary stream</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="../io/index.html#Stream">io.Stream</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.getTimeout">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.getTimeout" href="#Socket.prototype.getTimeout" class="itemtitle itemname">getTimeout</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Return the current timeout of this Socket. A value of zero
+implies that timeout is disabled, i.e. read() will never time out.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> the current timeout</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.isBound">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.isBound" href="#Socket.prototype.isBound" class="itemtitle itemname">isBound</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether this socket is bound to an address.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the socket has been bound to an address</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.isClosed">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.isClosed" href="#Socket.prototype.isClosed" class="itemtitle itemname">isClosed</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether the socket is closed or not.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the socket has been closed</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.isConnected">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.isConnected" href="#Socket.prototype.isConnected" class="itemtitle itemname">isConnected</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns whether the socket is connected or not.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the socket has been connected to a remote address</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.localAddress">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.localAddress" href="#Socket.prototype.localAddress" class="itemtitle itemname">localAddress</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the local address to which this socket is bound. This returns an
+object with a property <code>address</code> containing the IP address as string
+and a property <code>port</code> containing the port number, e.g.
+<code>{address: '127.0.0.1', port: 8080}</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> an address descriptor</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.remoteAddress">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.remoteAddress" href="#Socket.prototype.remoteAddress" class="itemtitle itemname">remoteAddress</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the remote address to which this socket is connected. This returns an
+object with a property <code>address</code> containing the IP address as string
+and a property <code>port</code> containing the port number, e.g.
+<code>{address: '127.0.0.1', port: 8080}</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> an address descriptor</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Socket.prototype.setTimeout">
+                <h3 >
+                    <span class="itemtitle">Socket.prototype.<a id="Socket.prototype.setTimeout" href="#Socket.prototype.setTimeout" class="itemtitle itemname">setTimeout</a></span>
+                    <span class="itemtitle light">(timeout)</span></h3>
+                <div>
+                    <p>Enable/disable timeout with the specified timeout, in milliseconds.
+With this option set to a non-zero timeout, a read() on this socket's
+stream will block for only this amount of time.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">timeout</td>
+                            <td>timeout in milliseconds</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../index.html">&bull; Modules</a>
+      <a href="../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../assert/index.html">assert</a></li>
+            <li><a href="../binary/index.html">binary</a></li>
+            <li><a href="../console/index.html">console</a></li>
+            <li><a href="../fs/index.html">fs</a></li>
+            <li><a href="../globals/index.html">globals</a></li>
+            <li><a href="../io/index.html">io</a></li>
+            <li><a href="../net/index.html">net</a></li>
+            <li><a href="../system/index.html">system</a></li>
+            <li><a href="../test/index.html">test</a></li>
+            <li><a href="../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

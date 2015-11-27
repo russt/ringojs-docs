@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/jsgi/connector - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../../static/style.css" />
+<script type="text/javascript" src="../../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/jsgi/connector</h1>
+        <div class="fileoverview">
+            <p>Low-level JSGI adapter implementation.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#handleRequest" class="jsdoc-title"> handleRequest</a>(moduleId, functionObj, request)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#AsyncResponse" class="jsdoc-title">AsyncResponse</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#AsyncResponse.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#AsyncResponse.prototype.flush" class="jsdoc-title"> flush</a>()
+                    </li>
+                                        <li>
+                        <a href="#AsyncResponse.prototype.start" class="jsdoc-title"> start</a>(status, headers)
+                    </li>
+                                        <li>
+                        <a href="#AsyncResponse.prototype.write" class="jsdoc-title"> write</a>(data, [encoding])
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AsyncResponse">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="AsyncResponse" href="#AsyncResponse" class="itemtitle itemname">AsyncResponse</a></span>
+                    <span class="itemtitle light">(request, timeout, autoflush)</span></h3>
+                <div>
+                    <p>Creates a streaming asynchronous response. The returned response object can be used
+both synchronously from the current thread or asynchronously from another thread,
+even after the original thread has finished execution. AsyncResponse objects are
+threadsafe.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">request</td>
+                            <td>the JSGI request object</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">timeout</td>
+                            <td>the response timeout in milliseconds. Defaults to 30 seconds.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">autoflush</td>
+                            <td>whether to flush after each write.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AsyncResponse.prototype.close">
+                <h3 >
+                    <span class="itemtitle">AsyncResponse.prototype.<a id="AsyncResponse.prototype.close" href="#AsyncResponse.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Close the response stream, causing all buffered data to be written
+to the client.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AsyncResponse.prototype.flush">
+                <h3 >
+                    <span class="itemtitle">AsyncResponse.prototype.<a id="AsyncResponse.prototype.flush" href="#AsyncResponse.prototype.flush" class="itemtitle itemname">flush</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Flush the response stream, causing all buffered data to be written
+to the client.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>this response object for chaining</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AsyncResponse.prototype.start">
+                <h3 >
+                    <span class="itemtitle">AsyncResponse.prototype.<a id="AsyncResponse.prototype.start" href="#AsyncResponse.prototype.start" class="itemtitle itemname">start</a></span>
+                    <span class="itemtitle light">(status, headers)</span></h3>
+                <div>
+                    <p>Set the HTTP status code and headers of the response. This method must only
+be called once.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">status</td>
+                            <td>the HTTP status code</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">headers</td>
+                            <td>the headers</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>this response object for chaining</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AsyncResponse.prototype.write">
+                <h3 >
+                    <span class="itemtitle">AsyncResponse.prototype.<a id="AsyncResponse.prototype.write" href="#AsyncResponse.prototype.write" class="itemtitle itemname">write</a></span>
+                    <span class="itemtitle light">(data, [encoding])</span></h3>
+                <div>
+                    <p>Write a chunk of data to the response stream.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|Binary</td>
+                            <td class="paramname">data</td>
+                            <td>a binary or string</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">[encoding]</td>
+                            <td>the encoding to use</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>this response object for chaining</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="handleRequest">
+                <h3 >
+                    <span class="itemtitle"><a id="handleRequest" href="#handleRequest" class="itemtitle itemname">handleRequest</a></span>
+                    <span class="itemtitle light">(moduleId, functionObj, request)</span></h3>
+                <div>
+                    <p>Handle a JSGI request.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">moduleId</td>
+                            <td>the module id. Ignored if functionObj is already a function.</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">functionObj</td>
+                            <td>the function, either as function object or function name to be
+            imported from the module moduleId.</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">request</td>
+                            <td>the JSGI request object</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the JSGI response object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../../index.html">&bull; Modules</a>
+      <a href="../../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../assert/index.html">assert</a></li>
+            <li><a href="../../../binary/index.html">binary</a></li>
+            <li><a href="../../../console/index.html">console</a></li>
+            <li><a href="../../../fs/index.html">fs</a></li>
+            <li><a href="../../../globals/index.html">globals</a></li>
+            <li><a href="../../../io/index.html">io</a></li>
+            <li><a href="../../../net/index.html">net</a></li>
+            <li><a href="../../../system/index.html">system</a></li>
+            <li><a href="../../../test/index.html">test</a></li>
+            <li><a href="../../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

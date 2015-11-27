@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/worker - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/worker</h1>
+        <div class="fileoverview">
+            <p>A Worker API based on the
+<a href="http://www.w3.org/TR/workers/">W3C Web Workers</a>.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#Worker" class="jsdoc-title">Worker</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Worker.prototype.postMessage" class="jsdoc-title"> postMessage</a>(data, [syncCallbacks])
+                    </li>
+                                        <li>
+                        <a href="#Worker.prototype.terminate" class="jsdoc-title"> terminate</a>()
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#WorkerPromise" class="jsdoc-title">WorkerPromise</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#WorkerPromise.prototype.then" class="jsdoc-title"> then</a>(callback, errback)
+                    </li>
+                                        <li>
+                        <a href="#WorkerPromise.prototype.wait" class="jsdoc-title"> wait</a>(timeout)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Worker">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Worker" href="#Worker" class="itemtitle itemname">Worker</a></span>
+                    <span class="itemtitle light">(moduleId)</span></h3>
+                <div>
+                    <p>A Worker thread loosely modeled after the
+<a href="http://www.w3.org/TR/workers/">W3C Web Worker API</a>.</p>
+
+<p>The <code>moduleId</code> argument must be the fully resolved id of the module
+to load in the worker. In order to be able to send messages to the worker
+using the <a href="#Worker.prototype.postMessage" title="Worker.prototype.postMessage">postMessage</a> method the module must
+define (though not necessarily export) a <code>onmessage</code> function.</p>
+
+<p>Workers operate on their own set of modules, so a new instance of the
+module will be created even if the module is already loaded in the current
+thread or is the same as the currently executing module. Thus,
+each worker operates in its private module environment, making concurrent
+programming much more predictable than with shared state multithreading.</p>
+
+<p>Event listeners for callbacks from the worker can be registered by
+assigning them to the <code>onmessage</code> and <code>onerror</code> properties of the worker.</p>
+
+<p>To free the worker's thread and other resources once the worker is no longer
+needed its <a href="#Worker.prototype.terminate" title="Worker.prototype.terminate">terminate</a> method should be called.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">moduleId</td>
+                            <td>the id of the module to load in the worker.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Worker.prototype.postMessage">
+                <h3 >
+                    <span class="itemtitle">Worker.prototype.<a id="Worker.prototype.postMessage" href="#Worker.prototype.postMessage" class="itemtitle itemname">postMessage</a></span>
+                    <span class="itemtitle light">(data, [syncCallbacks])</span></h3>
+                <div>
+                    <p>Post a message to the worker. This enqueues the message
+in the worker's input queue and returns immediately. The worker thread
+will then pick up the message and pass it to its <code>onmessage</code> function.</p>
+
+<p>The argument passed to <code>onmessage</code> is an object with a <code>data</code>
+property containing the message and a <code>source</code> property containing an
+object with <code>postMessage</code> and <code>postError</code> methods allowing  the worker
+to post messages or report errors back to the original caller.</p>
+
+<p>If <code>syncCallbacks</code> is <code>true</code>, callbacks from the worker will run on the
+worker's own thread instead of our local event loop thread. This
+allows callbacks to be delivered concurrently while the local thread is
+busy doing something else.</p>
+
+<p>Note that in contrast to the
+<a href="http://www.w3.org/TR/workers/">Web Workers specification</a> this worker
+implementation does not require JSON serialization of messages.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">data</td>
+                            <td>the data to pass to the worker</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">[syncCallbacks]</td>
+                            <td>flag that indicates whether
+callbacks from the worker should be called synchronously in the worker's
+own thread rather than in our own local event loop thread.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Worker.prototype.terminate">
+                <h3 >
+                    <span class="itemtitle">Worker.prototype.<a id="Worker.prototype.terminate" href="#Worker.prototype.terminate" class="itemtitle itemname">terminate</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Release the worker, returning it to the engine's worker pool.
+Note that this does not terminate the worker thread, or remove any
+current or future scheduled tasks from its event loop.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WorkerPromise">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="WorkerPromise" href="#WorkerPromise" class="itemtitle itemname">WorkerPromise</a></span>
+                    <span class="itemtitle light">(moduleId, message, [syncCallbacks])</span></h3>
+                <div>
+                    <p>A <a href="../../ringo/promise/index.html" title="ringo/promise">Promise</a> backed by a <a href="#Worker" title="Worker">Worker</a>.</p>
+
+<p>This creates a new Worker with the given <code>moduleId</code> and calls its <code>postMessage</code>
+function with the <code>message</code> argument. The first message or error received
+back from the worker will be used to resolve the promise.</p>
+
+<p>The worker is terminated immediately after it resolves the promise.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">moduleId</td>
+                            <td>the id of the module to load in the worker.</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">message</td>
+                            <td>the message to post to the worker.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">[syncCallbacks]</td>
+                            <td>flag that indicates whether
+callbacks from the worker should be called synchronously in the worker's
+own thread rather than in our own local event loop thread.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="../../ringo/promise/index.html#Promise">ringo/promise.Promise</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WorkerPromise.prototype.then">
+                <h3 >
+                    <span class="itemtitle">WorkerPromise.prototype.<a id="WorkerPromise.prototype.then" href="#WorkerPromise.prototype.then" class="itemtitle itemname">then</a></span>
+                    <span class="itemtitle light">(callback, errback)</span></h3>
+                <div>
+                    <p>Registers callback and errback functions that will be invoked when
+the promise is resolved by the worker. See documentation for
+<a href="../../ringo/promise/index.html#Promise.prototype.then" title="ringo/promise.Promise.prototype.then">Promise.then()</a>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">callback</td>
+                            <td>called if the promise is resolved as fulfilled</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">errback</td>
+                            <td>called if the promise is resolved as failed</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> a new promise that resolves to the return value of the
+    callback or errback when it is called.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WorkerPromise.prototype.wait">
+                <h3 >
+                    <span class="itemtitle">WorkerPromise.prototype.<a id="WorkerPromise.prototype.wait" href="#WorkerPromise.prototype.wait" class="itemtitle itemname">wait</a></span>
+                    <span class="itemtitle light">(timeout)</span></h3>
+                <div>
+                    <p>Wait for the worker to resolve the promise. See documentation for
+<a href="../../ringo/promise/index.html#Promise.prototype.wait" title="ringo/promise.Promise.prototype.wait">Promise.wait()</a>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">timeout</td>
+                            <td>optional time in milliseconds to wait for.
+                If timeout is undefined wait() blocks forever.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the value if the promise is resolved as fulfilled</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        Object the error value if the promise is resolved as failed
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

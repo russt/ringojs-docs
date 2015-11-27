@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/logging - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/logging</h1>
+        <div class="fileoverview">
+            <p>This module provides generic logging support for Ringo
+applications. It uses <a href="http://www.slf4j.org/">SLF4J</a> or
+<a href="http://logging.apache.org/log4j/">Apache log4j</a> if either is
+detected in the classpath, and will fall back to java.util.logging
+otherwise.</p>
+
+<p>If the first argument passed to any of the logging methods is a string
+containing any number of curly bracket pairs ({}), the logger will interpret
+it as format string and use any following arguments to replace the curly
+bracket pairs. If an argument is an Error or Java Exception object, the
+logger will render a stack trace for it and append it to the log message.</p>
+
+<p>This module's exports object implements the <a href="../events/index.html">EventEmitter</a>
+interface and emits logged messages using the log level name as event type.</p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode">// Get a Logger for the current module
+var log = require('ringo/logging').getLogger(module.id);
+
+log.debug('Connected to ', url, ' [GET]');
+log.error('This should not occur');
+log.info('Info message');
+log.info('User {} accessed {}', username, resource);
+log.warn('A warning');</pre>
+        </div>
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#getJavaStack" class="jsdoc-title"> getJavaStack</a>(error, prefix)
+                </li>
+                                <li>
+                    <a href="#getLogger" class="jsdoc-title"> getLogger</a>(name)
+                </li>
+                                <li>
+                    <a href="#getScriptStack" class="jsdoc-title"> getScriptStack</a>(error, prefix)
+                </li>
+                                <li>
+                    <a href="#setConfig" class="jsdoc-title"> setConfig</a>(resource, watchForUpdates)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Logger" class="jsdoc-title">Logger</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Logger.prototype.debug" class="jsdoc-title"> debug</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.error" class="jsdoc-title"> error</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.info" class="jsdoc-title"> info</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.isDebugEnabled" class="jsdoc-title"> isDebugEnabled</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.isErrorEnabled" class="jsdoc-title"> isErrorEnabled</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.isInfoEnabled" class="jsdoc-title"> isInfoEnabled</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.isTraceEnabled" class="jsdoc-title"> isTraceEnabled</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.isWarnEnabled" class="jsdoc-title"> isWarnEnabled</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.trace" class="jsdoc-title"> trace</a>()
+                    </li>
+                                        <li>
+                        <a href="#Logger.prototype.warn" class="jsdoc-title"> warn</a>()
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Logger" href="#Logger" class="itemtitle itemname">Logger</a></span>
+                    <span class="itemtitle light">(name, impl)</span></h3>
+                <div>
+                    <p>Logger class. This constructor is not exported, use this module's
+{@link getLogger} to get a logger instance.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">name</td>
+                            <td>the Logger name</td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">impl</td>
+                            <td>the logger implementation</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#getLogger">getLogger</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.debug">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.debug" href="#Logger.prototype.debug" class="itemtitle itemname">debug</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.error">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.error" href="#Logger.prototype.error" class="itemtitle itemname">error</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.info">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.info" href="#Logger.prototype.info" class="itemtitle itemname">info</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.isDebugEnabled">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.isDebugEnabled" href="#Logger.prototype.isDebugEnabled" class="itemtitle itemname">isDebugEnabled</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.isErrorEnabled">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.isErrorEnabled" href="#Logger.prototype.isErrorEnabled" class="itemtitle itemname">isErrorEnabled</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.isInfoEnabled">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.isInfoEnabled" href="#Logger.prototype.isInfoEnabled" class="itemtitle itemname">isInfoEnabled</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.isTraceEnabled">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.isTraceEnabled" href="#Logger.prototype.isTraceEnabled" class="itemtitle itemname">isTraceEnabled</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.isWarnEnabled">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.isWarnEnabled" href="#Logger.prototype.isWarnEnabled" class="itemtitle itemname">isWarnEnabled</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.trace">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.trace" href="#Logger.prototype.trace" class="itemtitle itemname">trace</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Logger.prototype.warn">
+                <h3 >
+                    <span class="itemtitle">Logger.prototype.<a id="Logger.prototype.warn" href="#Logger.prototype.warn" class="itemtitle itemname">warn</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getJavaStack">
+                <h3 >
+                    <span class="itemtitle"><a id="getJavaStack" href="#getJavaStack" class="itemtitle itemname">getJavaStack</a></span>
+                    <span class="itemtitle light">(error, prefix)</span></h3>
+                <div>
+                    <p>Get a rendered JavaScript stack trace from a caught error.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Error</td>
+                            <td class="paramname">error</td>
+                            <td>an error object</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">prefix</td>
+                            <td>to prepend to result if available</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the rendered JavaScript stack trace</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getLogger">
+                <h3 >
+                    <span class="itemtitle"><a id="getLogger" href="#getLogger" class="itemtitle itemname">getLogger</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Get a logger for the given name.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">name</td>
+                            <td>the name of the logger</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Logger</td>
+                            <td> a logger instance for the given name</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getScriptStack">
+                <h3 >
+                    <span class="itemtitle"><a id="getScriptStack" href="#getScriptStack" class="itemtitle itemname">getScriptStack</a></span>
+                    <span class="itemtitle light">(error, prefix)</span></h3>
+                <div>
+                    <p>Get a rendered JavaScript stack trace from a caught error.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Error</td>
+                            <td class="paramname">error</td>
+                            <td>an error object</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">prefix</td>
+                            <td>to prepend to result if available</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> the rendered JavaScript stack trace</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="setConfig">
+                <h3 >
+                    <span class="itemtitle"><a id="setConfig" href="#setConfig" class="itemtitle itemname">setConfig</a></span>
+                    <span class="itemtitle light">(resource, watchForUpdates)</span></h3>
+                <div>
+                    <p>Configure log4j using the given file resource.</p>
+
+<p>If you plan to update the configuration make sure to set the
+reset property to true in your configuration file.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Resource</td>
+                            <td class="paramname">resource</td>
+                            <td>the configuration resource in XML or properties format</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">watchForUpdates</td>
+                            <td>if true a scheduler thread is started that
+repeatedly checks the resource for updates.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

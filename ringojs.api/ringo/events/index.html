@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/events - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/events</h1>
+        <div class="fileoverview">
+            <p>Exports an EventEmitter classes that provide methods
+to emit events and register event listener functions.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#EventEmitter" class="jsdoc-title">EventEmitter</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#EventEmitter.prototype.emit" class="jsdoc-title"> emit</a>(type, [args...])
+                    </li>
+                                        <li>
+                        <a href="#EventEmitter.prototype.listeners" class="jsdoc-title"> listeners</a>(type)
+                    </li>
+                                        <li>
+                        <a href="#EventEmitter.prototype.on" class="jsdoc-title"> on</a>(type, listener)
+                    </li>
+                                        <li>
+                        <a href="#EventEmitter.prototype.removeAllListeners" class="jsdoc-title"> removeAllListeners</a>(type)
+                    </li>
+                                        <li>
+                        <a href="#EventEmitter.prototype.removeListener" class="jsdoc-title"> removeListener</a>(type, listener)
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#JavaEventEmitter" class="jsdoc-title">JavaEventEmitter</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.addListener" class="jsdoc-title"> addListener</a>(type, listener)
+                    </li>
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.addSyncListener" class="jsdoc-title"> addSyncListener</a>(type, listener)
+                    </li>
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.emit" class="jsdoc-title"> emit</a>(type, [args...])
+                    </li>
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.on" class="jsdoc-title"> on</a>(type, listener)
+                    </li>
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.removeAllListeners" class="jsdoc-title"> removeAllListeners</a>(type)
+                    </li>
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.removeListener" class="jsdoc-title"> removeListener</a>(type, listener)
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#JavaEventEmitter.prototype.impl" class="jsdoc-title"> impl</a>
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="EventEmitter">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="EventEmitter" href="#EventEmitter" class="itemtitle itemname">EventEmitter</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>This class provides methods to emit events and add or remove event listeners.</p>
+
+<p>The <code>EventEmitter</code> function can be used as constructor or as mix-in. Use the
+<code>new</code> keyword to construct a new EventEmitter:</p>
+
+<pre><code>var emitter = new EventEmitter();</code></pre>
+
+<p>To add event handling methods to an existing object, call or apply the
+<code>EventEmitter</code> function with the object as <code>this</code>:</p>
+
+<pre><code>EventEmitter.call(object);</code></pre>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="EventEmitter.prototype.emit">
+                <h3 >
+                    <span class="itemtitle">EventEmitter.prototype.<a id="EventEmitter.prototype.emit" href="#EventEmitter.prototype.emit" class="itemtitle itemname">emit</a></span>
+                    <span class="itemtitle light">(type, [args...])</span></h3>
+                <div>
+                    <p>Emit an event to all listeners registered for this event type</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>type the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">[args...]</td>
+                            <td>optional arguments to pass to the listeners</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the event was handled by at least one listener, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        Error if the event type was &quot;error&quot; and there were no listeners
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="EventEmitter.prototype.listeners">
+                <h3 >
+                    <span class="itemtitle">EventEmitter.prototype.<a id="EventEmitter.prototype.listeners" href="#EventEmitter.prototype.listeners" class="itemtitle itemname">listeners</a></span>
+                    <span class="itemtitle light">(type)</span></h3>
+                <div>
+                    <p>Get an array containing the listener functions for the given event.
+If no listeners exist for the given event a new array is created.
+Changes on the return value will be reflected in the EventEmitter instance.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>array</td>
+                            <td> the lister array</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="EventEmitter.prototype.on">
+                <h3 >
+                    <span class="itemtitle">EventEmitter.prototype.<a id="EventEmitter.prototype.on" href="#EventEmitter.prototype.on" class="itemtitle itemname">on</a></span>
+                    <span class="itemtitle light">(type, listener)</span></h3>
+                <div>
+                    <p>Add a listener function for the given event. This is a shortcut for
+<a href="#EventEmitter.prototype.addListener">addListener()</a></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">listener</td>
+                            <td>the listener</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>this object for chaining</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="EventEmitter.prototype.removeAllListeners">
+                <h3 >
+                    <span class="itemtitle">EventEmitter.prototype.<a id="EventEmitter.prototype.removeAllListeners" href="#EventEmitter.prototype.removeAllListeners" class="itemtitle itemname">removeAllListeners</a></span>
+                    <span class="itemtitle light">(type)</span></h3>
+                <div>
+                    <p>Remove all listener function for the given event.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>this object for chaining</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="EventEmitter.prototype.removeListener">
+                <h3 >
+                    <span class="itemtitle">EventEmitter.prototype.<a id="EventEmitter.prototype.removeListener" href="#EventEmitter.prototype.removeListener" class="itemtitle itemname">removeListener</a></span>
+                    <span class="itemtitle light">(type, listener)</span></h3>
+                <div>
+                    <p>Remove a listener function for the given event.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">listener</td>
+                            <td>the listener</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>this object for chaining</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="JavaEventEmitter" href="#JavaEventEmitter" class="itemtitle itemname">JavaEventEmitter</a></span>
+                    <span class="itemtitle light">(classOrInterface, eventMapping)</span></h3>
+                <div>
+                    <p>An adapter for dispatching Java events to Ringo. This class takes a Java
+class or interface as argument and creates a Java object that extends or
+implements the  class or interface and forwards method calls to event
+listener functions registered using the EventEmitter methods.</p>
+
+<p>Like <a href="#EventEmitter">EventEmitter</a>, <code>JavaEventEmitter</code> can be used as
+constructor or as mix-in. Use the <code>new</code> keyword to construct a new
+JavaEventEmitter:</p>
+
+<pre><code>var emitter = new JavaEventEmitter(JavaClassOrInterface);</code></pre>
+
+<p>To add event handling methods to an existing object, call or apply the
+<code>JavaEventEmitter</code> function with the object as <code>this</code>:</p>
+
+<pre><code>JavaEventEmitter.call(object, JavaClassOrInterface);</code></pre>
+
+<p>JavaEventEmitter accepts an object as optional second argument that maps
+Java methods to event names. If the first argument is a Java class
+this mapping also allows to select which methods should be overridden. If
+called without event mapping the method name is used as event name, except
+for methods like <code>onFoo</code> which will trigger event <code>foo</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">classOrInterface</td>
+                            <td>a Java class or interface, or an Array containing
+    multiple Java interfaces.</td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">eventMapping</td>
+                            <td>optional object mapping method names to event names.
+    If this parameter is defined only methods whose name is a property
+    key in the object will be overridden, and the event type will be
+    set to the property value instead of the method name.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.addListener">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.addListener" href="#JavaEventEmitter.prototype.addListener" class="itemtitle itemname">addListener</a></span>
+                    <span class="itemtitle light">(type, listener)</span></h3>
+                <div>
+                    <p>Add a listener function for the given event. The function will be
+called asynchronously on the thread of the local event loop.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">listener</td>
+                            <td>the listener</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.addSyncListener">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.addSyncListener" href="#JavaEventEmitter.prototype.addSyncListener" class="itemtitle itemname">addSyncListener</a></span>
+                    <span class="itemtitle light">(type, listener)</span></h3>
+                <div>
+                    <p>Add a synchronous listener function for the given event. A
+synchronous listener will be called by an outside thread instead
+of the thread of the local event loop. This means it can be
+called concurrently while this worker is running other code.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">listener</td>
+                            <td>the listener</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.emit">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.emit" href="#JavaEventEmitter.prototype.emit" class="itemtitle itemname">emit</a></span>
+                    <span class="itemtitle light">(type, [args...])</span></h3>
+                <div>
+                    <p>Emit an event to all listeners registered for this event type</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>type the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">[args...]</td>
+                            <td>optional arguments to pass to the listeners</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the event was handled by at least one listener, false otherwise</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        Error if the event type was &quot;error&quot; and there were no listeners
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.impl">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.impl" href="#JavaEventEmitter.prototype.impl" class="itemtitle itemname">impl</a></span>
+                    </h3>
+                <div>
+                    <p>The generated Java object. This implements the Java interface
+passed to the <code>JavaEventEmitter</code> constructor and can be passed
+to Java code that expects given interface.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.on">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.on" href="#JavaEventEmitter.prototype.on" class="itemtitle itemname">on</a></span>
+                    <span class="itemtitle light">(type, listener)</span></h3>
+                <div>
+                    <p>Add a listener function for the given event. This is a shortcut for
+<a href="#EventEmitter.prototype.addListener">addListener()</a></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">listener</td>
+                            <td>the listener</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.removeAllListeners">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.removeAllListeners" href="#JavaEventEmitter.prototype.removeAllListeners" class="itemtitle itemname">removeAllListeners</a></span>
+                    <span class="itemtitle light">(type)</span></h3>
+                <div>
+                    <p>Removes all listener functions for a given event.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="JavaEventEmitter.prototype.removeListener">
+                <h3 >
+                    <span class="itemtitle">JavaEventEmitter.prototype.<a id="JavaEventEmitter.prototype.removeListener" href="#JavaEventEmitter.prototype.removeListener" class="itemtitle itemname">removeListener</a></span>
+                    <span class="itemtitle light">(type, listener)</span></h3>
+                <div>
+                    <p>Remove a listener function for the given event.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>string</td>
+                            <td class="paramname">type</td>
+                            <td>the event type</td>
+                        </tr>
+                                                <tr>
+                            <td>function</td>
+                            <td class="paramname">listener</td>
+                            <td>the listener</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

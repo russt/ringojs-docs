@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../static/jsdoc.css" />
+<link rel="stylesheet" href="../static/style.css" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module test</h1>
+        <div class="fileoverview">
+            <p>A test runner compliant to the
+<a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.0">CommonJS Unit Testing</a>
+specification. It manages the execution of unit tests and processes test results.
+The runner reports the total number of failures as exit status code.</p>
+
+<p>The runner treats a module like a test case. A test case defines the fixture
+to run multiple tests. Test cases can provide optional <code>setUp()</code> and
+<code>tearDown()</code> functions to initialize and destroy the fixture. The
+test runner will run these methods prior to / after each test.</p>
+
+<p>The following example test case <code>testDatabase.js</code> starts a
+new test runner if executed with <code>ringo testDatabase.js</code></p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode">// testDatabase.js
+exports.setUp = function() { ... open db connection ... }
+exports.tearDown = function() { ... close db connection ... }
+
+exports.testCreateTable = function() { ... }
+exports.testInsertData = function() { ... }
+exports.testTransactions = function() { ... }
+exports.testDeleteTable = function() { ... }
+
+if (require.main == module.id) {
+  // Get a runner and run on the current module
+  require("test").run(exports);
+}</pre>
+        </div>
+                <div>
+            <h4>See</h4>
+            <div>
+                The <code><a href="../assert/index.html">assert</a></code> module is an
+assertion library to write unit tests.
+            </div>
+        </div>
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#getStackTrace" class="jsdoc-title"> getStackTrace</a>(trace)
+                </li>
+                                <li>
+                    <a href="#getType" class="jsdoc-title"> getType</a>(obj)
+                </li>
+                                <li>
+                    <a href="#jsDump" class="jsdoc-title"> jsDump</a>(value, lvl)
+                </li>
+                                <li>
+                    <a href="#run" class="jsdoc-title"> run</a>(scope, name, writer)
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getStackTrace">
+                <h3 >
+                    <span class="itemtitle"><a id="getStackTrace" href="#getStackTrace" class="itemtitle itemname">getStackTrace</a></span>
+                    <span class="itemtitle light">(trace)</span></h3>
+                <div>
+                    <p>Creates a stack trace and parses it for display.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>java.lang.StackTraceElement</td>
+                            <td class="paramname">trace</td>
+                            <td>The trace to parse. If not given
+a stacktrace will be generated</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td>The parsed stack trace</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getType">
+                <h3 >
+                    <span class="itemtitle"><a id="getType" href="#getType" class="itemtitle itemname">getType</a></span>
+                    <span class="itemtitle light">(obj)</span></h3>
+                <div>
+                    <p>Returns the type of the object passed as argument.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">obj</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td>The type of the object passed as argument</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="jsDump">
+                <h3 >
+                    <span class="itemtitle"><a id="jsDump" href="#jsDump" class="itemtitle itemname">jsDump</a></span>
+                    <span class="itemtitle light">(value, lvl)</span></h3>
+                <div>
+                    <p>Converts the value passed as argument into a nicely formatted and
+indented string</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">value</td>
+                            <td>The value to convert into a string</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">lvl</td>
+                            <td>Optional indentation level (defaults to zero)</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td>The string representation of the object passed as argument</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="run">
+                <h3 >
+                    <span class="itemtitle"><a id="run" href="#run" class="itemtitle itemname">run</a></span>
+                    <span class="itemtitle light">(scope, name, writer)</span></h3>
+                <div>
+                    <p>The main runner method. This method can be called with one, two or three
+arguments: <code>run(scope)</code>, <code>run(scope, nameOfTest)</code>,
+<code>run(scope, writer)</code> or <code>run(scope, nameOfTest, writer)</code></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">scope</td>
+                            <td>Either the path to a module containing unit
+tests to execute, or an object containing the exported test methods or nested scopes.</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>Optional name of a test method to execute</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">writer</td>
+                            <td>Optional writer to use for displaying the test results. Defaults
+to TermWriter.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../index.html">&bull; Modules</a>
+      <a href="../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../assert/index.html">assert</a></li>
+            <li><a href="../binary/index.html">binary</a></li>
+            <li><a href="../console/index.html">console</a></li>
+            <li><a href="../fs/index.html">fs</a></li>
+            <li><a href="../globals/index.html">globals</a></li>
+            <li><a href="../io/index.html">io</a></li>
+            <li><a href="../net/index.html">net</a></li>
+            <li><a href="../system/index.html">system</a></li>
+            <li><a href="../test/index.html">test</a></li>
+            <li><a href="../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

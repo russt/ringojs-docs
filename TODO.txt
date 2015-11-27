@@ -1,0 +1,9 @@
+========================
+Working on, Fri 11/27/15
+========================
+TODO:
+o generate cover.html from template.
+o figure out how to generate html docs from source.
+
+DONE:
+o create project, repositories

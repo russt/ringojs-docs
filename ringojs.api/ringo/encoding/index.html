@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/encoding - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/encoding</h1>
+        <div class="fileoverview">
+            <p>Low-level support for character encoding and decoding.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#Decoder" class="jsdoc-title">Decoder</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Decoder.prototype.clear" class="jsdoc-title"> clear</a>()
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.decode" class="jsdoc-title"> decode</a>(bytes, start, end)
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.hasPendingInput" class="jsdoc-title"> hasPendingInput</a>()
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.read" class="jsdoc-title"> read</a>()
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.readFrom" class="jsdoc-title"> readFrom</a>(source)
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.readLine" class="jsdoc-title"> readLine</a>(includeNewline)
+                    </li>
+                                        <li>
+                        <a href="#Decoder.prototype.toString" class="jsdoc-title"> toString</a>()
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Decoder.prototype.length" class="jsdoc-title"> length</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#Encoder" class="jsdoc-title">Encoder</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Encoder.prototype.clear" class="jsdoc-title"> clear</a>()
+                    </li>
+                                        <li>
+                        <a href="#Encoder.prototype.close" class="jsdoc-title"> close</a>()
+                    </li>
+                                        <li>
+                        <a href="#Encoder.prototype.encode" class="jsdoc-title"> encode</a>(string, start, end)
+                    </li>
+                                        <li>
+                        <a href="#Encoder.prototype.toByteArray" class="jsdoc-title"> toByteArray</a>()
+                    </li>
+                                        <li>
+                        <a href="#Encoder.prototype.toByteString" class="jsdoc-title"> toByteString</a>()
+                    </li>
+                                        <li>
+                        <a href="#Encoder.prototype.toString" class="jsdoc-title"> toString</a>()
+                    </li>
+                                        <li>
+                        <a href="#Encoder.prototype.writeTo" class="jsdoc-title"> writeTo</a>(sink)
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Encoder.prototype.length" class="jsdoc-title"> length</a>
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Decoder" href="#Decoder" class="itemtitle itemname">Decoder</a></span>
+                    <span class="itemtitle light">(charset, strict, capacity)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">charset</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">strict</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">capacity</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.clear">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.clear" href="#Decoder.prototype.clear" class="itemtitle itemname">clear</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.close">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.close" href="#Decoder.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.decode">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.decode" href="#Decoder.prototype.decode" class="itemtitle itemname">decode</a></span>
+                    <span class="itemtitle light">(bytes, start, end)</span></h3>
+                <div>
+                    <p>Decode bytes from the given buffer.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>binary.Binary</td>
+                            <td class="paramname">bytes</td>
+                            <td>a ByteString or ByteArray</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">start</td>
+                            <td>The start index, or 0 if undefined</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">end</td>
+                            <td>the end index, or bytes.length if undefined</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.hasPendingInput">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.hasPendingInput" href="#Decoder.prototype.hasPendingInput" class="itemtitle itemname">hasPendingInput</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.length">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.length" href="#Decoder.prototype.length" class="itemtitle itemname">length</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.read">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.read" href="#Decoder.prototype.read" class="itemtitle itemname">read</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.readFrom">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.readFrom" href="#Decoder.prototype.readFrom" class="itemtitle itemname">readFrom</a></span>
+                    <span class="itemtitle light">(source)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>binary.Binary</td>
+                            <td class="paramname">source</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.readLine">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.readLine" href="#Decoder.prototype.readLine" class="itemtitle itemname">readLine</a></span>
+                    <span class="itemtitle light">(includeNewline)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">includeNewline</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Decoder.prototype.toString">
+                <h3 >
+                    <span class="itemtitle">Decoder.prototype.<a id="Decoder.prototype.toString" href="#Decoder.prototype.toString" class="itemtitle itemname">toString</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Encoder" href="#Encoder" class="itemtitle itemname">Encoder</a></span>
+                    <span class="itemtitle light">(charset, strict, capacity)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">charset</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">strict</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">capacity</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.clear">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.clear" href="#Encoder.prototype.clear" class="itemtitle itemname">clear</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.close">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.close" href="#Encoder.prototype.close" class="itemtitle itemname">close</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.encode">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.encode" href="#Encoder.prototype.encode" class="itemtitle itemname">encode</a></span>
+                    <span class="itemtitle light">(string, start, end)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">string</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">start</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">end</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.length">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.length" href="#Encoder.prototype.length" class="itemtitle itemname">length</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.toByteArray">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.toByteArray" href="#Encoder.prototype.toByteArray" class="itemtitle itemname">toByteArray</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.toByteString">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.toByteString" href="#Encoder.prototype.toByteString" class="itemtitle itemname">toByteString</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.toString">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.toString" href="#Encoder.prototype.toString" class="itemtitle itemname">toString</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Encoder.prototype.writeTo">
+                <h3 >
+                    <span class="itemtitle">Encoder.prototype.<a id="Encoder.prototype.writeTo" href="#Encoder.prototype.writeTo" class="itemtitle itemname">writeTo</a></span>
+                    <span class="itemtitle light">(sink)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">sink</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

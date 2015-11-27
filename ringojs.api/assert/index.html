@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>assert - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../static/jsdoc.css" />
+<link rel="stylesheet" href="../static/style.css" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module assert</h1>
+        <div class="fileoverview">
+            <p>Assertion library for unit testing.
+It implements the <a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.0">CommonJS Unit Testing</a>
+specification and adds some additional convenience methods.</p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode">var assert = require('assert');
+assert.deepEqual({b: 2, a: 1}, {a: 1, b: 2});
+assert.isFalse(100 != 100);
+assert.isNotNull(undefined);</pre>
+        </div>
+                <div>
+            <h4>See</h4>
+            <div>
+                The <code><a href="../test/index.html">test</a></code> module is a test runner for unit tests.
+It manages the execution of tests and provides the outcome to the user.
+            </div>
+        </div>
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#deepEqual" class="jsdoc-title"> deepEqual</a>(actual, expected)
+                </li>
+                                <li>
+                    <a href="#equal" class="jsdoc-title"> equal</a>(actual, expected)
+                </li>
+                                <li>
+                    <a href="#fail" class="jsdoc-title"> fail</a>(options)
+                </li>
+                                <li>
+                    <a href="#isFalse" class="jsdoc-title"> isFalse</a>(val)
+                </li>
+                                <li>
+                    <a href="#isNaN" class="jsdoc-title"> isNaN</a>(val)
+                </li>
+                                <li>
+                    <a href="#isNotNaN" class="jsdoc-title"> isNotNaN</a>(val)
+                </li>
+                                <li>
+                    <a href="#isNotNull" class="jsdoc-title"> isNotNull</a>(val)
+                </li>
+                                <li>
+                    <a href="#isNotUndefined" class="jsdoc-title"> isNotUndefined</a>(val)
+                </li>
+                                <li>
+                    <a href="#isNull" class="jsdoc-title"> isNull</a>(val)
+                </li>
+                                <li>
+                    <a href="#isTrue" class="jsdoc-title"> isTrue</a>(val)
+                </li>
+                                <li>
+                    <a href="#isUndefined" class="jsdoc-title"> isUndefined</a>(val)
+                </li>
+                                <li>
+                    <a href="#matches" class="jsdoc-title"> matches</a>(value, expr)
+                </li>
+                                <li>
+                    <a href="#notDeepEqual" class="jsdoc-title"> notDeepEqual</a>(actual, expected)
+                </li>
+                                <li>
+                    <a href="#notEqual" class="jsdoc-title"> notEqual</a>(actual, expected)
+                </li>
+                                <li>
+                    <a href="#notStrictEqual" class="jsdoc-title"> notStrictEqual</a>(actual, expected)
+                </li>
+                                <li>
+                    <a href="#ok" class="jsdoc-title"> ok</a>(value)
+                </li>
+                                <li>
+                    <a href="#strictEqual" class="jsdoc-title"> strictEqual</a>(actual, expected)
+                </li>
+                                <li>
+                    <a href="#stringContains" class="jsdoc-title"> stringContains</a>(value, pattern)
+                </li>
+                                <li>
+                    <a href="#throws" class="jsdoc-title"> throws</a>(func, expectedError)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#ArgumentsError" class="jsdoc-title">ArgumentsError</a></h2>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#ArgumentsError.prototype.message" class="jsdoc-title"> message</a>
+                    </li>
+                                        <li>
+                        <a href="#ArgumentsError.prototype.stackTrace" class="jsdoc-title"> stackTrace</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#AssertionError" class="jsdoc-title">AssertionError</a></h2>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#AssertionError.prototype.actual" class="jsdoc-title"> actual</a>
+                    </li>
+                                        <li>
+                        <a href="#AssertionError.prototype.expected" class="jsdoc-title"> expected</a>
+                    </li>
+                                        <li>
+                        <a href="#AssertionError.prototype.message" class="jsdoc-title"> message</a>
+                    </li>
+                                        <li>
+                        <a href="#AssertionError.prototype.name" class="jsdoc-title"> name</a>
+                    </li>
+                                        <li>
+                        <a href="#AssertionError.prototype.stackTrace" class="jsdoc-title"> stackTrace</a>
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ArgumentsError">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="ArgumentsError" href="#ArgumentsError" class="itemtitle itemname">ArgumentsError</a></span>
+                    <span class="itemtitle light">(message)</span></h3>
+                <div>
+                    <p>Creates a new ArgumentsError instance</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message</td>
+                            <td>The exception message</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>A newly created ArgumentsError instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ArgumentsError.prototype.message">
+                <h3 >
+                    <span class="itemtitle">ArgumentsError.prototype.<a id="ArgumentsError.prototype.message" href="#ArgumentsError.prototype.message" class="itemtitle itemname">message</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ArgumentsError.prototype.stackTrace">
+                <h3 >
+                    <span class="itemtitle">ArgumentsError.prototype.<a id="ArgumentsError.prototype.stackTrace" href="#ArgumentsError.prototype.stackTrace" class="itemtitle itemname">stackTrace</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AssertionError">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="AssertionError" href="#AssertionError" class="itemtitle itemname">AssertionError</a></span>
+                    <span class="itemtitle light">(options)</span></h3>
+                <div>
+                    <p>Constructs a new AssertionError instance</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>An object containing error details</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AssertionError.prototype.actual">
+                <h3 >
+                    <span class="itemtitle">AssertionError.prototype.<a id="AssertionError.prototype.actual" href="#AssertionError.prototype.actual" class="itemtitle itemname">actual</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AssertionError.prototype.expected">
+                <h3 >
+                    <span class="itemtitle">AssertionError.prototype.<a id="AssertionError.prototype.expected" href="#AssertionError.prototype.expected" class="itemtitle itemname">expected</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AssertionError.prototype.message">
+                <h3 >
+                    <span class="itemtitle">AssertionError.prototype.<a id="AssertionError.prototype.message" href="#AssertionError.prototype.message" class="itemtitle itemname">message</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AssertionError.prototype.name">
+                <h3 >
+                    <span class="itemtitle">AssertionError.prototype.<a id="AssertionError.prototype.name" href="#AssertionError.prototype.name" class="itemtitle itemname">name</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="AssertionError.prototype.stackTrace">
+                <h3 >
+                    <span class="itemtitle">AssertionError.prototype.<a id="AssertionError.prototype.stackTrace" href="#AssertionError.prototype.stackTrace" class="itemtitle itemname">stackTrace</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="deepEqual">
+                <h3 >
+                    <span class="itemtitle"><a id="deepEqual" href="#deepEqual" class="itemtitle itemname">deepEqual</a></span>
+                    <span class="itemtitle light">(actual, expected)</span></h3>
+                <div>
+                    <p>Performs a deep recursive comparison of objects. It is equivalent to
+<code>equal()</code>. If an object's property holds a non-object type,
+it performs a non-strict comparison. Instances of <code>Date</code> are
+compared with <code>getTime()</code> according to universal time.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.deepEqual(5, "5");
+assert.deepEqual(
+  { time: new Date(2010, 5, 14) },
+  { "time": new Date(2010, 5, 14) }
+);
+assert.deepEqual([1, 2, 3], ["1", "2", "3"]);
+assert.deepEqual({"one": 1, "two": 2}, {"two": "2", "one": "1"});</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">actual</td>
+                            <td>The actual value</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expected</td>
+                            <td>The expected value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="equal">
+                <h3 >
+                    <span class="itemtitle"><a id="equal" href="#equal" class="itemtitle itemname">equal</a></span>
+                    <span class="itemtitle light">(actual, expected)</span></h3>
+                <div>
+                    <p>Performs a non-strict comparison with the simple comparison operator
+<code>==</code> to check if the values are equal. When they are equal,
+the assertion passes, otherwise it fails.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// truthy conditionals
+assert.equal(true, true);
+assert.equal(true, "1");<br>
+// falsy conditionals
+assert.equal(false, false);
+assert.equal(false, "");
+assert.equal(false, "0");
+assert.equal(null, undefined);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">actual</td>
+                            <td>The actual value</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expected</td>
+                            <td>The expected value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="fail">
+                <h3 >
+                    <span class="itemtitle"><a id="fail" href="#fail" class="itemtitle itemname">fail</a></span>
+                    <span class="itemtitle light">(options)</span></h3>
+                <div>
+                    <p>Basic failure method. Fails an assertion without checking any preconditions.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// a complex condition
+if (a === true && (b === "complex" || ...)) {
+  assert.fail("This should not be reached!");
+}</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object|String</td>
+                            <td class="paramname">options</td>
+                            <td>An object containing optional "message", "actual"
+and "expected" properties, or alternatively a message string</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isFalse">
+                <h3 >
+                    <span class="itemtitle"><a id="isFalse" href="#isFalse" class="itemtitle itemname">isFalse</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is strict boolean false using <code>===</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertion
+assert.isFalse(100 != 100);<br>
+// failing assertion
+assert.isFalse(100 == 100);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be boolean false.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isNaN">
+                <h3 >
+                    <span class="itemtitle"><a id="isNaN" href="#isNaN" class="itemtitle itemname">isNaN</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Asserts that the value passed as argument is NaN.
+Uses <code>global.isNaN()</code> for the check.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be NaN.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isNotNaN">
+                <h3 >
+                    <span class="itemtitle"><a id="isNotNaN" href="#isNotNaN" class="itemtitle itemname">isNotNaN</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is not NaN.
+Uses <code>global.isNaN()</code> for the check.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be not NaN.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isNotNull">
+                <h3 >
+                    <span class="itemtitle"><a id="isNotNull" href="#isNotNull" class="itemtitle itemname">isNotNull</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is strict not null using <code>===</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.isNotNull(undefined);
+assert.isNotNull("passes");<br>
+// failing assertion
+assert.isNotNull(null);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be not null.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isNotUndefined">
+                <h3 >
+                    <span class="itemtitle"><a id="isNotUndefined" href="#isNotUndefined" class="itemtitle itemname">isNotUndefined</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is not undefined using <code>===</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.isNotUndefined(null);
+assert.isNotUndefined("passes");<br>
+// failing assertion
+assert.isNotUndefined(undefined);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be not undefined.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isNull">
+                <h3 >
+                    <span class="itemtitle"><a id="isNull" href="#isNull" class="itemtitle itemname">isNull</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is strict null using <code>===</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertion
+assert.isNull(null);<br>
+// failing assertions
+assert.isNull(undefined);
+assert.isNull("");</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be null.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isTrue">
+                <h3 >
+                    <span class="itemtitle"><a id="isTrue" href="#isTrue" class="itemtitle itemname">isTrue</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is boolean true using <code>===</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertion
+assert.isTrue(100 == 100);<br>
+// failing assertion
+assert.isTrue(100 != 100);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be boolean true.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="isUndefined">
+                <h3 >
+                    <span class="itemtitle"><a id="isUndefined" href="#isUndefined" class="itemtitle itemname">isUndefined</a></span>
+                    <span class="itemtitle light">(val)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is strict undefined using <code>===</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertion
+assert.isUndefined(undefined);<br>
+// failing assertions
+assert.isUndefined(null);
+assert.isUndefined("");</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">val</td>
+                            <td>The value that should be undefined.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="matches">
+                <h3 >
+                    <span class="itemtitle"><a id="matches" href="#matches" class="itemtitle itemname">matches</a></span>
+                    <span class="itemtitle light">(value, expr)</span></h3>
+                <div>
+                    <p>Checks if the regular expression matches the string.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">assert.matches("this will pass", /p.?[s]{2}/);
+assert.matches("this will fail", /[0-9]+/);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">value</td>
+                            <td>The string that should contain the regular expression pattern</td>
+                        </tr>
+                                                <tr>
+                            <td>RegExp</td>
+                            <td class="paramname">expr</td>
+                            <td>The regular expression that should match the value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="notDeepEqual">
+                <h3 >
+                    <span class="itemtitle"><a id="notDeepEqual" href="#notDeepEqual" class="itemtitle itemname">notDeepEqual</a></span>
+                    <span class="itemtitle light">(actual, expected)</span></h3>
+                <div>
+                    <p>Performs a deep recursive comparison of objects. The comparison
+is equivalent to <code>notEqual()</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.notDeepEqual(
+  { "time": new Date(2010, 5, 14) },
+  { "time": new Date(2010, 5, 15) }
+);
+assert.notDeepEqual([1, 2, 3, 4], ["1", "2", "3"]);
+assert.notDeepEqual({"one": 1, "two": 2}, {"three": "3", "one": "1"});</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">actual</td>
+                            <td>The actual value</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expected</td>
+                            <td>The expected value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="notEqual">
+                <h3 >
+                    <span class="itemtitle"><a id="notEqual" href="#notEqual" class="itemtitle itemname">notEqual</a></span>
+                    <span class="itemtitle light">(actual, expected)</span></h3>
+                <div>
+                    <p>Performs a non-strict comparison with the simple comparison operator
+<code>!=</code> to check if the values are not equal.
+When they are not equal, the assertion passes, otherwise it fails.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.notEqual(true, false);
+assert.notEqual(1, 2);
+assert.notEqual(false, NaN);
+assert.notEqual(null, NaN);
+assert.notEqual(undefined, NaN);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">actual</td>
+                            <td>The actual value</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expected</td>
+                            <td>The expected value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="notStrictEqual">
+                <h3 >
+                    <span class="itemtitle"><a id="notStrictEqual" href="#notStrictEqual" class="itemtitle itemname">notStrictEqual</a></span>
+                    <span class="itemtitle light">(actual, expected)</span></h3>
+                <div>
+                    <p>Performs a strict comparison with the strict inequality operator <code>!==</code>.
+When the values are inequal in type and value, the assertion passes,
+otherwise it fails.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.notStrictEqual(null, undefined);
+assert.notStrictEqual(1, "1");
+assert.notStrictEqual(true, false);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">actual</td>
+                            <td>The actual value</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expected</td>
+                            <td>The expected value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ok">
+                <h3 >
+                    <span class="itemtitle"><a id="ok" href="#ok" class="itemtitle itemname">ok</a></span>
+                    <span class="itemtitle light">(value)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument is truthy.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.ok(true);
+assert.ok("1");
+assert.ok([]);
+assert.ok({});
+assert.ok(new Boolean(false));
+assert.ok(Infinity);<br>
+// failing assertions
+assert.ok(0);
+assert.ok(false);
+assert.ok(null);
+assert.ok(undefined);
+assert.ok("");</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">value</td>
+                            <td>The value to check for truthiness</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="strictEqual">
+                <h3 >
+                    <span class="itemtitle"><a id="strictEqual" href="#strictEqual" class="itemtitle itemname">strictEqual</a></span>
+                    <span class="itemtitle light">(actual, expected)</span></h3>
+                <div>
+                    <p>Performs a strict comparison with the strict equality operator <code>===</code>.
+When the values are equal in type and value, the assertion passes,
+otherwise it fails.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">// passing assertions
+assert.strictEqual(null, null);
+assert.strictEqual(undefined, undefined);
+assert.strictEqual(1, 1);
+assert.strictEqual("1", "1");
+assert.strictEqual(true, true);<br>
+// passing assertion
+var obj = {};
+assert.strictEqual(obj, obj);<br>
+// failing assertions
+assert.strictEqual(null, undefined);
+assert.strictEqual(true, "1");
+assert.strictEqual(false, "");
+assert.strictEqual(false, "0");</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">actual</td>
+                            <td>The actual value</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expected</td>
+                            <td>The expected value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="stringContains">
+                <h3 >
+                    <span class="itemtitle"><a id="stringContains" href="#stringContains" class="itemtitle itemname">stringContains</a></span>
+                    <span class="itemtitle light">(value, pattern)</span></h3>
+                <div>
+                    <p>Checks if the value passed as argument contains the pattern specified.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">assert.stringContains("this will pass", "pass");
+assert.stringContains("this will fail", "pass");</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">value</td>
+                            <td>The string that should contain the pattern</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">pattern</td>
+                            <td>The string that should be contained</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="throws">
+                <h3 >
+                    <span class="itemtitle"><a id="throws" href="#throws" class="itemtitle itemname">throws</a></span>
+                    <span class="itemtitle light">(func, expectedError)</span></h3>
+                <div>
+                    <p>Checks if the function passed as argument throws a defined exception.
+It can also assert certain Java exceptions thrown by the function.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">var foo = function() { throw "foo"; };
+var bar = function() { (new java.util.Vector()).get(0); }<br>
+// passes
+assert.throws(foo, "foo");<br>
+// fails
+assert.throws(foo, "bar");<br>
+// checks for a Java runtime exception, passes
+assert.throws(bar, java.lang.ArrayIndexOutOfBoundsException);</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">func</td>
+                            <td>The function to call</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">expectedError</td>
+                            <td>Optional object expected to be thrown when executing
+the function</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        ArgumentsError, AssertionError
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../index.html">&bull; Modules</a>
+      <a href="../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../assert/index.html">assert</a></li>
+            <li><a href="../binary/index.html">binary</a></li>
+            <li><a href="../console/index.html">console</a></li>
+            <li><a href="../fs/index.html">fs</a></li>
+            <li><a href="../globals/index.html">globals</a></li>
+            <li><a href="../io/index.html">io</a></li>
+            <li><a href="../net/index.html">net</a></li>
+            <li><a href="../system/index.html">system</a></li>
+            <li><a href="../test/index.html">test</a></li>
+            <li><a href="../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+TODO.txt
+mkdoc.cg
+mkdoc.defs
+#this need to be updated when version changes:
+ringojs.api/cover.html
+stick.api/cover.html
+README.md
+.projectrc
+.gitignore

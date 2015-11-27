@@ -1,0 +1,52 @@
+#
+#mkdoc.cg - cado script to create pdf docs for ringojs, stick html files.
+#
+
+%include mkdoc.defs
+
+create_one_pdf_doc := << //
+{
+    apiversion_var = ${apiname}_version
+    apiversion     = $apiversion_var:valueof
+
+    source_dir     = $START_DIR/${apiname}.api
+    outputfn       = $CG_ROOT/${apiname}_api_${apiversion}.pdf
+
+    file_args_var = ${apiname}_file_args
+    file_args     = $file_args_var:valueof
+
+    #WARNING:  use double-quotes to quote args, as cado wraps system commands in single quotes.  RT 11/25/15
+    config_args  =
+    config_args .= $sp -s Letter
+    config_args .= $sp --javascript-delay $javascript_delay
+
+    #this will add a table of contents:
+    #config_args .= $sp toc
+
+    #some options: page[page] section[section] subsection[subsection] date[date] isodate[isodate] time[time] title[title] doctitle[doctitle]
+
+    # Open Sans, Arial, Helvetica, sans-serif
+    config_args .= $sp --footer-line
+    config_args .= $sp --footer-spacing .5
+    config_args .= $sp --footer-font-name "Open Sans"
+    config_args .= $sp --footer-font-size 10
+    config_args .= $sp --page-offset -1
+    config_args .= $sp --footer-left "/[subsection]"
+    config_args .= $sp --footer-center "- [page] -"
+    config_args .= $sp --footer-right "[section]"
+
+    #add cover arg at end of config args, but before file args:
+    config_args .= $sp cover cover.html
+
+    %rm -f $outputfn
+    CG_SHELL_CWD = $source_dir
+
+    %eecho wkhtmltopdf $config_args $file_args $outputfn
+    %eecho
+    %wkhtmltopdf $config_args $file_args $outputfn
+}
+//
+
+CG_FOREACH_SPLIT_PATTERN = /,/
+api_list = stick,ringojs
+%foreach apiname api_list %call create_one_pdf_doc

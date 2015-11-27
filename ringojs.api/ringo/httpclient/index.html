@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/httpclient - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/httpclient</h1>
+        <div class="fileoverview">
+            <p>A module for sending HTTP requests and receiving HTTP responses.</p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode">var {request} = require('ringo/httpclient');
+var exchange = request({
+   method: 'GET',
+   url: 'http://ringojs.org/',
+   headers: {
+      'x-custom-header': 'foobar'
+   }
+});
+
+if(exchange.status == 200) {
+   console.log(exchange.content);
+}</pre>
+        </div>
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#del" class="jsdoc-title"> del</a>(url, data, success, error)
+                </li>
+                                <li>
+                    <a href="#get" class="jsdoc-title"> get</a>(url, data, success, error)
+                </li>
+                                <li>
+                    <a href="#post" class="jsdoc-title"> post</a>(url, data, success, error)
+                </li>
+                                <li>
+                    <a href="#put" class="jsdoc-title"> put</a>(url, data, success, error)
+                </li>
+                                <li>
+                    <a href="#request" class="jsdoc-title"> request</a>(options)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#BinaryPart" class="jsdoc-title">BinaryPart</a></h2>
+                                <h2>Class <a href="#Exchange" class="jsdoc-title">Exchange</a></h2>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Exchange.prototype.connection" class="jsdoc-title"> connection</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.content" class="jsdoc-title"> content</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.contentBytes" class="jsdoc-title"> contentBytes</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.contentLength" class="jsdoc-title"> contentLength</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.contentType" class="jsdoc-title"> contentType</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.cookies" class="jsdoc-title"> cookies</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.done" class="jsdoc-title"> done</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.encoding" class="jsdoc-title"> encoding</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.headers" class="jsdoc-title"> headers</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.message" class="jsdoc-title"> message</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.status" class="jsdoc-title"> status</a>
+                    </li>
+                                        <li>
+                        <a href="#Exchange.prototype.url" class="jsdoc-title"> url</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#TextPart" class="jsdoc-title">TextPart</a></h2>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="BinaryPart">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="BinaryPart" href="#BinaryPart" class="itemtitle itemname">BinaryPart</a></span>
+                    <span class="itemtitle light">(data, charset, filename)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">data</td>
+                            <td>The data</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">charset</td>
+                            <td>The charset</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">filename</td>
+                            <td>An optional file name</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>BinaryPart</td>
+                            <td> A newly constructed BinaryPart instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Exchange" href="#Exchange" class="itemtitle itemname">Exchange</a></span>
+                    <span class="itemtitle light">(url, options, callbacks)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td>The URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>The options</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">callbacks</td>
+                            <td>An object containing success, error and complete
+callback methods</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Exchange</td>
+                            <td> A newly constructed Exchange instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.connection">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.connection" href="#Exchange.prototype.connection" class="itemtitle itemname">connection</a></span>
+                    </h3>
+                <div>
+                    <p>The connection used by this Exchange instance</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.content">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.content" href="#Exchange.prototype.content" class="itemtitle itemname">content</a></span>
+                    </h3>
+                <div>
+                    <p>The response body as String</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.contentBytes">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.contentBytes" href="#Exchange.prototype.contentBytes" class="itemtitle itemname">contentBytes</a></span>
+                    </h3>
+                <div>
+                    <p>The response body as ByteArray</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.contentLength">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.contentLength" href="#Exchange.prototype.contentLength" class="itemtitle itemname">contentLength</a></span>
+                    </h3>
+                <div>
+                    <p>The response content length</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.contentType">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.contentType" href="#Exchange.prototype.contentType" class="itemtitle itemname">contentType</a></span>
+                    </h3>
+                <div>
+                    <p>The response content type</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.cookies">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.cookies" href="#Exchange.prototype.cookies" class="itemtitle itemname">cookies</a></span>
+                    </h3>
+                <div>
+                    <p>The cookies set by the server</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.done">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.done" href="#Exchange.prototype.done" class="itemtitle itemname">done</a></span>
+                    </h3>
+                <div>
+                    <p>True if the request has completed, false otherwise</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.encoding">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.encoding" href="#Exchange.prototype.encoding" class="itemtitle itemname">encoding</a></span>
+                    </h3>
+                <div>
+                    <p>The response encoding</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.headers">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.headers" href="#Exchange.prototype.headers" class="itemtitle itemname">headers</a></span>
+                    </h3>
+                <div>
+                    <p>The response headers</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.message">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.message" href="#Exchange.prototype.message" class="itemtitle itemname">message</a></span>
+                    </h3>
+                <div>
+                    <p>The response status message</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.status">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.status" href="#Exchange.prototype.status" class="itemtitle itemname">status</a></span>
+                    </h3>
+                <div>
+                    <p>The response status code</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Exchange.prototype.url">
+                <h3 >
+                    <span class="itemtitle">Exchange.prototype.<a id="Exchange.prototype.url" href="#Exchange.prototype.url" class="itemtitle itemname">url</a></span>
+                    </h3>
+                <div>
+                    <p>The URL wrapped by this Exchange instance</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TextPart">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="TextPart" href="#TextPart" class="itemtitle itemname">TextPart</a></span>
+                    <span class="itemtitle light">(data, charset, filename)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String|TextStream</td>
+                            <td class="paramname">data</td>
+                            <td>The data</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">charset</td>
+                            <td>The charset</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">filename</td>
+                            <td>An optional file name</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>TextPart</td>
+                            <td> A newly constructed TextPart instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="del">
+                <h3 >
+                    <span class="itemtitle"><a id="del" href="#del" class="itemtitle itemname">del</a></span>
+                    <span class="itemtitle light">(url, data, success, error)</span></h3>
+                <div>
+                    <p>Executes a DELETE request</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td>The URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Object|String</td>
+                            <td class="paramname">data</td>
+                            <td>The data to append as GET parameters to the URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">success</td>
+                            <td>Optional success callback</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">error</td>
+                            <td>Optional error callback</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Exchange</td>
+                            <td>The Exchange instance representing the request and response</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="get">
+                <h3 >
+                    <span class="itemtitle"><a id="get" href="#get" class="itemtitle itemname">get</a></span>
+                    <span class="itemtitle light">(url, data, success, error)</span></h3>
+                <div>
+                    <p>Executes a GET request</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td>The URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Object|String</td>
+                            <td class="paramname">data</td>
+                            <td>The data to append as GET parameters to the URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">success</td>
+                            <td>Optional success callback</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">error</td>
+                            <td>Optional error callback</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Exchange</td>
+                            <td>The Exchange instance representing the request and response</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="post">
+                <h3 >
+                    <span class="itemtitle"><a id="post" href="#post" class="itemtitle itemname">post</a></span>
+                    <span class="itemtitle light">(url, data, success, error)</span></h3>
+                <div>
+                    <p>Executes a POST request</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td>The URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Object|String|Stream|Binary</td>
+                            <td class="paramname">data</td>
+                            <td>The data to send to the server</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">success</td>
+                            <td>Optional success callback</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">error</td>
+                            <td>Optional error callback</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Exchange</td>
+                            <td>The Exchange instance representing the request and response</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="put">
+                <h3 >
+                    <span class="itemtitle"><a id="put" href="#put" class="itemtitle itemname">put</a></span>
+                    <span class="itemtitle light">(url, data, success, error)</span></h3>
+                <div>
+                    <p>Executes a PUT request</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td>The URL</td>
+                        </tr>
+                                                <tr>
+                            <td>Object|String|Stream|Binary</td>
+                            <td class="paramname">data</td>
+                            <td>The data send to the server</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">success</td>
+                            <td>Optional success callback</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">error</td>
+                            <td>Optional error callback</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Exchange</td>
+                            <td>The Exchange instance representing the request and response</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="request">
+                <h3 >
+                    <span class="itemtitle"><a id="request" href="#request" class="itemtitle itemname">request</a></span>
+                    <span class="itemtitle light">(options)</span></h3>
+                <div>
+                    <p>Make a generic request.</p>
+
+<h4>Generic request options</h4>
+
+<p>The <code>options</code> object may contain the following properties:</p>
+
+<ul><li><code>url</code>: the request URL</li>
+<li><code>method</code>: request method such as GET or POST</li>
+<li><code>data</code>: request data as string, object, or, for POST or PUT requests,
+Stream or Binary.</li>
+<li><code>headers</code>: request headers</li>
+<li><code>username</code>: username for HTTP authentication</li>
+<li><code>password</code>: password for HTTP authentication</li>
+<li><code>proxy</code>: proxy-settings as string ("proxy.host:port") or object {host: "hostname.org", port: 3128}</li>
+<li><code>contentType</code>: the contentType</li>
+<li><code>binary</code>: if true if content should be delivered as binary,
+else it will be decoded to string</li>
+<li><code>followRedirects</code>: whether HTTP redirects (response code 3xx) should be
+automatically followed; default: true</li>
+<li><code>readTimeout</code>: setting for read timeout in millis. 0 return implies that the option
+is disabled (i.e., timeout of infinity); default: 0 (or until impl decides its time)</li>
+<li><code>connectTimeout</code>: Sets a specified timeout value, in milliseconds, to be used
+when opening a communications link to the resource referenced by this
+URLConnection. A timeout of zero is interpreted as an infinite timeout.;
+default: 0 (or until impl decides its time)</li></ul>
+
+<h4>Callbacks</h4>
+
+<p>The <code>options</code> object may also contain the following callback functions:</p>
+
+<ul><li><code>complete</code>: called when the request is completed</li>
+<li><code>success</code>: called when the request is completed successfully</li>
+<li><code>error</code>: called when the request is completed with an error</li>
+<li><code>beforeSend</code>: called with the Exchange object as argument before the request is sent</li></ul>
+
+The following arguments are passed to the <code>complete</code>, <code>success</code> and <code>part</code> callbacks:
+<ol><li><code>content</code>: the content as String or ByteString</li>
+<li><code>status</code>: the HTTP status code</li>
+<li><code>contentType</code>: the content type</li>
+<li><code>exchange</code>: the exchange object</li></ol>
+
+The following arguments are passed to the <code>error</code> callback:
+<ol><li><code>message</code>: the error message. This is either the message from an exception thrown
+during request processing or an HTTP error message</li>
+<li><code>status</code>: the HTTP status code. This is <code>0</code> if no response was received</li>
+<li><code>exchange</code>: the exchange object</li></ol>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Exchange</td>
+                            <td> exchange object</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="#get">get</a><br /><a href="#post">post</a><br /><a href="#put">put</a><br /><a href="#del">del</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

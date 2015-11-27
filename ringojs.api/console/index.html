@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>console - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../static/jsdoc.css" />
+<link rel="stylesheet" href="../static/style.css" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module console</h1>
+        <div class="fileoverview">
+            <p>This module provides functions to write on the standard error stream
+<code>stderr</code> for error logging and quick debugging. It’s similar to the console
+object implemented in most web browsers.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#assert" class="jsdoc-title"> assert</a>(expression, msg...)
+                </li>
+                                <li>
+                    <a href="#dir" class="jsdoc-title"> dir</a>(obj)
+                </li>
+                                <li>
+                    <a href="#error" class="jsdoc-title"> error</a>(msg...)
+                </li>
+                                <li>
+                    <a href="#info" class="jsdoc-title"> info</a>(msg...)
+                </li>
+                                <li>
+                    <a href="#log" class="jsdoc-title"> log</a>(msg...)
+                </li>
+                                <li>
+                    <a href="#time" class="jsdoc-title"> time</a>(name)
+                </li>
+                                <li>
+                    <a href="#timeEnd" class="jsdoc-title"> timeEnd</a>(name)
+                </li>
+                                <li>
+                    <a href="#trace" class="jsdoc-title"> trace</a>(msg...)
+                </li>
+                                <li>
+                    <a href="#warn" class="jsdoc-title"> warn</a>(msg...)
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="assert">
+                <h3 >
+                    <span class="itemtitle"><a id="assert" href="#assert" class="itemtitle itemname">assert</a></span>
+                    <span class="itemtitle light">(expression, msg...)</span></h3>
+                <div>
+                    <p>Tests that an expression is true and throws an <code>AssertionError</code>
+exception if not. It uses the ECMAScript <code>toBoolean()</code> convertion.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> var x = 10;
+>> console.assert(x > 0, 'failed!'); // passes
+>> console.assert(x < 0, 'failed!'); // fails
+   AssertionError: failed! at &#60;stdin&#62;:12
+
+>> console.assert(false, 'failed!'); // fails
+   AssertionError: failed! at &#60;stdin&#62;:13
+
+>> // passes; any Object expression is true
+>> console.assert(new Boolean(false), 'failed!');</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">expression</td>
+                            <td>the expression to test</td>
+                        </tr>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">msg...</td>
+                            <td>one or more error messages</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="dir">
+                <h3 >
+                    <span class="itemtitle"><a id="dir" href="#dir" class="itemtitle itemname">dir</a></span>
+                    <span class="itemtitle light">(obj)</span></h3>
+                <div>
+                    <p>Prints a list of all properties of an object.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> var obj = { foo: "bar", baz: 12345 };
+>> console.dir(obj);
+{ foo: 'bar', baz: 12345 }
+>> console.dir(global);
+{ setTimeout: [Function], setInterval: [Function] }</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">obj</td>
+                            <td>the object whose properties should be output</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="error">
+                <h3 >
+                    <span class="itemtitle"><a id="error" href="#error" class="itemtitle itemname">error</a></span>
+                    <span class="itemtitle light">(msg...)</span></h3>
+                <div>
+                    <p>Logs a message with the visual "error" representation, including the file name
+and line number of the calling code.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> console.error('Hello World!');
+[error] Hello World! (&#60;stdin&#62;:1)
+>> console.error('A: %s, B: %s, C: %s', 'a', 'b', 'c');
+[error] A: a, B: b, C: c (&#60;stdin&#62;:3)
+>> console.error('Current nanoseconds: %d', java.lang.System.nanoTime());
+[error] Current nanoseconds: 9228448561643 (&#60;stdin&#62;:5)</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">msg...</td>
+                            <td>one or more message arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="info">
+                <h3 >
+                    <span class="itemtitle"><a id="info" href="#info" class="itemtitle itemname">info</a></span>
+                    <span class="itemtitle light">(msg...)</span></h3>
+                <div>
+                    <p>Logs a message with the visual "info" representation, including the file name
+and line number of the calling code.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> console.info('Hello World!');
+[info] Hello World! (&#60;stdin&#62;:1)
+>> console.info('A: %s, B: %s, C: %s', 'a', 'b', 'c');
+[info] A: a, B: b, C: c (&#60;stdin&#62;:3)
+>> console.info('Current nanoseconds: %d', java.lang.System.nanoTime());
+[info] Current nanoseconds: 9677228481391 (&#60;stdin&#62;:5)</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">msg...</td>
+                            <td>one or more message arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="log">
+                <h3 >
+                    <span class="itemtitle"><a id="log" href="#log" class="itemtitle itemname">log</a></span>
+                    <span class="itemtitle light">(msg...)</span></h3>
+                <div>
+                    <p>Logs a message to the console.</p>
+
+<p>The first argument to log may be a string containing printf-like placeholders.
+Otherwise, multipel arguments will be concatenated separated by spaces.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> console.log('Hello World!');
+Hello World!
+>> console.log('A: %s, B: %s, C: %s', 'a', 'b', 'c');
+A: a, B: b, C: c
+>> console.log('Current nanoseconds: %d', java.lang.System.nanoTime());
+Current nanoseconds: 9607196939209</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">msg...</td>
+                            <td>one or more message arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="time">
+                <h3 >
+                    <span class="itemtitle"><a id="time" href="#time" class="itemtitle itemname">time</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Creates a new timer under the given name. Call <code>console.timeEnd(name)</code> with
+the same name to stop the timer and log the time elapsed.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> console.time('timer-1');
+>> // Wait some time ...
+>> console.timeEnd('timer-1');
+timer-1: 15769ms</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the timer name</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="timeEnd">
+                <h3 >
+                    <span class="itemtitle"><a id="timeEnd" href="#timeEnd" class="itemtitle itemname">timeEnd</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Stops a timer created by a call to <code>console.time(name)</code> and logs the time elapsed.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> console.time('timer-1');
+>> // Wait some time ...
+>> console.timeEnd('timer-1');
+timer-1: 15769ms</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">name</td>
+                            <td>the timer name</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="trace">
+                <h3 >
+                    <span class="itemtitle"><a id="trace" href="#trace" class="itemtitle itemname">trace</a></span>
+                    <span class="itemtitle light">(msg...)</span></h3>
+                <div>
+                    <p>Prints a stack trace of JavaScript execution at the point where it is called.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>...</td>
+                            <td class="paramname">msg...</td>
+                            <td>optional message arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="warn">
+                <h3 >
+                    <span class="itemtitle"><a id="warn" href="#warn" class="itemtitle itemname">warn</a></span>
+                    <span class="itemtitle light">(msg...)</span></h3>
+                <div>
+                    <p>Logs a message with the visual "warn" representation, including the file name
+and line number of the calling code.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> console.warn('Hello World!');
+[warn] Hello World! (&#60;stdin&#62;:1)
+>> console.warn('A: %s, B: %s, C: %s', 'a', 'b', 'c');
+[warn] A: a, B: b, C: c (&#60;stdin&#62;:3)
+>> console.warn('Current nanoseconds: %d', java.lang.System.nanoTime());
+[warn] Current nanoseconds: 9294672097821 (&#60;stdin&#62;:5)</pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">msg...</td>
+                            <td>one or more message arguments</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../index.html">&bull; Modules</a>
+      <a href="../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../assert/index.html">assert</a></li>
+            <li><a href="../binary/index.html">binary</a></li>
+            <li><a href="../console/index.html">console</a></li>
+            <li><a href="../fs/index.html">fs</a></li>
+            <li><a href="../globals/index.html">globals</a></li>
+            <li><a href="../io/index.html">io</a></li>
+            <li><a href="../net/index.html">net</a></li>
+            <li><a href="../system/index.html">system</a></li>
+            <li><a href="../test/index.html">test</a></li>
+            <li><a href="../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

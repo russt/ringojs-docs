@@ -1,0 +1,118 @@
+#
+#mkdoc.defs - definitions for mkdoc.cg script
+#
+
+%const START_DIR = $::pwd
+%ifndef CG_ROOT    CG_ROOT = $START_DIR/dist
+
+%const sp = $::space
+
+#define javascript delay for wkhtmltopdf processing - work-around for rendering timeout bug:
+#NOPE: javascript_delay = 50
+#NOPE: javascript_delay = 500
+%const javascript_delay = 5000
+
+#ringojs api defs:
+{
+    ringojs_version = 0.11
+
+    inputfiles := << [
+index.html
+index_all.html
+assert/index.html
+binary/index.html
+console/index.html
+fs/index.html
+globals/index.html
+io/index.html
+net/index.html
+system/index.html
+test/index.html
+ringo/args/index.html
+ringo/base64/index.html
+ringo/buffer/index.html
+ringo/concurrent/index.html
+ringo/daemon/index.html
+ringo/encoding/index.html
+ringo/engine/index.html
+ringo/events/index.html
+ringo/httpclient/index.html
+ringo/httpserver/index.html
+ringo/jsdoc/index.html
+ringo/logging/index.html
+ringo/markdown/index.html
+ringo/mime/index.html
+ringo/mustache/index.html
+ringo/parser/index.html
+ringo/profiler/index.html
+ringo/promise/index.html
+ringo/shell/index.html
+ringo/subprocess/index.html
+ringo/term/index.html
+ringo/worker/index.html
+ringo/zip/index.html
+ringo/jsgi/connector/index.html
+ringo/jsgi/response/index.html
+ringo/utils/arrays/index.html
+ringo/utils/dates/index.html
+ringo/utils/files/index.html
+ringo/utils/http/index.html
+ringo/utils/numbers/index.html
+ringo/utils/objects/index.html
+ringo/utils/strings/index.html
+]
+
+    #initialize ringo filelist:
+    CG_SPLIT_PATTERN = /\n/
+    CG_GREP_SPEC = !/^\s*[#]/
+    %void $inputfiles:trim:split:g:a
+    CG_STACK_DELIMITER = $sp
+
+    %const ringojs_file_args = $inputfiles:showstack
+}
+
+#STICK API defs
+{
+    stick_version = 0.4
+
+    inputfiles := << [
+index.html
+index_all.html
+stick/index.html
+helpers/index.html
+middleware/index.html
+middleware/accept/index.html
+middleware/basicauth/index.html
+middleware/continuation/index.html
+middleware/cookies/index.html
+middleware/cors/index.html
+middleware/csrf/index.html
+middleware/error/index.html
+middleware/etag/index.html
+middleware/gzip/index.html
+middleware/method/index.html
+middleware/mount/index.html
+middleware/notfound/index.html
+middleware/params/index.html
+middleware/profiler/index.html
+middleware/render/index.html
+middleware/requestlog/index.html
+middleware/route/index.html
+middleware/session/index.html
+middleware/static/index.html
+middleware/upload/index.html
+]
+
+    #initialize stick-api arg list:
+    CG_SPLIT_PATTERN = /\n/
+    CG_GREP_SPEC = !/^\s*[#]/
+    %void $inputfiles:trim:split:g:a
+    CG_STACK_DELIMITER = $sp
+
+    %const stick_file_args = $inputfiles:showstack
+}
+
+#clean-up:
+%undef CG_SPLIT_PATTERN
+%undef CG_STACK_DELIMITER
+%undef CG_GREP_SPEC

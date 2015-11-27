@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/term - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/term</h1>
+        <div class="fileoverview">
+            <p>A module for printing ANSI terminal escape sequences.
+This module provides a number of useful color and style constants,
+and a replacement for the print function optimized for styled output.</p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre class="sh_javascript sh_sourceCode"><code>include('ringo/term')
+writeln(YELLOW, "foo", MAGENTA, "bar");
+// foo bar
+writeln(YELLOW, ONBLUE, "IKEA");
+// IKEA
+writeln(RED, BOLD, INVERSE, "Red Alert!");
+// Red Alert!</code></pre>
+        </div>
+                <div>
+            <h4>See</h4>
+            <div>
+                <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">http://en.wikipedia.org/wiki/ANSI_escape_code</a>
+            </div>
+        </div>
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#write" class="jsdoc-title"> write</a>(args...)
+                </li>
+                                <li>
+                    <a href="#writeln" class="jsdoc-title"> writeln</a>(args...)
+                </li>
+                </ul>
+                        <h2>Properties</h2>
+            <ul class="propertyoverview">
+                                <li>
+                    <a href="#BLACK" class="jsdoc-title"> BLACK</a>
+                </li>
+                                <li>
+                    <a href="#BLUE" class="jsdoc-title"> BLUE</a>
+                </li>
+                                <li>
+                    <a href="#BOLD" class="jsdoc-title"> BOLD</a>
+                </li>
+                                <li>
+                    <a href="#CYAN" class="jsdoc-title"> CYAN</a>
+                </li>
+                                <li>
+                    <a href="#GREEN" class="jsdoc-title"> GREEN</a>
+                </li>
+                                <li>
+                    <a href="#INVERSE" class="jsdoc-title"> INVERSE</a>
+                </li>
+                                <li>
+                    <a href="#MAGENTA" class="jsdoc-title"> MAGENTA</a>
+                </li>
+                                <li>
+                    <a href="#ONBLACK" class="jsdoc-title"> ONBLACK</a>
+                </li>
+                                <li>
+                    <a href="#ONBLUE" class="jsdoc-title"> ONBLUE</a>
+                </li>
+                                <li>
+                    <a href="#ONCYAN" class="jsdoc-title"> ONCYAN</a>
+                </li>
+                                <li>
+                    <a href="#ONGREEN" class="jsdoc-title"> ONGREEN</a>
+                </li>
+                                <li>
+                    <a href="#ONMAGENTA" class="jsdoc-title"> ONMAGENTA</a>
+                </li>
+                                <li>
+                    <a href="#ONRED" class="jsdoc-title"> ONRED</a>
+                </li>
+                                <li>
+                    <a href="#ONWHITE" class="jsdoc-title"> ONWHITE</a>
+                </li>
+                                <li>
+                    <a href="#ONYELLOW" class="jsdoc-title"> ONYELLOW</a>
+                </li>
+                                <li>
+                    <a href="#RED" class="jsdoc-title"> RED</a>
+                </li>
+                                <li>
+                    <a href="#RESET" class="jsdoc-title"> RESET</a>
+                </li>
+                                <li>
+                    <a href="#UNDERLINE" class="jsdoc-title"> UNDERLINE</a>
+                </li>
+                                <li>
+                    <a href="#WHITE" class="jsdoc-title"> WHITE</a>
+                </li>
+                                <li>
+                    <a href="#YELLOW" class="jsdoc-title"> YELLOW</a>
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#TermWriter" class="jsdoc-title">TermWriter</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#TermWriter.prototype.isEnabled" class="jsdoc-title"> isEnabled</a>()
+                    </li>
+                                        <li>
+                        <a href="#TermWriter.prototype.setEnabled" class="jsdoc-title"> setEnabled</a>(flag)
+                    </li>
+                                        <li>
+                        <a href="#TermWriter.prototype.write" class="jsdoc-title"> write</a>(args...)
+                    </li>
+                                        <li>
+                        <a href="#TermWriter.prototype.writeln" class="jsdoc-title"> writeln</a>(args...)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="BLACK">
+                <h3 >
+                    <span class="itemtitle"><a id="BLACK" href="#BLACK" class="itemtitle itemname">BLACK</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="BLUE">
+                <h3 >
+                    <span class="itemtitle"><a id="BLUE" href="#BLUE" class="itemtitle itemname">BLUE</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="BOLD">
+                <h3 >
+                    <span class="itemtitle"><a id="BOLD" href="#BOLD" class="itemtitle itemname">BOLD</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="CYAN">
+                <h3 >
+                    <span class="itemtitle"><a id="CYAN" href="#CYAN" class="itemtitle itemname">CYAN</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="GREEN">
+                <h3 >
+                    <span class="itemtitle"><a id="GREEN" href="#GREEN" class="itemtitle itemname">GREEN</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="INVERSE">
+                <h3 >
+                    <span class="itemtitle"><a id="INVERSE" href="#INVERSE" class="itemtitle itemname">INVERSE</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MAGENTA">
+                <h3 >
+                    <span class="itemtitle"><a id="MAGENTA" href="#MAGENTA" class="itemtitle itemname">MAGENTA</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONBLACK">
+                <h3 >
+                    <span class="itemtitle"><a id="ONBLACK" href="#ONBLACK" class="itemtitle itemname">ONBLACK</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONBLUE">
+                <h3 >
+                    <span class="itemtitle"><a id="ONBLUE" href="#ONBLUE" class="itemtitle itemname">ONBLUE</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONCYAN">
+                <h3 >
+                    <span class="itemtitle"><a id="ONCYAN" href="#ONCYAN" class="itemtitle itemname">ONCYAN</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONGREEN">
+                <h3 >
+                    <span class="itemtitle"><a id="ONGREEN" href="#ONGREEN" class="itemtitle itemname">ONGREEN</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONMAGENTA">
+                <h3 >
+                    <span class="itemtitle"><a id="ONMAGENTA" href="#ONMAGENTA" class="itemtitle itemname">ONMAGENTA</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONRED">
+                <h3 >
+                    <span class="itemtitle"><a id="ONRED" href="#ONRED" class="itemtitle itemname">ONRED</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONWHITE">
+                <h3 >
+                    <span class="itemtitle"><a id="ONWHITE" href="#ONWHITE" class="itemtitle itemname">ONWHITE</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ONYELLOW">
+                <h3 >
+                    <span class="itemtitle"><a id="ONYELLOW" href="#ONYELLOW" class="itemtitle itemname">ONYELLOW</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="RED">
+                <h3 >
+                    <span class="itemtitle"><a id="RED" href="#RED" class="itemtitle itemname">RED</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="RESET">
+                <h3 >
+                    <span class="itemtitle"><a id="RESET" href="#RESET" class="itemtitle itemname">RESET</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TermWriter">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="TermWriter" href="#TermWriter" class="itemtitle itemname">TermWriter</a></span>
+                    <span class="itemtitle light">(out)</span></h3>
+                <div>
+                    <p>Creates a terminal writer that writes to the given text output stream.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Stream</td>
+                            <td class="paramname">out</td>
+                            <td>a TextStream</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TermWriter.prototype.isEnabled">
+                <h3 >
+                    <span class="itemtitle">TermWriter.prototype.<a id="TermWriter.prototype.isEnabled" href="#TermWriter.prototype.isEnabled" class="itemtitle itemname">isEnabled</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns true if ANSI terminal colors are enabled.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if ANSI is enabled.</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TermWriter.prototype.setEnabled">
+                <h3 >
+                    <span class="itemtitle">TermWriter.prototype.<a id="TermWriter.prototype.setEnabled" href="#TermWriter.prototype.setEnabled" class="itemtitle itemname">setEnabled</a></span>
+                    <span class="itemtitle light">(flag)</span></h3>
+                <div>
+                    <p>Enable or disable ANSI terminal colors for this writer.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>boolean</td>
+                            <td class="paramname">flag</td>
+                            <td>true to enable ANSI colors.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TermWriter.prototype.write">
+                <h3 >
+                    <span class="itemtitle">TermWriter.prototype.<a id="TermWriter.prototype.write" href="#TermWriter.prototype.write" class="itemtitle itemname">write</a></span>
+                    <span class="itemtitle light">(args...)</span></h3>
+                <div>
+                    <p>Write the arguments to the stream, applying ANSI terminal colors if
+enabled is true.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">args...</td>
+                            <td>variable number of arguments to write</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TermWriter.prototype.writeln">
+                <h3 >
+                    <span class="itemtitle">TermWriter.prototype.<a id="TermWriter.prototype.writeln" href="#TermWriter.prototype.writeln" class="itemtitle itemname">writeln</a></span>
+                    <span class="itemtitle light">(args...)</span></h3>
+                <div>
+                    <p>Write the arguments to the stream followed by a newline character,
+applying ANSI terminal colors if enabled is true.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">args...</td>
+                            <td>variable number of arguments to write</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="UNDERLINE">
+                <h3 >
+                    <span class="itemtitle"><a id="UNDERLINE" href="#UNDERLINE" class="itemtitle itemname">UNDERLINE</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="WHITE">
+                <h3 >
+                    <span class="itemtitle"><a id="WHITE" href="#WHITE" class="itemtitle itemname">WHITE</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="YELLOW">
+                <h3 >
+                    <span class="itemtitle"><a id="YELLOW" href="#YELLOW" class="itemtitle itemname">YELLOW</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="write">
+                <h3 >
+                    <span class="itemtitle"><a id="write" href="#write" class="itemtitle itemname">write</a></span>
+                    <span class="itemtitle light">(args...)</span></h3>
+                <div>
+                    <p>Write the arguments to <code>system.stdout</code>, applying ANSI terminal colors if
+support has been detected.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">args...</td>
+                            <td>variable number of arguments to write</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="writeln">
+                <h3 >
+                    <span class="itemtitle"><a id="writeln" href="#writeln" class="itemtitle itemname">writeln</a></span>
+                    <span class="itemtitle light">(args...)</span></h3>
+                <div>
+                    <p>Write the arguments to <code>system.stdout</code> followed by a newline character,
+applying ANSI terminal colors if support has been detected.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">args...</td>
+                            <td>variable number of arguments to write</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

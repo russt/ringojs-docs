@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>system - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../static/jsdoc.css" />
+<link rel="stylesheet" href="../static/style.css" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module system</h1>
+        <div class="fileoverview">
+            <p>This module provides an implementation of the system module
+compliant to the <a href="http://wiki.commonjs.org/wiki/System/1.0">CommonJS
+System/1.0</a> specification. Beyond the standard a <code>print()</code>
+function is provided.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#exit" class="jsdoc-title"> exit</a>(status)
+                </li>
+                                <li>
+                    <a href="#print" class="jsdoc-title"> print</a>()
+                </li>
+                </ul>
+                        <h2>Properties</h2>
+            <ul class="propertyoverview">
+                                <li>
+                    <a href="#args" class="jsdoc-title"> args</a>
+                </li>
+                                <li>
+                    <a href="#env" class="jsdoc-title"> env</a>
+                </li>
+                                <li>
+                    <a href="#stderr" class="jsdoc-title"> stderr</a>
+                </li>
+                                <li>
+                    <a href="#stdin" class="jsdoc-title"> stdin</a>
+                </li>
+                                <li>
+                    <a href="#stdout" class="jsdoc-title"> stdout</a>
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="args">
+                <h3 >
+                    <span class="itemtitle"><a id="args" href="#args" class="itemtitle itemname">args</a></span>
+                    </h3>
+                <div>
+                    <p>An array of strings representing the command line arguments passed to the running script.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">>> ringo .\myScript.js foo bar baz 12345
+system.args -> ['.\myScript.js', 'foo', 'bar', 'baz', '12345']</pre>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="env">
+                <h3 >
+                    <span class="itemtitle"><a id="env" href="#env" class="itemtitle itemname">env</a></span>
+                    </h3>
+                <div>
+                    <p>An object containing of the current system environment.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre class="sh_javascript sh_sourceCode">{
+  USERPROFILE: 'C:\Users\username',
+  JAVA_HOME: 'C:\Program Files\Java\jdk1.7.0_07\',
+  SystemDrive: 'C:',
+  Path: '%System%/...',
+  PROCESSOR_REVISION: '1a05',
+  USERDOMAIN: 'EXAMPLE',
+  SESSIONNAME: 'Console',
+  TMP: 'C:\Temp',
+  PROMPT: '$P$G',
+  PROCESSOR_LEVEL: '6',
+  LOCALAPPDATA: 'C:\Local',
+  ...
+}</pre>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv()">java.lang.System.getenv()</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="exit">
+                <h3 >
+                    <span class="itemtitle"><a id="exit" href="#exit" class="itemtitle itemname">exit</a></span>
+                    <span class="itemtitle light">(status)</span></h3>
+                <div>
+                    <p>Terminates the current process.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>number</td>
+                            <td class="paramname">status</td>
+                            <td>The exit status, defaults to 0.</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="print">
+                <h3 >
+                    <span class="itemtitle"><a id="print" href="#print" class="itemtitle itemname">print</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>A utility function to write to stdout.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="stderr">
+                <h3 >
+                    <span class="itemtitle"><a id="stderr" href="#stderr" class="itemtitle itemname">stderr</a></span>
+                    </h3>
+                <div>
+                    <p>A TextStream to write to stderr.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="stdin">
+                <h3 >
+                    <span class="itemtitle"><a id="stdin" href="#stdin" class="itemtitle itemname">stdin</a></span>
+                    </h3>
+                <div>
+                    <p>A TextStream to read from stdin.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="stdout">
+                <h3 >
+                    <span class="itemtitle"><a id="stdout" href="#stdout" class="itemtitle itemname">stdout</a></span>
+                    </h3>
+                <div>
+                    <p>A TextStream to write to stdout.</p>
+
+
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../index.html">&bull; Modules</a>
+      <a href="../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../assert/index.html">assert</a></li>
+            <li><a href="../binary/index.html">binary</a></li>
+            <li><a href="../console/index.html">console</a></li>
+            <li><a href="../fs/index.html">fs</a></li>
+            <li><a href="../globals/index.html">globals</a></li>
+            <li><a href="../io/index.html">io</a></li>
+            <li><a href="../net/index.html">net</a></li>
+            <li><a href="../system/index.html">system</a></li>
+            <li><a href="../test/index.html">test</a></li>
+            <li><a href="../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>

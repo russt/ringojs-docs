@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ringo/engine - Ringo Modules</title>
+
+        <link rel="shortcut icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://ringojs.org/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:400italic,700italic,700,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../static/jsdoc.css" />
+<link rel="stylesheet" href="../../static/style.css" />
+<script type="text/javascript" src="../../static/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+
+  </head>
+
+  <body class="jsdoc standalone">
+    <div class="main">
+        <div class="content jsdoc">
+        
+            <h1 class="modulename">Module ringo/engine</h1>
+        <div class="fileoverview">
+            <p>Provides access to the Rhino JavaScript engine.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#addHostObject" class="jsdoc-title"> addHostObject</a>(javaClass)
+                </li>
+                                <li>
+                    <a href="#addRepository" class="jsdoc-title"> addRepository</a>(repo)
+                </li>
+                                <li>
+                    <a href="#addShutdownHook" class="jsdoc-title"> addShutdownHook</a>(funcOrObject, sync)
+                </li>
+                                <li>
+                    <a href="#asJavaObject" class="jsdoc-title"> asJavaObject</a>(object)
+                </li>
+                                <li>
+                    <a href="#asJavaString" class="jsdoc-title"> asJavaString</a>(object)
+                </li>
+                                <li>
+                    <a href="#createSandbox" class="jsdoc-title"> createSandbox</a>(modulePath, globals, options)
+                </li>
+                                <li>
+                    <a href="#getCurrentWorker" class="jsdoc-title"> getCurrentWorker</a>(obj)
+                </li>
+                                <li>
+                    <a href="#getErrors" class="jsdoc-title"> getErrors</a>()
+                </li>
+                                <li>
+                    <a href="#getOptimizationLevel" class="jsdoc-title"> getOptimizationLevel</a>()
+                </li>
+                                <li>
+                    <a href="#getRepositories" class="jsdoc-title"> getRepositories</a>()
+                </li>
+                                <li>
+                    <a href="#getRhinoContext" class="jsdoc-title"> getRhinoContext</a>()
+                </li>
+                                <li>
+                    <a href="#getRhinoEngine" class="jsdoc-title"> getRhinoEngine</a>()
+                </li>
+                                <li>
+                    <a href="#getRingoHome" class="jsdoc-title"> getRingoHome</a>()
+                </li>
+                                <li>
+                    <a href="#getWorker" class="jsdoc-title"> getWorker</a>()
+                </li>
+                                <li>
+                    <a href="#setOptimizationLevel" class="jsdoc-title"> setOptimizationLevel</a>(level)
+                </li>
+                </ul>
+                        <h2>Properties</h2>
+            <ul class="propertyoverview">
+                                <li>
+                    <a href="#version" class="jsdoc-title"> version</a>
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="addHostObject">
+                <h3 >
+                    <span class="itemtitle"><a id="addHostObject" href="#addHostObject" class="itemtitle itemname">addHostObject</a></span>
+                    <span class="itemtitle light">(javaClass)</span></h3>
+                <div>
+                    <p>Define a class as Rhino host object.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>JavaClass</td>
+                            <td class="paramname">javaClass</td>
+                            <td>the class to define as host object</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="addRepository">
+                <h3 >
+                    <span class="itemtitle"><a id="addRepository" href="#addRepository" class="itemtitle itemname">addRepository</a></span>
+                    <span class="itemtitle light">(repo)</span></h3>
+                <div>
+                    <p>Add a repository to the module search path</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Repository</td>
+                            <td class="paramname">repo</td>
+                            <td>a repository</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="addShutdownHook">
+                <h3 >
+                    <span class="itemtitle"><a id="addShutdownHook" href="#addShutdownHook" class="itemtitle itemname">addShutdownHook</a></span>
+                    <span class="itemtitle light">(funcOrObject, sync)</span></h3>
+                <div>
+                    <p>Register a callback to be invoked when the current RingoJS instance is
+terminated.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function|Object</td>
+                            <td class="paramname">funcOrObject</td>
+                            <td>Either a JavaScript function or a
+JavaScript object containing properties called `module` and `name`
+specifying a function exported by a RingoJS module.</td>
+                        </tr>
+                                                <tr>
+                            <td>Boolean</td>
+                            <td class="paramname">sync</td>
+                            <td>(optional) whether to invoke the callback
+synchronously (on the main shutdown thread) or asynchronously (on the
+worker's event loop thread)</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="asJavaObject">
+                <h3 >
+                    <span class="itemtitle"><a id="asJavaObject" href="#asJavaObject" class="itemtitle itemname">asJavaObject</a></span>
+                    <span class="itemtitle light">(object)</span></h3>
+                <div>
+                    <p>Get a wrapper for an object that exposes it as Java object to JavaScript.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">object</td>
+                            <td>an object</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the object wrapped as native java object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="asJavaString">
+                <h3 >
+                    <span class="itemtitle"><a id="asJavaString" href="#asJavaString" class="itemtitle itemname">asJavaString</a></span>
+                    <span class="itemtitle light">(object)</span></h3>
+                <div>
+                    <p>Get a wrapper for a string that exposes the java.lang.String methods to JavaScript
+This is useful for accessing strings as java.lang.String without the cost of
+creating a new instance.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">object</td>
+                            <td>an object</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the object converted to a string and wrapped as native java object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="createSandbox">
+                <h3 >
+                    <span class="itemtitle"><a id="createSandbox" href="#createSandbox" class="itemtitle itemname">createSandbox</a></span>
+                    <span class="itemtitle light">(modulePath, globals, options)</span></h3>
+                <div>
+                    <p>Create a sandboxed scripting engine with the same install directory as this and the
+given module paths, global properties, class shutter and sealing</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">modulePath</td>
+                            <td>the comma separated module search path</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">globals</td>
+                            <td>a map of predefined global properties (may be undefined)</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>an options object (may be undefined). The following options are supported:
+ - systemModules array of system module directories to add to the module search path
+                 (may be relative to the ringo install dir)
+ - classShutter a Rhino class shutter, may be null
+ - sealed if the global object should be sealed, defaults to false</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>RhinoEngine</td>
+                            <td> a sandboxed RhinoEngine instance</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>Throws</h4>
+                    <div class="extrainfo">
+                        {FileNotFoundException} if any part of the module paths does not exist
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getCurrentWorker">
+                <h3 >
+                    <span class="itemtitle"><a id="getCurrentWorker" href="#getCurrentWorker" class="itemtitle itemname">getCurrentWorker</a></span>
+                    <span class="itemtitle light">(obj)</span></h3>
+                <div>
+                    <p>Get the worker instance associated with the current thread or the given scope or function object.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">obj</td>
+                            <td>{Object} optional scope or function to get the worker from.</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>org.ringojs.engine.RingoWorker</td>
+                            <td> the current worker</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getErrors">
+                <h3 >
+                    <span class="itemtitle"><a id="getErrors" href="#getErrors" class="itemtitle itemname">getErrors</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get a list containing the syntax errors encountered in the current worker.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>ScriptableList</td>
+                            <td> a list containing the errors encountered in the
+current worker</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getOptimizationLevel">
+                <h3 >
+                    <span class="itemtitle"><a id="getOptimizationLevel" href="#getOptimizationLevel" class="itemtitle itemname">getOptimizationLevel</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the Rhino optimization level for the current thread and context.
+The optimization level is an integer between -1 (interpreter mode)
+and 9 (compiled mode, all optimizations enabled). The default level
+is 0.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> level an integer between -1 and 9</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getRepositories">
+                <h3 >
+                    <span class="itemtitle"><a id="getRepositories" href="#getRepositories" class="itemtitle itemname">getRepositories</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the app's module search path as list of repositories.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>ScriptableList</td>
+                            <td> a list containing the module search path repositories</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getRhinoContext">
+                <h3 >
+                    <span class="itemtitle"><a id="getRhinoContext" href="#getRhinoContext" class="itemtitle itemname">getRhinoContext</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the org.mozilla.javascript.Context associated with the current thread.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getRhinoEngine">
+                <h3 >
+                    <span class="itemtitle"><a id="getRhinoEngine" href="#getRhinoEngine" class="itemtitle itemname">getRhinoEngine</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the org.ringojs.engine.RhinoEngine associated with this application.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>org.ringojs.engine.RhinoEngine</td>
+                            <td> the current RhinoEngine instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getRingoHome">
+                <h3 >
+                    <span class="itemtitle"><a id="getRingoHome" href="#getRingoHome" class="itemtitle itemname">getRingoHome</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get the RingoJS installation directory.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Repository</td>
+                            <td> a Repository representing the Ringo installation directory</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="getWorker">
+                <h3 >
+                    <span class="itemtitle"><a id="getWorker" href="#getWorker" class="itemtitle itemname">getWorker</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Get a new worker instance.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>org.ringojs.engine.RingoWorker</td>
+                            <td> a new RingoWorker instance</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="setOptimizationLevel">
+                <h3 >
+                    <span class="itemtitle"><a id="setOptimizationLevel" href="#setOptimizationLevel" class="itemtitle itemname">setOptimizationLevel</a></span>
+                    <span class="itemtitle light">(level)</span></h3>
+                <div>
+                    <p>Set the Rhino optimization level for the current thread and context.
+The optimization level is an integer between -1 (interpreter mode)
+and 9 (compiled mode, all optimizations enabled). The default level
+is 0.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">level</td>
+                            <td>an integer between -1 and 9</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="version">
+                <h3 >
+                    <span class="itemtitle"><a id="version" href="#version" class="itemtitle itemname">version</a></span>
+                    </h3>
+                <div>
+                    <p>The RingoJS version as an array-like object with the major and minor version
+number as first and second element.</p>
+
+
+                </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <nav class="jsdoc standalone">
+            <h1>Ringo Modules</h1>
+            <div class="jsdocSidenav">
+   <div class="toggles">
+      <a href="../../index.html">&bull; Modules</a>
+      <a href="../../index_all.html">&bull; Overview</a>
+   </div>
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../assert/index.html">assert</a></li>
+            <li><a href="../../binary/index.html">binary</a></li>
+            <li><a href="../../console/index.html">console</a></li>
+            <li><a href="../../fs/index.html">fs</a></li>
+            <li><a href="../../globals/index.html">globals</a></li>
+            <li><a href="../../io/index.html">io</a></li>
+            <li><a href="../../net/index.html">net</a></li>
+            <li><a href="../../system/index.html">system</a></li>
+            <li><a href="../../test/index.html">test</a></li>
+            <li><a href="../../ringo/args/index.html">ringo/args</a></li>
+            <li><a href="../../ringo/base64/index.html">ringo/base64</a></li>
+            <li><a href="../../ringo/buffer/index.html">ringo/buffer</a></li>
+            <li><a href="../../ringo/concurrent/index.html">ringo/concurrent</a></li>
+            <li><a href="../../ringo/daemon/index.html">ringo/daemon</a></li>
+            <li><a href="../../ringo/encoding/index.html">ringo/encoding</a></li>
+            <li><a href="../../ringo/engine/index.html">ringo/engine</a></li>
+            <li><a href="../../ringo/events/index.html">ringo/events</a></li>
+            <li><a href="../../ringo/httpclient/index.html">ringo/httpclient</a></li>
+            <li><a href="../../ringo/httpserver/index.html">ringo/httpserver</a></li>
+            <li><a href="../../ringo/jsdoc/index.html">ringo/jsdoc</a></li>
+            <li><a href="../../ringo/logging/index.html">ringo/logging</a></li>
+            <li><a href="../../ringo/markdown/index.html">ringo/markdown</a></li>
+            <li><a href="../../ringo/mime/index.html">ringo/mime</a></li>
+            <li><a href="../../ringo/mustache/index.html">ringo/mustache</a></li>
+            <li><a href="../../ringo/parser/index.html">ringo/parser</a></li>
+            <li><a href="../../ringo/profiler/index.html">ringo/profiler</a></li>
+            <li><a href="../../ringo/promise/index.html">ringo/promise</a></li>
+            <li><a href="../../ringo/shell/index.html">ringo/shell</a></li>
+            <li><a href="../../ringo/subprocess/index.html">ringo/subprocess</a></li>
+            <li><a href="../../ringo/term/index.html">ringo/term</a></li>
+            <li><a href="../../ringo/worker/index.html">ringo/worker</a></li>
+            <li><a href="../../ringo/zip/index.html">ringo/zip</a></li>
+            <li><a href="../../ringo/jsgi/connector/index.html">ringo/jsgi/connector</a></li>
+            <li><a href="../../ringo/jsgi/response/index.html">ringo/jsgi/response</a></li>
+            <li><a href="../../ringo/utils/arrays/index.html">ringo/utils/arrays</a></li>
+            <li><a href="../../ringo/utils/dates/index.html">ringo/utils/dates</a></li>
+            <li><a href="../../ringo/utils/files/index.html">ringo/utils/files</a></li>
+            <li><a href="../../ringo/utils/http/index.html">ringo/utils/http</a></li>
+            <li><a href="../../ringo/utils/numbers/index.html">ringo/utils/numbers</a></li>
+            <li><a href="../../ringo/utils/objects/index.html">ringo/utils/objects</a></li>
+            <li><a href="../../ringo/utils/strings/index.html">ringo/utils/strings</a></li>
+      </ul>
+</div>
+
+        </nav>
+    </div>
+    </body>
+</html>
